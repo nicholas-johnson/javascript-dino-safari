@@ -1,11 +1,11 @@
-# Module 1 — Setting Up Base Camp
+# Module 1 - Setting Up Base Camp
 
 This module is the on-ramp. By the end of it every student should be able to:
 
 - **Run a script** with `node` and see output in the terminal.
-- **Use modern syntax** — `const`, `let`, `for...of`, template literals.
-- **Manipulate strings** — trim, search, slice, split, replace, and format with template literals.
-- **Split code into modules** — `export` from one file, `import` in another.
+- **Use modern syntax** - `const`, `let`, `for...of`, template literals.
+- **Manipulate strings** - trim, search, slice, split, replace, and format with template literals.
+- **Split code into modules** - `export` from one file, `import` in another.
 - **Scaffold a project** with `pnpm init`, add scripts to `package.json`, and install an npm package.
 - **Attach a debugger** when `console.log` isn't enough.
 
@@ -25,7 +25,7 @@ Open `demo/01-hello-world/index.js`. One line:
 console.log('Hello World');
 ```
 
-`console.log` writes to **stdout** — the terminal. `node path/to/file` executes that file. If `Hello World` appears, Node is installed and working. That's your first Node.js program.
+`console.log` writes to **stdout** - the terminal. `node path/to/file` executes that file. If `Hello World` appears, Node is installed and working. That's your first Node.js program.
 
 ---
 
@@ -40,24 +40,27 @@ The building blocks you'll use in every file.
 ### `const` and `let`
 
 ```js
-const sectorName = 'Cretaceous Valley';   // won't be reassigned
-let checkInsLogged = 0;                    // will be incremented
+const sectorName = 'Cretaceous Valley'; // won't be reassigned
+let checkInsLogged = 0; // will be incremented
 ```
 
-Use `const` by default. Reach for `let` only when the binding *must* change. There is no `var` in modern JavaScript — forget it exists.
+Use `const` by default. Reach for `let` only when the binding _must_ change. There is no `var` in modern JavaScript - forget it exists.
 
 ### Loops
 
 ```js
-for (const name of rangersOnDuty) {       // for...of — iterate values
-  console.log(name, '— present');
+for (const name of rangersOnDuty) {
+  // for...of - iterate values
+  console.log(name, '- present');
 }
 
-for (let pass = 1; pass <= 3; pass += 1) { // classic for — when you need an index
+for (let pass = 1; pass <= 3; pass += 1) {
+  // classic for - when you need an index
   console.log('Pass', pass, 'of 3');
 }
 
-while (pingsRemaining > 0) {              // while — condition-based
+while (pingsRemaining > 0) {
+  // while - condition-based
   pingsRemaining -= 1;
 }
 ```
@@ -74,7 +77,7 @@ Edit the demo, change some values, run it again. Breaking things on purpose is t
 node module-01-modern-javascript/demo/03-strings
 ```
 
-Strings are everywhere — log messages, file paths, user input, CSV rows. This demo walks through the methods you'll reach for daily.
+Strings are everywhere - log messages, file paths, user input, CSV rows. This demo walks through the methods you'll reach for daily.
 
 ### Template literals
 
@@ -90,20 +93,20 @@ Back-ticks let you embed expressions with `${}`. No more `'hello ' + name + '!'`
 
 ```js
 const sector = '  Cretaceous Valley  ';
-sector.trim()          // 'Cretaceous Valley'
-sector.trim().toUpperCase()  // 'CRETACEOUS VALLEY'
-sector.trim().length   // 17
+sector.trim(); // 'Cretaceous Valley'
+sector.trim().toUpperCase(); // 'CRETACEOUS VALLEY'
+sector.trim().length; // 17
 ```
 
-`trim()` strips leading and trailing whitespace — essential when reading user input or file data. `toUpperCase()` / `toLowerCase()` return a new string (strings are immutable).
+`trim()` strips leading and trailing whitespace - essential when reading user input or file data. `toUpperCase()` / `toLowerCase()` return a new string (strings are immutable).
 
 ### Searching
 
 ```js
 const log = 'Rex spotted near north fence at 14:32';
-log.includes('Rex')        // true
-log.startsWith('Rex')      // true
-log.indexOf('north')       // 18
+log.includes('Rex'); // true
+log.startsWith('Rex'); // true
+log.indexOf('north'); // 18
 ```
 
 `includes` is the go-to boolean check. `indexOf` gives you the position (or `-1` if missing).
@@ -111,8 +114,8 @@ log.indexOf('north')       // 18
 ### Extracting parts
 
 ```js
-log.slice(0, 3)   // 'Rex'
-log.slice(17)     // 'north fence at 14:32'
+log.slice(0, 3); // 'Rex'
+log.slice(17); // 'north fence at 14:32'
 ```
 
 `slice(start, end)` is non-destructive. Negative indices count from the end.
@@ -121,8 +124,8 @@ log.slice(17)     // 'north fence at 14:32'
 
 ```js
 const csv = 'Rex,Raptor,Bronto,Stego';
-const names = csv.split(',');   // ['Rex', 'Raptor', 'Bronto', 'Stego']
-names.join(' | ')               // 'Rex | Raptor | Bronto | Stego'
+const names = csv.split(','); // ['Rex', 'Raptor', 'Bronto', 'Stego']
+names.join(' | '); // 'Rex | Raptor | Bronto | Stego'
 ```
 
 `split` breaks a string into an array on a delimiter. `join` does the reverse. You'll use this pair constantly for CSV parsing, building output lines, and extracting initials.
@@ -131,21 +134,21 @@ names.join(' | ')               // 'Rex | Raptor | Bronto | Stego'
 
 ```js
 const alert = 'DANGER: Rex in zone-a, Rex near fence';
-alert.replace('Rex', 'T-Rex')      // replaces first occurrence
-alert.replaceAll('Rex', 'T-Rex')   // replaces all
+alert.replace('Rex', 'T-Rex'); // replaces first occurrence
+alert.replaceAll('Rex', 'T-Rex'); // replaces all
 ```
 
 `replace` swaps the first match. `replaceAll` gets every one. Both return a new string.
 
 ---
 
-## 4. Modules — splitting code across files
+## 4. Modules - splitting code across files
 
 ```bash
 node module-01-modern-javascript/demo/04-esm-basics
 ```
 
-A single file doesn't scale. As soon as you need more than a hundred lines you split code into **modules** — files that export things other files can import.
+A single file doesn't scale. As soon as you need more than a hundred lines you split code into **modules** - files that export things other files can import.
 
 This demo has two files. Open them side by side.
 
@@ -176,9 +179,9 @@ export default function printStatus() {
 import printStatus, { PARK_NAME, SECTOR_COUNT, formatWelcome } from './park-info.js';
 ```
 
-**Named exports** go in `{ braces }` — names must match exactly. Typo `PARK_NAME` as `PAARK_NAME` and you get `undefined`, not an error. Silent bugs.
+**Named exports** go in `{ braces }` - names must match exactly. Typo `PARK_NAME` as `PAARK_NAME` and you get `undefined`, not an error. Silent bugs.
 
-**Default exports** can use any name on the import side. That flexibility is why many teams prefer named exports — the name stays consistent everywhere.
+**Default exports** can use any name on the import side. That flexibility is why many teams prefer named exports - the name stays consistent everywhere.
 
 ### Enabling ESM
 
@@ -210,7 +213,7 @@ The demo imports **picocolors**, a tiny library for coloured terminal output. In
 pnpm add picocolors
 ```
 
-Now there's a `node_modules/` folder and `picocolors` is listed in `dependencies`. Any file in the project can `import pc from 'picocolors'` — same `import` syntax we used for local files, just without the `./` path.
+Now there's a `node_modules/` folder and `picocolors` is listed in `dependencies`. Any file in the project can `import pc from 'picocolors'` - same `import` syntax we used for local files, just without the `./` path.
 
 ### Adding scripts
 
@@ -232,7 +235,7 @@ Each key is a command name. Each value is the shell command that runs. Instead o
 pnpm demo:scripts
 ```
 
-Two script names are special — `start` and `test` don't need `run`:
+Two script names are special - `start` and `test` don't need `run`:
 
 ```bash
 pnpm test         # same as: pnpm run test
@@ -246,7 +249,7 @@ Everything after `--` gets forwarded. The demo reads `process.argv` to pick up f
 pnpm demo:scripts -- --sector=ridge --verbose
 ```
 
-Run it both ways — with `node` directly and via `pnpm demo:scripts`. Notice that `process.env.npm_lifecycle_event` tells you which script triggered it, and that `node_modules/.bin` is automatically on your PATH inside a script. That's how tools like `vitest` and `eslint` work without a global install.
+Run it both ways - with `node` directly and via `pnpm demo:scripts`. Notice that `process.env.npm_lifecycle_event` tells you which script triggered it, and that `node_modules/.bin` is automatically on your PATH inside a script. That's how tools like `vitest` and `eslint` work without a global install.
 
 ---
 
@@ -256,7 +259,7 @@ Run it both ways — with `node` directly and via `pnpm demo:scripts`. Notice th
 node module-01-modern-javascript/demo/06-debugging
 ```
 
-The demo has an intentional bug — the reported average weight is wrong. Rather than staring at the code, attach a debugger:
+The demo has an intentional bug - the reported average weight is wrong. Rather than staring at the code, attach a debugger:
 
 ```bash
 node --inspect module-01-modern-javascript/demo/06-debugging
@@ -265,7 +268,7 @@ node --inspect module-01-modern-javascript/demo/06-debugging
 - **Chrome**: `chrome://inspect` → "Open dedicated DevTools for Node"
 - **VS Code / Cursor**: "Attach to Node Process" or the debug icon in the terminal
 
-Set a breakpoint inside the `for` loop. Step through iteration by iteration. Watch `i`, `list[i]`, and `total`. The loop uses `<=` instead of `<` — one iteration too many. `list[i]` is `undefined` on the last pass, and `undefined?.weightKg ?? 0` silently adds zero instead of crashing. The average is wrong but nothing throws.
+Set a breakpoint inside the `for` loop. Step through iteration by iteration. Watch `i`, `list[i]`, and `total`. The loop uses `<=` instead of `<` - one iteration too many. `list[i]` is `undefined` on the last pass, and `undefined?.weightKg ?? 0` silently adds zero instead of crashing. The average is wrong but nothing throws.
 
 This is the kind of bug `console.log` misses but a breakpoint catches in seconds.
 
@@ -273,13 +276,13 @@ This is the kind of bug `console.log` misses but a breakpoint catches in seconds
 
 ## Exercises
 
-Each exercise has a `starter/` folder (your work) and a `solution/` folder (instructor reference — try first). Both contain a `package.json`, `index.js`, and `index.test.js`.
+Each exercise has a `starter/` folder (your work) and a `solution/` folder (instructor reference - try first). Both contain a `package.json`, `index.js`, and `index.test.js`.
 
-| # | Folder | What you'll practice |
-|---|--------|----------------------|
-| 1 | [`01-strings`](exercises/01-strings/) | `toUpperCase`, `toLowerCase`, `includes`, `split`, template literals — everyday string methods. |
-| 2 | [`02-package-scripts`](exercises/02-package-scripts/) | Wire up `start`, `lint`, and `test` scripts in a `package.json`. |
-| 3 | [`03-esm-imports`](exercises/03-esm-imports/) | Import from a Node built-in (`node:path`), an npm package (`picocolors`), and a local module. |
+| #   | Folder                                                | What you'll practice                                                                            |
+| --- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| 1   | [`01-strings`](exercises/01-strings/)                 | `toUpperCase`, `toLowerCase`, `includes`, `split`, template literals - everyday string methods. |
+| 2   | [`02-package-scripts`](exercises/02-package-scripts/) | Wire up `start`, `lint`, and `test` scripts in a `package.json`.                                |
+| 3   | [`03-esm-imports`](exercises/03-esm-imports/)         | Import from a Node built-in (`node:path`), an npm package (`picocolors`), and a local module.   |
 
 Run an exercise:
 

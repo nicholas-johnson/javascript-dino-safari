@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Module 1 — Setting Up Base Camp: ESM, tooling, Vitest, linting, debugging",
+  "description": "Module 1 - Setting Up Base Camp: ESM, tooling, Vitest, linting, debugging",
   "scripts": {
     "test": "vitest run --root .",
     "demo:hello": "node demo/01-hello-world",

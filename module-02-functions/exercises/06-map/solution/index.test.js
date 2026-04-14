@@ -34,8 +34,8 @@ describe('04-map', () => {
         { species: 'Compy', zone: 'South', dangerLevel: 2 },
       ];
       expect(formatSightings(dinos)).toEqual([
-        'Rex (North) — danger: 9',
-        'Compy (South) — danger: 2',
+        'Rex (North) - danger: 9',
+        'Compy (South) - danger: 2',
       ]);
     });
   });

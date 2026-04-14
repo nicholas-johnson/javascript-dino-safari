@@ -1,4 +1,4 @@
-# Exercise — Equality audit
+# Exercise - Equality audit
 
 **Mission briefing:** HQ wants a diagnostic object comparing **`==`**, **`===`**, and **`Object.is`** for any pair of readings.
 

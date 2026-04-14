@@ -1,5 +1,5 @@
 /**
- * Demo: Functional pipelines — filter, map, reduce.
+ * Demo: Functional pipelines - filter, map, reduce.
  * Run: node module-02-functions/demo/08-pipelines
  */
 import { readFileSync } from 'node:fs';

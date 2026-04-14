@@ -1,6 +1,6 @@
 // Bug Hunt: Numbers & Money
 // Every function below has a subtle bug related to JavaScript number handling.
-// The tests describe the CORRECT behaviour — run them, read the failures,
+// The tests describe the CORRECT behaviour - run them, read the failures,
 // and fix the code.
 
 /**

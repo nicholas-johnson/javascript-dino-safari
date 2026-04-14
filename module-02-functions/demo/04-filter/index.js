@@ -1,5 +1,5 @@
 /**
- * Demo: .filter() — keep elements that pass a test.
+ * Demo: .filter() - keep elements that pass a test.
  * Run: node module-02-functions/demo/04-filter
  */
 
@@ -29,6 +29,6 @@ const dangerous = dinosaurs.filter((d) => d.dangerLevel > 5);
 console.log('\nDangerous dinos (level > 5):');
 dangerous.forEach((d) => console.log(` - ${d.species} (${d.dangerLevel})`));
 
-// Key point: filter always returns a NEW array — the original is untouched.
+// Key point: filter always returns a NEW array - the original is untouched.
 console.log('\nOriginal array length still:', dinosaurs.length);
 console.log();

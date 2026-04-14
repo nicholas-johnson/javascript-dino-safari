@@ -15,9 +15,7 @@ import pc from 'picocolors';
 
 const args = process.argv.slice(2);
 
-const sector = args
-  .find((a) => a.startsWith('--sector='))
-  ?.split('=')[1] ?? 'all';
+const sector = args.find((a) => a.startsWith('--sector='))?.split('=')[1] ?? 'all';
 
 console.log('\n--- Package scripts demo ---\n');
 console.log(pc.bold(pc.green('DINO_SAFARI_TRACKER_ONLINE')));
@@ -29,7 +27,7 @@ const scriptName = process.env.npm_lifecycle_event;
 if (scriptName) {
   console.log(`Package script:    ${pc.yellow(`"${scriptName}"`)}`);
 } else {
-  console.log(`Package script:    ${pc.dim('(none — ran directly with node)')}`);
+  console.log(`Package script:    ${pc.dim('(none - ran directly with node)')}`);
 }
 
 if (args.includes('--verbose')) {

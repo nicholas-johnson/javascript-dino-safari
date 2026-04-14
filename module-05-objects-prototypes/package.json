@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Module 5 — The Dinosaur Registry: prototypes, classes, Maps/Sets, composition",
+  "description": "Module 5 - The Dinosaur Registry: prototypes, classes, Maps/Sets, composition",
   "scripts": {
     "test": "vitest run --root .",
     "demo:proto": "node demo/01-prototype-chain",

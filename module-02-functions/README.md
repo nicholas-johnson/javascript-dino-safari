@@ -1,14 +1,14 @@
-# Module 2 — Functions, Arrows, and Functional Loops
+# Module 2 - Functions, Arrows, and Functional Loops
 
-Functions are the fundamental unit of work in JavaScript. This module covers how to declare them, the compact arrow syntax you'll use constantly, and the array methods — `filter`, `sort`, `map`, `reduce` — that replace most hand-written loops.
+Functions are the fundamental unit of work in JavaScript. This module covers how to declare them, the compact arrow syntax you'll use constantly, and the array methods - `filter`, `sort`, `map`, `reduce` - that replace most hand-written loops.
 
 By the end of this module you should be able to:
 
 - **Write functions** with the `function` keyword, parameters, and `return`.
-- **Run and read Vitest tests** — every exercise from here on ships with a `.test.js` file.
+- **Run and read Vitest tests** - every exercise from here on ships with a `.test.js` file.
 - **Declare functions** three ways: declaration, expression, and arrow.
 - **Use default and rest parameters** to write flexible signatures.
-- **Pass functions as values** — to other functions, into arrays, wherever.
+- **Pass functions as values** - to other functions, into arrays, wherever.
 - **Use `.filter()`** to select elements from an array.
 - **Use `.sort()`** with a comparator to order arrays.
 - **Use `.map()`** to transform every element.
@@ -29,7 +29,7 @@ A function is a reusable block of code. You declare one with the `function` keyw
 function greet() {
   return 'Hello, Jurassic World!';
 }
-console.log(greet());  // "Hello, Jurassic World!"
+console.log(greet()); // "Hello, Jurassic World!"
 ```
 
 ### Parameters
@@ -40,7 +40,7 @@ Parameters let a function work with different inputs each time:
 function add(a, b) {
   return a + b;
 }
-console.log(add(2, 3));   // 5
+console.log(add(2, 3)); // 5
 console.log(add(10, 20)); // 30
 ```
 
@@ -60,11 +60,11 @@ Whatever a function returns can be stored in a variable, passed to another funct
 function double(n) {
   return n * 2;
 }
-const result = double(7);          // 14
-console.log(double(double(3)));    // 12
+const result = double(7); // 14
+console.log(double(double(3))); // 12
 ```
 
-Functions can return any type — numbers, strings, booleans:
+Functions can return any type - numbers, strings, booleans:
 
 ```js
 function isPositive(n) {
@@ -76,13 +76,13 @@ This is the building block for everything that follows.
 
 ---
 
-## 2. Vitest — running and reading tests
+## 2. Vitest - running and reading tests
 
 ```bash
 node module-02-functions/demo/02-vitest-intro
 ```
 
-Every exercise in this course ships with a `.test.js` file. When you complete an exercise, the tests go green. Learning to run and read tests *now* means you'll be self-sufficient for the rest of the course.
+Every exercise in this course ships with a `.test.js` file. When you complete an exercise, the tests go green. Learning to run and read tests _now_ means you'll be self-sufficient for the rest of the course.
 
 The demo has three files: `alert.js` (the code under test), `alert.test.js` (the tests), and `index.js` (runs the functions so you can see output).
 
@@ -112,7 +112,7 @@ describe('formatAlert', () => {
 });
 ```
 
-`describe` groups related tests. `it` defines one assertion. `expect(value).toBe(expected)` is the check — if they don't match, Vitest shows a diff.
+`describe` groups related tests. `it` defines one assertion. `expect(value).toBe(expected)` is the check - if they don't match, Vitest shows a diff.
 
 ### Reading a failure
 
@@ -120,11 +120,11 @@ Change an expected string to something wrong and run again. Vitest highlights ex
 
 ### The testing loop
 
-Write a function. Write a test. Run it. **Red** means something is wrong. Fix it. **Green** means the contract holds. Refactor freely — the tests catch regressions. This is the loop you'll follow in every exercise.
+Write a function. Write a test. Run it. **Red** means something is wrong. Fix it. **Green** means the contract holds. Refactor freely - the tests catch regressions. This is the loop you'll follow in every exercise.
 
 ---
 
-## 3. Function basics — declarations, expressions, arrows
+## 3. Function basics - declarations, expressions, arrows
 
 ```bash
 node module-02-functions/demo/03-function-basics
@@ -135,17 +135,17 @@ node module-02-functions/demo/03-function-basics
 Three ways to create a function:
 
 ```js
-// Declaration — hoisted, available anywhere in the scope
+// Declaration - hoisted, available anywhere in the scope
 function greetRanger(name) {
   return `Welcome, Ranger ${name}.`;
 }
 
-// Expression — assigned to a const, not hoisted
+// Expression - assigned to a const, not hoisted
 const describeDino = function (dino) {
-  return `${dino.name} — ${dino.species}`;
+  return `${dino.name} - ${dino.species}`;
 };
 
-// Arrow — compact, no own `this`
+// Arrow - compact, no own `this`
 const double = (n) => n * 2;
 ```
 
@@ -157,10 +157,10 @@ Arrows shine for callbacks: short, no curly braces needed for single expressions
 function formatSighting(name, zone = 'Uncharted', risk = 0) {
   return `${name} @ ${zone} (risk ${risk})`;
 }
-formatSighting('Compy');  // "Compy @ Uncharted (risk 0)"
+formatSighting('Compy'); // "Compy @ Uncharted (risk 0)"
 ```
 
-Defaults fill in when the argument is `undefined`. They keep call sites clean — no need to pass values you rarely change.
+Defaults fill in when the argument is `undefined`. They keep call sites clean - no need to pass values you rarely change.
 
 ### Rest parameters
 
@@ -173,7 +173,7 @@ function logAll(label, ...items) {
 logAll('Zone', 'North', 'South', 'Ridge');
 ```
 
-`...items` collects all remaining arguments into a real array. Unlike the legacy `arguments` object, rest params are a proper array — you can `.map()` and `.filter()` them directly.
+`...items` collects all remaining arguments into a real array. Unlike the legacy `arguments` object, rest params are a proper array - you can `.map()` and `.filter()` them directly.
 
 ---
 
@@ -204,7 +204,7 @@ You can combine filter with `.includes()` to find overlap between two arrays:
 const shared = zoneA.filter((id) => zoneB.includes(id));
 ```
 
-The original array is never mutated — `.filter()` always returns a fresh array.
+The original array is never mutated - `.filter()` always returns a fresh array.
 
 ---
 
@@ -214,11 +214,11 @@ The original array is never mutated — `.filter()` always returns a fresh array
 node module-02-functions/demo/05-sort
 ```
 
-`.sort()` orders elements **in place** (it mutates the array). Without a comparator, it sorts **lexicographically** — which gives wrong results for numbers:
+`.sort()` orders elements **in place** (it mutates the array). Without a comparator, it sorts **lexicographically** - which gives wrong results for numbers:
 
 ```js
-[10, 1, 21, 2].sort();           // [1, 10, 2, 21] — wrong!
-[10, 1, 21, 2].sort((a, b) => a - b);  // [1, 2, 10, 21] — correct
+[10, 1, 21, 2].sort(); // [1, 10, 2, 21] - wrong!
+[10, 1, 21, 2].sort((a, b) => a - b); // [1, 2, 10, 21] - correct
 ```
 
 The comparator function returns a negative number if `a` should come first, positive if `b` should come first, and zero if they're equal.
@@ -226,7 +226,7 @@ The comparator function returns a negative number if `a` should come first, posi
 Sort objects by a numeric field:
 
 ```js
-dinos.sort((a, b) => b.dangerLevel - a.dangerLevel);  // highest first
+dinos.sort((a, b) => b.dangerLevel - a.dangerLevel); // highest first
 ```
 
 Sort alphabetically with `.localeCompare()`:
@@ -248,7 +248,7 @@ node module-02-functions/demo/06-map
 `.map()` transforms **every element** and returns a new array of the same length:
 
 ```js
-const doubled = [1, 2, 3].map((n) => n * 2);  // [2, 4, 6]
+const doubled = [1, 2, 3].map((n) => n * 2); // [2, 4, 6]
 ```
 
 Extract a single field from objects:
@@ -261,12 +261,10 @@ const names = dinosaurs.map((d) => d.species);
 Format objects into strings:
 
 ```js
-const lines = dinosaurs.map(
-  (d) => `${d.species} (${d.zone}) — danger: ${d.dangerLevel}`
-);
+const lines = dinosaurs.map((d) => `${d.species} (${d.zone}) - danger: ${d.dangerLevel}`);
 ```
 
-Like `.filter()`, `.map()` never mutates the original — it returns a fresh array every time.
+Like `.filter()`, `.map()` never mutates the original - it returns a fresh array every time.
 
 ---
 
@@ -276,10 +274,10 @@ Like `.filter()`, `.map()` never mutates the original — it returns a fresh arr
 node module-02-functions/demo/07-reduce
 ```
 
-`.reduce()` folds an array down to a **single value** — a number, a string, an object, anything. It takes a callback and an initial value for the **accumulator**:
+`.reduce()` folds an array down to a **single value** - a number, a string, an object, anything. It takes a callback and an initial value for the **accumulator**:
 
 ```js
-const total = [3, 7, 2, 8].reduce((acc, n) => acc + n, 0);  // 20
+const total = [3, 7, 2, 8].reduce((acc, n) => acc + n, 0); // 20
 ```
 
 The accumulator carries state between iterations. After each call, whatever you return becomes the new `acc`.
@@ -298,7 +296,7 @@ Find a maximum:
 
 ```js
 const mostDangerous = dinos.reduce((best, d) =>
-  d.dangerLevel > best.dangerLevel ? d : best
+  d.dangerLevel > best.dangerLevel ? d : best,
 );
 ```
 
@@ -306,7 +304,7 @@ const mostDangerous = dinos.reduce((best, d) =>
 
 ---
 
-## 8. Pipelines — putting it all together
+## 8. Pipelines - putting it all together
 
 ```bash
 node module-02-functions/demo/08-pipelines
@@ -324,22 +322,22 @@ const carnivorePressure = dinosaurs
   }, {});
 ```
 
-Read it top to bottom: filter the data, reshape it, fold it into a summary. Each step returns a new value — no mutation, no side effects.
+Read it top to bottom: filter the data, reshape it, fold it into a summary. Each step returns a new value - no mutation, no side effects.
 
 ---
 
 ## Exercises
 
-| # | Folder | What you'll practice |
-|---|--------|----------------------|
-| 1 | [`exercises/01-function-intro`](exercises/01-function-intro/) | `function` keyword, parameters, return values |
-| 2 | [`exercises/02-vitest-contract`](exercises/02-vitest-contract/) | Implement `formatSighting` — template literals and `??` defaults, Vitest guarding the contract |
-| 3 | [`exercises/03-arrow-functions`](exercises/03-arrow-functions/) | Arrow syntax, default params, rest params |
-| 4 | [`exercises/04-filter`](exercises/04-filter/) | `.filter()` on numbers and objects |
-| 5 | [`exercises/05-sort`](exercises/05-sort/) | `.sort()` with numeric and string comparators |
-| 6 | [`exercises/06-map`](exercises/06-map/) | `.map()` to double, extract, format |
-| 7 | [`exercises/07-reduce`](exercises/07-reduce/) | `.reduce()` to sum, group, find max |
-| 8 | [`exercises/08-migration-pipeline`](exercises/08-migration-pipeline/) | Full pipeline: filter + map + reduce composed |
+| #   | Folder                                                                | What you'll practice                                                                           |
+| --- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| 1   | [`exercises/01-function-intro`](exercises/01-function-intro/)         | `function` keyword, parameters, return values                                                  |
+| 2   | [`exercises/02-vitest-contract`](exercises/02-vitest-contract/)       | Implement `formatSighting` - template literals and `??` defaults, Vitest guarding the contract |
+| 3   | [`exercises/03-arrow-functions`](exercises/03-arrow-functions/)       | Arrow syntax, default params, rest params                                                      |
+| 4   | [`exercises/04-filter`](exercises/04-filter/)                         | `.filter()` on numbers and objects                                                             |
+| 5   | [`exercises/05-sort`](exercises/05-sort/)                             | `.sort()` with numeric and string comparators                                                  |
+| 6   | [`exercises/06-map`](exercises/06-map/)                               | `.map()` to double, extract, format                                                            |
+| 7   | [`exercises/07-reduce`](exercises/07-reduce/)                         | `.reduce()` to sum, group, find max                                                            |
+| 8   | [`exercises/08-migration-pipeline`](exercises/08-migration-pipeline/) | Full pipeline: filter + map + reduce composed                                                  |
 
 Each exercise has a `starter/` folder. To work on an exercise:
 

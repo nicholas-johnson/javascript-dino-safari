@@ -2,7 +2,7 @@ export const slides = [
   {
     type: 'title',
     content: {
-      title: 'Module 8 — Code Organisation',
+      title: 'Module 8 - Code Organisation',
       subtitle: 'Expanding the park without losing the map',
       icon: 'folder-tree',
     },
@@ -12,9 +12,9 @@ export const slides = [
     content: {
       title: 'More rangers, more code paths',
       points: [
-        'Structure by feature vs by layer — both can work; pick intentionally.',
+        'Structure by feature vs by layer - both can work; pick intentionally.',
         'Module contracts beat “import whatever you see”.',
-        'Errors, config, and logging need owners — not sprawl.',
+        'Errors, config, and logging need owners - not sprawl.',
       ],
     },
   },
@@ -25,14 +25,14 @@ export const slides = [
       left: {
         label: 'Feature-first',
         items: [
-          '`tracking/`, `reporting/` — vertical slices',
+          '`tracking/`, `reporting/` - vertical slices',
           'Easier ownership per squad',
         ],
       },
       right: {
         label: 'Layered',
         items: [
-          '`services/`, `repos/`, `ui/` — horizontal slices',
+          '`services/`, `repos/`, `ui/` - horizontal slices',
           'Can blur when features explode',
         ],
       },
@@ -45,7 +45,7 @@ export const slides = [
       icon: 'package',
       points: [
         'pnpm workspaces share tooling; packages publish boundaries.',
-        'Shared `eslint` / `prettier` at root — consistent guardrails.',
+        'Shared `eslint` / `prettier` at root - consistent guardrails.',
         'Internal packages: `@dino-safari/...` naming clarity.',
       ],
     },
@@ -58,7 +58,7 @@ export const slides = [
       points: [
         'Export narrow surfaces from `index.js` facades.',
         'Depend inward: features may use `shared/`, not each other’s internals.',
-        'Avoid circular imports — they bite at runtime in subtle ways.',
+        'Avoid circular imports - they bite at runtime in subtle ways.',
       ],
     },
   },
@@ -70,7 +70,7 @@ export const slides = [
       points: [
         'Subclass `Error` with `code` for programmatic handling.',
         'Map known failures to HTTP/status in one place.',
-        'Never swallow errors — log context, then fail closed.',
+        'Never swallow errors - log context, then fail closed.',
       ],
     },
   },
@@ -83,9 +83,7 @@ export const slides = [
   if (!name) throw new AppError('CONFIG_MISSING', 'PARK_NAME');
   return { parkName: name, port: Number(env.API_PORT ?? '8080') };
 }`,
-      highlights: [
-        'Validate once at startup — not per request',
-      ],
+      highlights: ['Validate once at startup - not per request'],
     },
   },
   {
@@ -103,11 +101,11 @@ export const slides = [
   {
     type: 'rules',
     content: {
-      title: 'Field rules — Module 8',
+      title: 'Field rules - Module 8',
       rules: [
         {
           rule: 'One composition root',
-          example: '`cli.js` or `server.js` wires modules — not scattered.',
+          example: '`cli.js` or `server.js` wires modules - not scattered.',
           icon: 'template',
         },
         {
@@ -117,7 +115,7 @@ export const slides = [
         },
         {
           rule: 'Refactor in small steps',
-          example: 'Tests green after each move — spaghetti exercise pattern.',
+          example: 'Tests green after each move - spaghetti exercise pattern.',
           icon: 'refresh',
         },
       ],
@@ -126,17 +124,17 @@ export const slides = [
   {
     type: 'welcome',
     content: {
-      title: 'Exercises — HQ architecture',
+      title: 'Exercises - HQ architecture',
       points: [
-        '01 — Refactor spaghetti digest into modules',
-        '02 — AppError + env config + formatLogLine',
+        '01 - Refactor spaghetti digest into modules',
+        '02 - AppError + env config + formatLogLine',
       ],
     },
   },
   {
     type: 'title',
     content: {
-      title: 'Park expansion ready — Module 8',
+      title: 'Park expansion ready - Module 8',
       subtitle: 'Ship structure, not chaos',
       icon: 'award',
     },

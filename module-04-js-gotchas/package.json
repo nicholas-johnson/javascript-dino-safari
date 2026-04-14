@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Module 4 — JS Gotchas: coercion, truthiness, equality, numbers, and the weird parts",
+  "description": "Module 4 - JS Gotchas: coercion, truthiness, equality, numbers, and the weird parts",
   "scripts": {
     "test": "vitest run --root .",
     "demo:coercion": "node demo/01-coercion-traps",

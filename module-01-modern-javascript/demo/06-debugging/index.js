@@ -1,5 +1,5 @@
 /**
- * Demo: Intentionally buggy tracker — use node --inspect and breakpoints.
+ * Demo: Intentionally buggy tracker - use node --inspect and breakpoints.
  *
  * Run normally (you'll see a wrong average):
  *   node module-01-modern-javascript/demo/06-debugging
@@ -22,7 +22,7 @@ const dinosaurs = JSON.parse(
 
 function averageWeightKg(list) {
   let total = 0;
-  // BUG: off-by-one / wrong loop bound — students should catch this while stepping
+  // BUG: off-by-one / wrong loop bound - students should catch this while stepping
   for (let i = 0; i <= list.length; i++) {
     total += list[i]?.weightKg ?? 0;
   }

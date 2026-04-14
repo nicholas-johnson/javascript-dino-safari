@@ -1,5 +1,5 @@
 /**
- * Demo: Introduction to functions — the function keyword, parameters, returns.
+ * Demo: Introduction to functions - the function keyword, parameters, returns.
  * Run: node module-02-functions/demo/01-function-intro
  */
 

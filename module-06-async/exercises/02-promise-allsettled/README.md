@@ -1,4 +1,4 @@
-# Exercise — Batch sensor read with `allSettled`
+# Exercise - Batch sensor read with `allSettled`
 
 **Mission briefing:** Read every zone sensor, even if half the park is offline. Return a **uniform summary** per sensor.
 

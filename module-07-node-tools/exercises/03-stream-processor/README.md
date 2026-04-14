@@ -1,4 +1,4 @@
-# Exercise — Stream dangerous sightings from CSV
+# Exercise - Stream dangerous sightings from CSV
 
 **Mission briefing:** Large CSV exports should be processed as a **stream** so memory stays flat. Parse our simple `trackingId,dangerLevel,zone` format and keep rows where `dangerLevel >= minDanger`.
 

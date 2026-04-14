@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Slides: Module 2 — Functions & Functional Loops",
+  "description": "Slides: Module 2 - Functions & Functional Loops",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

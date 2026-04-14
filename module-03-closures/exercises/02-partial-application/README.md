@@ -1,4 +1,4 @@
-# Exercise — Partial application: alert channel
+# Exercise - Partial application: alert channel
 
 **Mission briefing:** The control room uses the same logger shape everywhere, but **severity** should be baked in once.
 

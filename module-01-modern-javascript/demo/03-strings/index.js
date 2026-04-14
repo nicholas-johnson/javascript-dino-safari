@@ -1,5 +1,5 @@
 /**
- * Demo: String manipulation — the everyday toolkit.
+ * Demo: String manipulation - the everyday toolkit.
  * Run: node module-01-modern-javascript/demo/03-strings
  */
 

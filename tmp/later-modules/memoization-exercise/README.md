@@ -1,4 +1,4 @@
-# Exercise — Memoized route preview
+# Exercise - Memoized route preview
 
 **Mission briefing:** GIS route previews are expensive. Wrap them with a tiny **`memoize`** helper.
 

@@ -11,7 +11,7 @@ export function createSafariTour(title, guide) {
     scheduleBriefing(delayMs) {
       return new Promise((resolve) => {
         setTimeout(() => {
-          resolve(`${this.guide} — ${this.title} briefing begins`);
+          resolve(`${this.guide} - ${this.title} briefing begins`);
         }, delayMs);
       });
     },

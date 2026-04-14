@@ -1,4 +1,4 @@
-/** Internal — not exported; demo shows hiding details behind a facade */
+/** Internal - not exported; demo shows hiding details behind a facade */
 const _byId = new Map();
 
 export function registerDino(record) {

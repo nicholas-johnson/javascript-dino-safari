@@ -1,6 +1,6 @@
-# Module 4 — JS Gotchas: the Weird Parts That Bite
+# Module 4 - JS Gotchas: the Weird Parts That Bite
 
-JavaScript has opinions. Values silently coerce, equality has three flavours, `typeof null` returns `"object"`, and `0.1 + 0.2 !== 0.3`. This module is a guided tour of the traps that catch every team eventually — and the patterns that keep you safe.
+JavaScript has opinions. Values silently coerce, equality has three flavours, `typeof null` returns `"object"`, and `0.1 + 0.2 !== 0.3`. This module is a guided tour of the traps that catch every team eventually - and the patterns that keep you safe.
 
 By the end of this module you should be able to:
 
@@ -9,7 +9,7 @@ By the end of this module you should be able to:
 - **Choose** between `||` and `??` for defaults; know when each one bites.
 - **Use `===` by default**, `== null` deliberately, and `Object.is` when you need it.
 - **Handle `NaN`, `Infinity`, `-0`**, and IEEE float weirdness.
-- **Validate and convert numbers** at the boundary — never trust raw input.
+- **Validate and convert numbers** at the boundary - never trust raw input.
 
 ---
 
@@ -22,8 +22,8 @@ node module-04-js-gotchas/demo/01-coercion-traps
 JavaScript silently converts values when you mix types in an expression. Sometimes the result makes sense. Often it doesn't.
 
 ```js
-"5" + 3        // "53" — string wins, + concatenates
-"5" - 3        // 2    — - is only numeric, so the string is coerced
+'5' + 3; // "53" - string wins, + concatenates
+'5' - 3; // 2    - - is only numeric, so the string is coerced
 ```
 
 The rules are: `+` prefers strings (if either side is a string, it concatenates), while `-`, `*`, `/` always coerce to numbers.
@@ -31,10 +31,10 @@ The rules are: `+` prefers strings (if either side is a string, it concatenates)
 Things get stranger with loose equality:
 
 ```js
-null == undefined   // true  — they are "loosely equal" by spec
-null === undefined  // false — different types
-[] == false         // true  — [] coerces to "", then to 0; false coerces to 0
-Boolean([])         // true  — an array is truthy!
+null == undefined   // true  - they are "loosely equal" by spec
+null === undefined  // false - different types
+[] == false         // true  - [] coerces to "", then to 0; false coerces to 0
+Boolean([])         // true  - an array is truthy!
 ```
 
 The last two together are the classic gotcha: `[]` is truthy in an `if`, but `[] == false` is `true`. The takeaway: avoid `==` with booleans. Use explicit checks.
@@ -52,21 +52,21 @@ node module-04-js-gotchas/demo/02-truthy-falsy
 Every value in JavaScript is either **truthy** or **falsy** when used in a boolean context (`if`, `&&`, `||`, `!`). Exactly eight values are falsy:
 
 ```js
-false, 0, -0, 0n, "", null, undefined, NaN
+(false, 0, -0, 0n, '', null, undefined, NaN);
 ```
 
-Everything else is truthy — including `[]`, `{}`, `"0"`, and `"false"`.
+Everything else is truthy - including `[]`, `{}`, `"0"`, and `"false"`.
 
 ### The `||` trap
 
-`||` returns the first truthy operand. That sounds useful for defaults, but it replaces *all* falsy values — including valid ones like `0` and `""`:
+`||` returns the first truthy operand. That sounds useful for defaults, but it replaces _all_ falsy values - including valid ones like `0` and `""`:
 
 ```js
 const timeout = config.timeout || 5000;
-// If timeout is 0, this returns 5000 — oops, 0 was a valid timeout!
+// If timeout is 0, this returns 5000 - oops, 0 was a valid timeout!
 
-const zone = name || "Unknown";
-// If name is "", this returns "Unknown" — but "" might be a valid zone name.
+const zone = name || 'Unknown';
+// If name is "", this returns "Unknown" - but "" might be a valid zone name.
 ```
 
 ### `??` to the rescue
@@ -77,7 +77,7 @@ const zone = name || "Unknown";
 const timeout = config.timeout ?? 5000;
 // 0 → 0 (kept), null → 5000 (defaulted), undefined → 5000
 
-const zone = name ?? "Unknown";
+const zone = name ?? 'Unknown';
 // "" → "" (kept), null → "Unknown"
 ```
 
@@ -100,10 +100,10 @@ node module-04-js-gotchas/demo/03-number-gotchas
 JavaScript numbers are 64-bit IEEE 754 floats. That means:
 
 ```js
-0.1 + 0.2 === 0.3   // false — the result is 0.30000000000000004
+0.1 + 0.2 === 0.3; // false - the result is 0.30000000000000004
 ```
 
-This is not a JavaScript bug — it's how binary floating point works in every language. The fix for money: **work in integer cents**.
+This is not a JavaScript bug - it's how binary floating point works in every language. The fix for money: **work in integer cents**.
 
 ```js
 function dollarsToCents(n) {
@@ -117,27 +117,27 @@ function dollarsToCents(n) {
 `NaN` is the result of invalid arithmetic (e.g. `0 / 0`, `Number("hello")`). It has two quirks:
 
 ```js
-NaN === NaN          // false — the only JS value not equal to itself
-typeof NaN           // "number" — NaN is technically a number
+NaN === NaN; // false - the only JS value not equal to itself
+typeof NaN; // "number" - NaN is technically a number
 ```
 
 Use `Number.isNaN(x)` to check for it. The global `isNaN(x)` coerces first and gives false positives:
 
 ```js
-isNaN("hello")       // true — it coerces "hello" to NaN, then checks
-Number.isNaN("hello") // false — "hello" is a string, not NaN
+isNaN('hello'); // true - it coerces "hello" to NaN, then checks
+Number.isNaN('hello'); // false - "hello" is a string, not NaN
 ```
 
 ### `parseInt` hazards
 
 ```js
-parseInt("12abc")    // 12 — it stops at the first non-digit and returns what it has
-parseInt("08")       // 8 in modern engines, but historically 0 (octal). Always pass the radix.
+parseInt('12abc'); // 12 - it stops at the first non-digit and returns what it has
+parseInt('08'); // 8 in modern engines, but historically 0 (octal). Always pass the radix.
 ```
 
 ---
 
-## 4. Edge cases — typeof, -0, Object.is
+## 4. Edge cases - typeof, -0, Object.is
 
 ```bash
 node module-04-js-gotchas/demo/04-edge-cases
@@ -146,9 +146,9 @@ node module-04-js-gotchas/demo/04-edge-cases
 ### `typeof` lies twice
 
 ```js
-typeof null          // "object" — a famous bug from JavaScript's first implementation
-typeof []            // "object" — arrays are objects under the hood
-typeof NaN           // "number"
+typeof null; // "object" - a famous bug from JavaScript's first implementation
+typeof []; // "object" - arrays are objects under the hood
+typeof NaN; // "number"
 ```
 
 To check for `null`, use `=== null`. To check for arrays, use `Array.isArray()`.
@@ -156,13 +156,13 @@ To check for `null`, use `=== null`. To check for arrays, use `Array.isArray()`.
 ### Negative zero
 
 ```js
--0 === 0             // true — strict equality says they're the same
-Object.is(-0, 0)     // false — Object.is knows the difference
-1 / -0               // -Infinity — reveals the sign
-String(-0)           // "0" — toString hides it
+-0 === 0; // true - strict equality says they're the same
+Object.is(-0, 0); // false - Object.is knows the difference
+1 / -0; // -Infinity - reveals the sign
+String(-0); // "0" - toString hides it
 ```
 
-### `Object.is` — the third equality
+### `Object.is` - the third equality
 
 - `===` is the default. No coercion, type + value match.
 - `== null` is the deliberate exception: catches both `null` and `undefined` in one check.
@@ -172,15 +172,15 @@ Use `===` by default. Use `Object.is` when debugging weird math or when your API
 
 ---
 
-## Exercises — Bug Hunt
+## Exercises - Bug Hunt
 
 Each exercise is a set of small functions with **subtle bugs** caused by JS gotchas. The tests describe the correct behaviour. Run them, read the failures, and fix the code.
 
-| # | Folder | Theme |
-|---|--------|-------|
-| 1 | [`exercises/01-bugfix-coercion`](exercises/01-bugfix-coercion/) | Coercion & truthiness: `!val` vs null check, `\|\|` vs `??`, `==` traps |
-| 2 | [`exercises/02-bugfix-equality`](exercises/02-bugfix-equality/) | Equality & typeof: `=== null` vs `== null`, `typeof` quirks, `NaN`, `Object.is` |
-| 3 | [`exercises/03-bugfix-numbers`](exercises/03-bugfix-numbers/) | Numbers & money: float drift, `parseInt` hazards, `isNaN` vs `Number.isNaN`, `.toFixed` |
+| #   | Folder                                                          | Theme                                                                                   |
+| --- | --------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| 1   | [`exercises/01-bugfix-coercion`](exercises/01-bugfix-coercion/) | Coercion & truthiness: `!val` vs null check, `\|\|` vs `??`, `==` traps                 |
+| 2   | [`exercises/02-bugfix-equality`](exercises/02-bugfix-equality/) | Equality & typeof: `=== null` vs `== null`, `typeof` quirks, `NaN`, `Object.is`         |
+| 3   | [`exercises/03-bugfix-numbers`](exercises/03-bugfix-numbers/)   | Numbers & money: float drift, `parseInt` hazards, `isNaN` vs `Number.isNaN`, `.toFixed` |
 
 Run all module tests:
 

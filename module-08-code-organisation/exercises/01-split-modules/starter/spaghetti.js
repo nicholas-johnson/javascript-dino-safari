@@ -1,5 +1,5 @@
 /**
- * MONOLITH (messy on purpose) — student should refactor out of this file.
+ * MONOLITH (messy on purpose) - student should refactor out of this file.
  *
  * @param {string[]} zonesRaw
  * @param {{ zone: string, level: number }[]} pings

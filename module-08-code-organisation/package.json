@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Module 8 — Expanding the Park: project structure, contracts, errors, config",
+  "description": "Module 8 - Expanding the Park: project structure, contracts, errors, config",
   "scripts": {
     "test": "vitest run --root .",
     "demo:structure": "node demo/01-project-structure",

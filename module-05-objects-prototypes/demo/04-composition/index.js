@@ -10,7 +10,7 @@ const canRoar = (state) => ({
 
 const canFly = (state) => ({
   fly() {
-    return `${state.name} lifts off — wingspan ${state.wingspanM}m`;
+    return `${state.name} lifts off - wingspan ${state.wingspanM}m`;
   },
 });
 

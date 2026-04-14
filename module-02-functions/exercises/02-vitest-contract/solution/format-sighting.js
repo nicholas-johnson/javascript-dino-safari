@@ -7,5 +7,5 @@ export function formatSighting(dino) {
     dangerLevel = 0,
   } = dino ?? {};
 
-  return `[${trackingId}] ${name} — ${species} @ ${zone} (risk ${dangerLevel})`;
+  return `[${trackingId}] ${name} - ${species} @ ${zone} (risk ${dangerLevel})`;
 }

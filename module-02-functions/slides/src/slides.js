@@ -2,7 +2,7 @@ export const slides = [
   {
     type: 'title',
     content: {
-      title: 'Module 2 — Functions & Functional Loops',
+      title: 'Module 2 - Functions & Functional Loops',
       subtitle: 'Functions, Vitest, arrows, filter, sort, map, reduce',
       icon: 'zap',
     },
@@ -26,26 +26,13 @@ function greet(name) {
     },
   },
   {
-    type: 'standard',
-    content: {
-      title: 'Vitest — fast feedback on the trail',
-      icon: 'flask',
-      points: [
-        'Unit tests run in Node; watch mode while you refactor.',
-        '`pnpm vitest run path/to/file.test.js` for a single exercise.',
-        'Red → green → refactor: same loop as fixing a fence breach.',
-        'Demo 02: `describe`, `it`, `expect` — the testing vocabulary.',
-      ],
-    },
-  },
-  {
     type: 'welcome',
     content: {
       title: 'Functions are the building block',
       points: [
         'Three ways to declare: declaration, expression, arrow.',
         'Default and rest parameters for flexible signatures.',
-        'Functions as values — pass them, store them, return them.',
+        'Functions as values - pass them, store them, return them.',
       ],
     },
   },
@@ -77,7 +64,7 @@ function greet(name) {
 }
 log('Ridge', 'TRX-001', 'STG-014');`,
       highlights: [
-        'Defaults fill in for undefined — keep call sites clean',
+        'Defaults fill in for undefined - keep call sites clean',
         '...rest collects remaining args into a real array',
       ],
     },
@@ -85,12 +72,12 @@ log('Ridge', 'TRX-001', 'STG-014');`,
   {
     type: 'code',
     content: {
-      title: '.filter() — keep what passes',
+      title: '.filter() - keep what passes',
       code: `const dangerous = dinosaurs.filter(d => d.dangerLevel > 5);
 const evens = [1, 2, 3, 4].filter(n => n % 2 === 0);
 const shared = a.filter(id => b.includes(id));`,
       highlights: [
-        'Returns a new array — original untouched',
+        'Returns a new array - original untouched',
         'Predicate callback: return true to keep, false to drop',
       ],
     },
@@ -98,27 +85,27 @@ const shared = a.filter(id => b.includes(id));`,
   {
     type: 'code',
     content: {
-      title: '.sort() — order with a comparator',
+      title: '.sort() - order with a comparator',
       code: `[10, 1, 21, 2].sort((a, b) => a - b);  // [1, 2, 10, 21]
 dinos.sort((a, b) => b.dangerLevel - a.dangerLevel);
 dinos.sort((a, b) => a.species.localeCompare(b.species));`,
       highlights: [
-        'Without a comparator, sort is lexicographic — [1, 10, 2] !',
-        '.sort() mutates — spread first if you need a copy',
+        'Without a comparator, sort is lexicographic - [1, 10, 2] !',
+        '.sort() mutates - spread first if you need a copy',
       ],
     },
   },
   {
     type: 'code',
     content: {
-      title: '.map() — transform each element',
+      title: '.map() - transform each element',
       code: `const doubled = [1, 2, 3].map(n => n * 2);
 const names = dinos.map(d => d.species);
 const lines = dinos.map(d =>
-  \`\${d.species} (\${d.zone}) — danger: \${d.dangerLevel}\`
+  \`\${d.species} (\${d.zone}) - danger: \${d.dangerLevel}\`
 );`,
       highlights: [
-        'Same length in, same length out — every element transformed',
+        'Same length in, same length out - every element transformed',
         'Use to reshape objects, extract fields, format strings',
       ],
     },
@@ -126,7 +113,7 @@ const lines = dinos.map(d =>
   {
     type: 'code',
     content: {
-      title: '.reduce() — fold into one value',
+      title: '.reduce() - fold into one value',
       code: `const total = nums.reduce((acc, n) => acc + n, 0);
 const byZone = dinos.reduce((acc, d) => {
   acc[d.zone] = (acc[d.zone] ?? 0) + 1;
@@ -134,14 +121,14 @@ const byZone = dinos.reduce((acc, d) => {
 }, {});`,
       highlights: [
         'Accumulator carries state between iterations',
-        'Always pass an initial value — empty arrays throw without one',
+        'Always pass an initial value - empty arrays throw without one',
       ],
     },
   },
   {
     type: 'code',
     content: {
-      title: 'Pipeline — compose them all',
+      title: 'Pipeline - compose them all',
       code: `const report = dinosaurs
   .filter(d => d.diet === 'carnivore')
   .map(d => ({ zone: d.zone, danger: d.dangerLevel }))
@@ -151,18 +138,18 @@ const byZone = dinos.reduce((acc, d) => {
   }, {});`,
       highlights: [
         'Read top to bottom: filter, reshape, fold',
-        'Each step returns a new value — no mutation',
+        'Each step returns a new value - no mutation',
       ],
     },
   },
   {
     type: 'rules',
     content: {
-      title: 'Field rules — Module 2',
+      title: 'Field rules - Module 2',
       rules: [
         {
           rule: 'Prefer arrows for callbacks',
-          example: 'Short, no own `this` — perfect for array methods.',
+          example: 'Short, no own `this` - perfect for array methods.',
           icon: 'zap',
         },
         {
@@ -179,27 +166,15 @@ const byZone = dinos.reduce((acc, d) => {
     },
   },
   {
-    type: 'welcome',
+    type: 'standard',
     content: {
-      title: 'Exercises — graded missions',
+      title: 'Vitest',
+      icon: 'flask',
       points: [
-        '01 — Function intro: add, multiply, greet, isEven, initials',
-        '02 — Vitest contract: formatSighting with ?? defaults',
-        '03 — Arrow functions: double, greet, alert, tagAll',
-        '04 — Filter: evens, overlap, dangerous dinos',
-        '05 — Sort: numbers, by danger, by name',
-        '06 — Map: double all, extract names, format sightings',
-        '07 — Reduce: sum, count by zone, max danger',
-        '08 — Capstone: migration pipeline (filter + map + reduce)',
+        'Unit tests run in Node; watch mode while you refactor.',
+        '`pnpm vitest run path/to/file.test.js` for a single exercise.',
+        'Demo 02: `describe`, `it`, `expect`.',
       ],
-    },
-  },
-  {
-    type: 'title',
-    content: {
-      title: 'Pipeline green — Module 2',
-      subtitle: 'Run demos, then exercises under module-02-functions',
-      icon: 'check-circle',
     },
   },
 ];

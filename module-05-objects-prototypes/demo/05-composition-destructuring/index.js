@@ -5,7 +5,7 @@
  */
 const withCallsign = (state) => ({
   identify() {
-    return `${state.callsign} — ${state.name}`;
+    return `${state.callsign} - ${state.name}`;
   },
 });
 
@@ -60,4 +60,4 @@ const {
   site,
 } = briefing;
 console.log('\n--- Nested destructuring ---');
-console.log(`${leadName} (${role}) — ${site}`);
+console.log(`${leadName} (${role}) - ${site}`);

@@ -1,6 +1,6 @@
 // Bug Hunt: Coercion & Truthiness
 // Every function below has a subtle bug caused by JavaScript coercion or
-// truthiness rules. The tests describe the CORRECT behaviour — run them,
+// truthiness rules. The tests describe the CORRECT behaviour - run them,
 // read the failures, and fix the code.
 
 /**
@@ -22,7 +22,7 @@ export function getZoneName(zone) {
 
 /**
  * Add two numeric sensor readings.
- * Callers sometimes pass strings from CSV parsing — always return a number.
+ * Callers sometimes pass strings from CSV parsing - always return a number.
  */
 export function addReadings(a, b) {
   return a + b;

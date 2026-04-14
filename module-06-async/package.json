@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Module 6 — Live Tracking Network: promises, async/await, concurrency",
+  "description": "Module 6 - Live Tracking Network: promises, async/await, concurrency",
   "scripts": {
     "test": "vitest run --root .",
     "demo:promises": "node demo/01-promise-fundamentals",

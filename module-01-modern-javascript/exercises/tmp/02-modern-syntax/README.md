@@ -1,6 +1,6 @@
-# Exercise — Modern syntax refactor
+# Exercise - Modern syntax refactor
 
-**Mission briefing:** Legacy telemetry code from the old park system is verbose and brittle. Refactor it to use **destructuring**, **template literals**, **optional chaining (`?.`)**, and **nullish coalescing (`??`)** — without changing behaviour.
+**Mission briefing:** Legacy telemetry code from the old park system is verbose and brittle. Refactor it to use **destructuring**, **template literals**, **optional chaining (`?.`)**, and **nullish coalescing (`??`)** - without changing behaviour.
 
 ## Tasks
 

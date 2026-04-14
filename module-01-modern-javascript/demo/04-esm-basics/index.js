@@ -1,5 +1,5 @@
 /**
- * Demo: ESM basics — import and export between files.
+ * Demo: ESM basics - import and export between files.
  * Run: node module-01-modern-javascript/demo/03-esm-basics
  *
  * This folder has two files:
@@ -8,7 +8,7 @@
  *   index.js      → imports and uses them (this file)
  *
  * Key ideas:
- *   - Named exports use { braces } on import — names must match exactly.
+ *   - Named exports use { braces } on import - names must match exactly.
  *   - Default export can be imported with any name you choose.
  *   - "type": "module" in package.json enables ESM in .js files.
  */

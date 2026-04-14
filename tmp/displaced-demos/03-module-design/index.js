@@ -1,5 +1,5 @@
 /**
- * Demo: clean module boundary — consumers only see explicit exports.
+ * Demo: clean module boundary - consumers only see explicit exports.
  */
 import { getDino, listIds, registerDino } from './lib/dino-registry.js';
 

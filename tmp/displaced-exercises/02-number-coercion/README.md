@@ -1,4 +1,4 @@
-# Exercise — Sensor reading validator
+# Exercise - Sensor reading validator
 
 **Mission briefing:** Field sensors emit strings, numbers, `null`, and garbage. Normalize to a **finite number** or `null` when unusable.
 

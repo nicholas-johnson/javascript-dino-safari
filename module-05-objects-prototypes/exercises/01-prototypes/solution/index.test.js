@@ -4,7 +4,7 @@ import { Dinosaur, FlyingDinosaur } from './dinosaur.js';
 describe('01-prototypes', () => {
   it('Dinosaur.describe', () => {
     const d = new Dinosaur('Tank', 'Triceratops', 'Herbivore Meadow');
-    expect(d.describe()).toBe('Tank — Triceratops @ Herbivore Meadow');
+    expect(d.describe()).toBe('Tank - Triceratops @ Herbivore Meadow');
     expect(d).toBeInstanceOf(Dinosaur);
   });
 
@@ -13,6 +13,6 @@ describe('01-prototypes', () => {
     expect(p).toBeInstanceOf(FlyingDinosaur);
     expect(p).toBeInstanceOf(Dinosaur);
     expect(p.wingspanM).toBe(6);
-    expect(p.describe()).toBe('Skyler — Pteranodon @ Aviary Ascent — wingspan 6m');
+    expect(p.describe()).toBe('Skyler - Pteranodon @ Aviary Ascent - wingspan 6m');
   });
 });

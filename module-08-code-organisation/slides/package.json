@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Slides: Module 8 — Code Organisation",
+  "description": "Slides: Module 8 - Code Organisation",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

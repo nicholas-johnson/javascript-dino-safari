@@ -1,6 +1,6 @@
 /**
  * Demo: Function declarations, expressions, arrows, defaults, rest.
- * Run: node module-02-functions/demo/03-function-basics
+ * Run: node module-02-functions/demo/01-function-basics
  */
 
 console.log('\n--- Function basics demo ---\n');

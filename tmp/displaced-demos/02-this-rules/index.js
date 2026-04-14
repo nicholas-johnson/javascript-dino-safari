@@ -6,7 +6,7 @@ const ranger = {
   zones: ['Raptor Ridge'],
 
   announce() {
-    console.log(`${this.callsign} on channel — zones: ${this.zones.join(', ')}`);
+    console.log(`${this.callsign} on channel - zones: ${this.zones.join(', ')}`);
   },
 
   brokenPatrol() {

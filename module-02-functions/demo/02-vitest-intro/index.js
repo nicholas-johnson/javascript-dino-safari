@@ -1,5 +1,5 @@
 /**
- * Demo: Vitest — describe, it, expect.
+ * Demo: Vitest - describe, it, expect.
  * Run: node module-02-functions/demo/02-vitest-intro
  *
  * This folder contains:

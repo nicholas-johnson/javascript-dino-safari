@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Module 7 — Park Operations Center: files, HTTP, streams",
+  "description": "Module 7 - Park Operations Center: files, HTTP, streams",
   "scripts": {
     "test": "vitest run --root .",
     "demo:fs": "node demo/01-filesystem",

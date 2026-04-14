@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Module 3 — Closures, currying, and immutability",
+  "description": "Module 3 - Closures, currying, and immutability",
   "scripts": {
     "test": "vitest run --root .",
     "demo:closures": "node demo/01-closures",

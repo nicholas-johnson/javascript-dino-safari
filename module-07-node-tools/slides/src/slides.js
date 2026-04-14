@@ -2,7 +2,7 @@ export const slides = [
   {
     type: 'title',
     content: {
-      title: 'Module 7 — Node.js Tools',
+      title: 'Module 7 - Node.js Tools',
       subtitle: 'Park operations: files, HTTP, streams',
       icon: 'wrench',
     },
@@ -13,7 +13,7 @@ export const slides = [
       title: 'HQ runs on logs and APIs',
       points: [
         'Filesystem + `path` for durable sighting records.',
-        '`http.createServer` for tiny JSON services — no framework required.',
+        '`http.createServer` for tiny JSON services - no framework required.',
         'Streams keep memory flat when CSVs grow to thunder lizard size.',
       ],
     },
@@ -25,7 +25,7 @@ export const slides = [
       icon: 'folder-plus',
       points: [
         '`readFile`, `writeFile`, `appendFile`, `mkdir({ recursive: true })`.',
-        '`path.join` — never hand-concatenate slashes for cross-platform.',
+        '`path.join` - never hand-concatenate slashes for cross-platform.',
         '`fileURLToPath(import.meta.url)` for ESM-friendly `__dirname`.',
       ],
     },
@@ -39,9 +39,7 @@ import path from 'node:path';
 
 await mkdir(path.dirname(file), { recursive: true });
 await appendFile(file, JSON.stringify(row) + '\\n');`,
-      highlights: [
-        'One JSON object per line — easy to stream later',
-      ],
+      highlights: ['One JSON object per line - easy to stream later'],
     },
   },
   {
@@ -50,7 +48,7 @@ await appendFile(file, JSON.stringify(row) + '\\n');`,
       title: 'process.env & argv',
       icon: 'settings',
       points: [
-        'Configuration from environment — twelve-factor style.',
+        'Configuration from environment - twelve-factor style.',
         '`process.argv` for CLI tools and workshop scripts.',
         'Validate env early; fail loud at boot, not deep in a handler.',
       ],
@@ -64,7 +62,7 @@ await appendFile(file, JSON.stringify(row) + '\\n');`,
       points: [
         'Set `Content-Type: application/json`.',
         'Use meaningful status codes: 200, 201, 400, 404, 500.',
-        'Parse bodies carefully — malformed JSON is a 400, not a 500.',
+        'Parse bodies carefully - malformed JSON is a 400, not a 500.',
       ],
     },
   },
@@ -87,9 +85,9 @@ if (req.method === 'GET' && url.pathname === '/dinosaurs') {
       title: 'Streams & backpressure',
       icon: 'waves',
       points: [
-        '`createReadStream` / `createWriteStream` — chunk by chunk.',
+        '`createReadStream` / `createWriteStream` - chunk by chunk.',
         '`pipeline` forwards errors and cleans up; prefer over manual `.pipe`.',
-        'Backpressure: consumers can slow producers — avoids loading whole savannah into RAM.',
+        'Backpressure: consumers can slow producers - avoids loading whole savannah into RAM.',
       ],
     },
   },
@@ -103,18 +101,18 @@ if (req.method === 'GET' && url.pathname === '/dinosaurs') {
       },
       right: {
         label: 'stream + readline/transform',
-        items: ['Constant memory', 'More moving parts — worth it at scale'],
+        items: ['Constant memory', 'More moving parts - worth it at scale'],
       },
     },
   },
   {
     type: 'rules',
     content: {
-      title: 'Field rules — Module 7',
+      title: 'Field rules - Module 7',
       rules: [
         {
           rule: 'Always join paths',
-          example: 'Windows vs POSIX — `path.join` saves rangers.',
+          example: 'Windows vs POSIX - `path.join` saves rangers.',
           icon: 'map',
         },
         {
@@ -124,7 +122,7 @@ if (req.method === 'GET' && url.pathname === '/dinosaurs') {
         },
         {
           rule: 'JSON errors are client errors',
-          example: '400 + `{ error }` body — predictable for dashboards.',
+          example: '400 + `{ error }` body - predictable for dashboards.',
           icon: 'alert-triangle',
         },
       ],
@@ -133,18 +131,18 @@ if (req.method === 'GET' && url.pathname === '/dinosaurs') {
   {
     type: 'welcome',
     content: {
-      title: 'Exercises — operations desk',
+      title: 'Exercises - operations desk',
       points: [
-        '01 — Sighting logger (fs/promises)',
-        '02 — Dino HTTP JSON API',
-        '03 — Stream filter dangerous CSV rows',
+        '01 - Sighting logger (fs/promises)',
+        '02 - Dino HTTP JSON API',
+        '03 - Stream filter dangerous CSV rows',
       ],
     },
   },
   {
     type: 'title',
     content: {
-      title: 'Operations center — Module 7',
+      title: 'Operations center - Module 7',
       subtitle: 'Run Node demos, then exercises under module-07-node-tools',
       icon: 'rocket',
     },

@@ -12,7 +12,16 @@ export function summarizeForRadio(dino) {
       : 0;
   var last = dino && dino.lastSeen ? dino.lastSeen : 'no recent ping';
   return (
-    'Ranger channel: ' + name + ' (' + species + ') in ' + zone + ' — risk ' + danger + ', last ' + last
+    'Ranger channel: ' +
+    name +
+    ' (' +
+    species +
+    ') in ' +
+    zone +
+    ' - risk ' +
+    danger +
+    ', last ' +
+    last
   );
 }
 

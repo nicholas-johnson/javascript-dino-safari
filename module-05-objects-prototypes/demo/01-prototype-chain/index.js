@@ -18,7 +18,7 @@ function Theropod(species, lengthM) {
 Theropod.prototype = Object.create(Dinosaur.prototype);
 Theropod.prototype.constructor = Theropod;
 Theropod.prototype.huntSummary = function huntSummary() {
-  return `${this.describe()} — ${this.lengthM}m apex`;
+  return `${this.describe()} - ${this.lengthM}m apex`;
 };
 
 const rex = new Theropod('Tyrannosaurus', 12);

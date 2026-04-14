@@ -1,6 +1,6 @@
-# Module 3 — Closures, Currying, and Immutability
+# Module 3 - Closures, Currying, and Immutability
 
-In Module 2 you passed functions as values. Now we look at what happens when a function **remembers** the variables from the scope it was created in. That's a closure — and it unlocks private state, partial application, currying, and a clean approach to data that never mutates by accident.
+In Module 2 you passed functions as values. Now we look at what happens when a function **remembers** the variables from the scope it was created in. That's a closure - and it unlocks private state, partial application, currying, and a clean approach to data that never mutates by accident.
 
 By the end of this module you should be able to:
 
@@ -11,7 +11,7 @@ By the end of this module you should be able to:
 
 ---
 
-## 1. Closures — private state
+## 1. Closures - private state
 
 ```bash
 node module-03-closures/demo/01-closures
@@ -37,7 +37,7 @@ function createZoneTracker(zoneName) {
 }
 ```
 
-`sightings` is not on the returned object — it's invisible to the outside world. The only way to interact with it is through the methods that close over it. Each call to `createZoneTracker` gets its own separate `sightings` array. That's private state without classes, without `#private`, without anything except a function and its scope.
+`sightings` is not on the returned object - it's invisible to the outside world. The only way to interact with it is through the methods that close over it. Each call to `createZoneTracker` gets its own separate `sightings` array. That's private state without classes, without `#private`, without anything except a function and its scope.
 
 ---
 
@@ -57,10 +57,10 @@ function createAlertFn(severity) {
 }
 
 const warn = createAlertFn('WARN');
-warn('Fence voltage dropping');  // "[WARN] Fence voltage dropping"
+warn('Fence voltage dropping'); // "[WARN] Fence voltage dropping"
 ```
 
-`createAlertFn` returns a closure that remembers `severity`. The returned function has a simpler signature — one parameter instead of two.
+`createAlertFn` returns a closure that remembers `severity`. The returned function has a simpler signature - one parameter instead of two.
 
 ### Layering
 
@@ -87,15 +87,15 @@ function curry(fn) {
 
 const sighting = curry((zone, name) => `${name} spotted in ${zone}`);
 const inValley = sighting('Cretaceous Valley');
-inValley('Rex');   // "Rex spotted in Cretaceous Valley"
+inValley('Rex'); // "Rex spotted in Cretaceous Valley"
 inValley('Compy'); // "Compy spotted in Cretaceous Valley"
 ```
 
-Currying is useful when you want to reuse the same first argument across many calls. Don't overuse it — clarity beats cleverness.
+Currying is useful when you want to reuse the same first argument across many calls. Don't overuse it - clarity beats cleverness.
 
 ---
 
-## 3. Immutability — don't mutate what you didn't create
+## 3. Immutability - don't mutate what you didn't create
 
 ```bash
 node module-03-closures/demo/03-immutability
@@ -133,11 +133,11 @@ If you didn't create it, don't mutate it. Return a new object with the changes a
 
 ## Exercises
 
-| # | Folder | What you'll practice |
-|---|--------|----------------------|
-| 1 | [`01-closure-factory`](exercises/01-closure-factory/) | Build `createZoneTracker` with private `sightings` array. |
-| 2 | [`02-partial-application`](exercises/02-partial-application/) | `createAlertFn(severity)` and `createTaggedLogger(tag, alertFn)`. |
-| 3 | [`03-immutable-records`](exercises/03-immutable-records/) | `bumpDangerLevel` and `renameZone` without mutating the input. |
+| #   | Folder                                                        | What you'll practice                                              |
+| --- | ------------------------------------------------------------- | ----------------------------------------------------------------- |
+| 1   | [`01-closure-factory`](exercises/01-closure-factory/)         | Build `createZoneTracker` with private `sightings` array.         |
+| 2   | [`02-partial-application`](exercises/02-partial-application/) | `createAlertFn(severity)` and `createTaggedLogger(tag, alertFn)`. |
+| 3   | [`03-immutable-records`](exercises/03-immutable-records/)     | `bumpDangerLevel` and `renameZone` without mutating the input.    |
 
 Run tests:
 

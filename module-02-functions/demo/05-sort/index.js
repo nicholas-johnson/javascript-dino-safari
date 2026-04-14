@@ -1,5 +1,5 @@
 /**
- * Demo: .sort() — order elements with a comparator function.
+ * Demo: .sort() - order elements with a comparator function.
  * Run: node module-02-functions/demo/05-sort
  */
 
@@ -8,7 +8,10 @@ console.log('\n--- .sort() demo ---\n');
 // --- 1. The gotcha: default sort is lexicographic ---
 const nums = [10, 1, 21, 2];
 console.log('Default sort (wrong!):', [...nums].sort());
-console.log('Numeric sort (right):', [...nums].sort((a, b) => a - b));
+console.log(
+  'Numeric sort (right):',
+  [...nums].sort((a, b) => a - b),
+);
 
 // --- 2. Sort objects by a numeric field ---
 const dinosaurs = [
@@ -28,5 +31,9 @@ console.log('\nBy name (A-Z):');
 byName.forEach((d) => console.log(` - ${d.species}`));
 
 // Key point: .sort() MUTATES the array. Use spread [...arr] to sort a copy.
-console.log('\nOriginal order preserved?', dinosaurs[0].species, '(yes, we spread first)');
+console.log(
+  '\nOriginal order preserved?',
+  dinosaurs[0].species,
+  '(yes, we spread first)',
+);
 console.log();

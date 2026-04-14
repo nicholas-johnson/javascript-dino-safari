@@ -1,4 +1,4 @@
-# Exercise — First Vitest: `formatSighting`
+# Exercise - First Vitest: `formatSighting`
 
 **Mission briefing:** HQ wants a single string format for console alerts. Implement `formatSighting(dino)` and let Vitest guard the contract.
 
@@ -18,10 +18,10 @@ Edit [`starter/format-sighting.js`](starter/format-sighting.js) and implement `f
 Exact format (tests enforce this):
 
 ```
-[ID] Name — species @ zone (risk N)
+[ID] Name - species @ zone (risk N)
 ```
 
-Example: `[TRX-001] Rex — Tyrannosaurus @ Cretaceous Valley (risk 5)`
+Example: `[TRX-001] Rex - Tyrannosaurus @ Cretaceous Valley (risk 5)`
 
 ## Verify
 

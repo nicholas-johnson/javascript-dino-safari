@@ -1,11 +1,11 @@
-# Exercise — Refactor the spaghetti digest
+# Exercise - Refactor the spaghetti digest
 
 **Mission briefing:** `compileDigest` works, but everything lives in one tangled file. Split responsibilities without changing behaviour.
 
 ## Starting point
 
-- [`starter/spaghetti.js`](starter/spaghetti.js) — messy but **correct** implementation.
-- [`starter/index.js`](starter/index.js) — currently re-exports `compileDigest` from `spaghetti.js`.
+- [`starter/spaghetti.js`](starter/spaghetti.js) - messy but **correct** implementation.
+- [`starter/index.js`](starter/index.js) - currently re-exports `compileDigest` from `spaghetti.js`.
 
 ## Tasks
 

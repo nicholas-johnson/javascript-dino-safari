@@ -9,7 +9,9 @@ describe('03-this-binding', () => {
 
   it('scheduleBriefing callback preserves tour context', async () => {
     const tour = createSafariTour('Night Watch', 'Ranger Jo');
-    await expect(tour.scheduleBriefing(5)).resolves.toBe('Ranger Jo — Night Watch briefing begins');
+    await expect(tour.scheduleBriefing(5)).resolves.toBe(
+      'Ranger Jo - Night Watch briefing begins',
+    );
   });
 
   it('registerGuest works when detached', () => {

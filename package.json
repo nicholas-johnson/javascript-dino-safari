@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Dinosaur Safari: JavaScript with Node — 2-day course materials (pnpm monorepo)",
+  "description": "Dinosaur Safari: JavaScript with Node - 2-day course materials (pnpm monorepo)",
   "author": "Nicholas Johnson",
   "license": "UNLICENSED",
   "packageManager": "pnpm@10.8.0",

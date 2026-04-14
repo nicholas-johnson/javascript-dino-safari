@@ -4,7 +4,7 @@ import { mergeRangerNotes, summarizeForRadio } from './start.js';
 describe('02-modern-syntax', () => {
   it('summarizeForRadio formats with defaults', () => {
     expect(summarizeForRadio(null)).toBe(
-      'Ranger channel: Unknown asset (unknown species) in unassigned zone — risk 0, last no recent ping',
+      'Ranger channel: Unknown asset (unknown species) in unassigned zone - risk 0, last no recent ping',
     );
   });
 
@@ -18,7 +18,7 @@ describe('02-modern-syntax', () => {
         lastSeen: '2024-03-15T09:30:00Z',
       }),
     ).toBe(
-      'Ranger channel: Rex (Tyrannosaurus) in Cretaceous Valley — risk 5, last 2024-03-15T09:30:00Z',
+      'Ranger channel: Rex (Tyrannosaurus) in Cretaceous Valley - risk 5, last 2024-03-15T09:30:00Z',
     );
   });
 

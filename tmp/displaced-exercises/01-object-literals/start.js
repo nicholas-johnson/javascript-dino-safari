@@ -1,6 +1,6 @@
 /**
  * Object literals, string keys, and plain objects as associative maps.
- * Symbols are real keys too — this exercise sticks to values that stringify.
+ * Symbols are real keys too - this exercise sticks to values that stringify.
  */
 
 /**

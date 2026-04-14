@@ -1,6 +1,6 @@
-# Module 8 — Code Organisation: Scaling Without Chaos
+# Module 8 - Code Organisation: Scaling Without Chaos
 
-The park is franchising. New teams mean more modules, more APIs between them, and more ways for errors and config to sprawl. This module is about **boundaries** — where code lives, what it exports, how errors surface, and how configuration stays sane.
+The park is franchising. New teams mean more modules, more APIs between them, and more ways for errors and config to sprawl. This module is about **boundaries** - where code lives, what it exports, how errors surface, and how configuration stays sane.
 
 By the end of this module you should be able to:
 
@@ -10,7 +10,7 @@ By the end of this module you should be able to:
 
 ---
 
-## 1. Project structure — where things live
+## 1. Project structure - where things live
 
 ```bash
 node module-08-code-organisation/demo/01-project-structure
@@ -49,13 +49,13 @@ Layered is familiar from MVC tutorials. Feature-first is better as you grow: whe
 
 ### Monorepos
 
-This course repo is a monorepo — multiple packages (`module-01`, `module-02`, etc.) in one repository with shared tooling at the root. `pnpm workspaces` handles the wiring. Each module has its own `package.json` and dependencies.
+This course repo is a monorepo - multiple packages (`module-01`, `module-02`, etc.) in one repository with shared tooling at the root. `pnpm workspaces` handles the wiring. Each module has its own `package.json` and dependencies.
 
 The key benefit: shared linting, testing, and formatting config with independent deployable units. Ask: "Can a new teammate find where X lives?" If the answer is "grep the whole repo," your boundaries need work.
 
 ---
 
-## 2. Module contracts — controlling the surface area
+## 2. Module contracts - controlling the surface area
 
 ```bash
 node module-08-code-organisation/demo/02-module-contracts
@@ -78,7 +78,7 @@ zones/
 export { listZones, getZoneById, createZone } from './zone.service.js';
 ```
 
-Consumers import from `zones/index.js`. They never reach into internal files. If you rename `normalize.js`, only the facade's import changes — not every file in the project.
+Consumers import from `zones/index.js`. They never reach into internal files. If you rename `normalize.js`, only the facade's import changes - not every file in the project.
 
 ### One-way dependencies
 
@@ -137,20 +137,19 @@ try {
 }
 ```
 
-### Config validation — fail fast
+### Config validation - fail fast
 
 Don't let a missing env var surface as a cryptic `undefined` deep in a database call. Validate at startup:
 
 ```js
 function loadConfig(env) {
   const required = ['DATABASE_URL', 'API_KEY', 'LOG_LEVEL'];
-  const missing = required.filter(key => env[key] === undefined);
+  const missing = required.filter((key) => env[key] === undefined);
 
   if (missing.length > 0) {
-    throw new ConfigError(
-      `Missing required env vars: ${missing.join(', ')}`,
-      { missing }
-    );
+    throw new ConfigError(`Missing required env vars: ${missing.join(', ')}`, {
+      missing,
+    });
   }
 
   return {
@@ -177,7 +176,9 @@ function formatLogLine(level, message, context = {}) {
   });
 }
 
-console.log(formatLogLine('info', 'Zone scan complete', { zone: 'paddock-a', count: 12 }));
+console.log(
+  formatLogLine('info', 'Zone scan complete', { zone: 'paddock-a', count: 12 }),
+);
 // {"timestamp":"2026-04-10T10:30:00.000Z","level":"info","message":"Zone scan complete","zone":"paddock-a","count":12}
 ```
 
@@ -187,10 +188,10 @@ Every log line has the same shape. Log aggregators (Datadog, ELK, CloudWatch) ca
 
 ## Exercises
 
-| # | Folder | What you'll practice |
-|---|--------|----------------------|
-| 1 | [`exercises/01-split-modules`](exercises/01-split-modules/) | Refactor a monolith (`compileDigest`) into three focused modules. Tests must stay green after each move. |
-| 2 | [`exercises/02-error-config`](exercises/02-error-config/) | Build `AppError`, `loadConfig`, and `formatLogLine` from scratch. |
+| #   | Folder                                                      | What you'll practice                                                                                     |
+| --- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| 1   | [`exercises/01-split-modules`](exercises/01-split-modules/) | Refactor a monolith (`compileDigest`) into three focused modules. Tests must stay green after each move. |
+| 2   | [`exercises/02-error-config`](exercises/02-error-config/)   | Build `AppError`, `loadConfig`, and `formatLogLine` from scratch.                                        |
 
 Run all module tests:
 

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Module 2 — Functions, arrows, and functional loops",
+  "description": "Module 2 - Functions, arrows, and functional loops",
   "scripts": {
     "test": "vitest run --root .",
     "demo:intro": "node demo/01-function-intro",

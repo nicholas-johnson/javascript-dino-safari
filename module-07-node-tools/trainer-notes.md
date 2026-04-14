@@ -1,4 +1,4 @@
-# Module 7 — Node.js Tools: Trainer Notes
+# Module 7 - Node.js Tools: Trainer Notes
 
 ## Goal
 
@@ -6,36 +6,36 @@ Students can use Node's standard library for real tasks: read/write files, stand
 
 ## Demo walkthrough
 
-### 01 — Filesystem
+### 01 - Filesystem
 
-- Show `readFile`, `writeFile`, `appendFile` from `node:fs/promises`. All async — tie back to Module 6.
-- `mkdir({ recursive: true })` — avoids "directory not found" errors.
-- `path.join` — never concatenate slashes manually. Show Windows vs POSIX difference.
-- `fileURLToPath(import.meta.url)` — ESM-friendly way to get `__dirname`. Explain why ESM doesn't have `__dirname` natively.
+- Show `readFile`, `writeFile`, `appendFile` from `node:fs/promises`. All async - tie back to Module 6.
+- `mkdir({ recursive: true })` - avoids "directory not found" errors.
+- `path.join` - never concatenate slashes manually. Show Windows vs POSIX difference.
+- `fileURLToPath(import.meta.url)` - ESM-friendly way to get `__dirname`. Explain why ESM doesn't have `__dirname` natively.
 - Live-code: append a few JSON lines to a file, read them back, parse each line.
 
-### 02 — HTTP server
+### 02 - HTTP server
 
-- `http.createServer` — one callback, `req` and `res`. Show method/URL routing with `if` branches.
+- `http.createServer` - one callback, `req` and `res`. Show method/URL routing with `if` branches.
 - Set `Content-Type: application/json` and write `JSON.stringify(body)`.
 - Status codes: 200, 201, 400, 404, 500. Ask: "What status for malformed JSON in the request body?" (400.)
 - Parse request body by collecting chunks. Show what happens with invalid JSON (wrap in try/catch, return 400).
 - Run the server, hit it with `curl` or the browser. `Ctrl+C` to stop.
 
-### 03 — Streams
+### 03 - Streams
 
-- Show `createReadStream` — reads a file in chunks instead of loading it all into memory.
+- Show `createReadStream` - reads a file in chunks instead of loading it all into memory.
 - Transform stream: line-by-line CSV processing, filtering rows by a condition.
-- `pipeline` from `node:stream/promises` — handles errors and cleanup.
-- Backpressure intuition: "If the consumer is slow, the producer pauses." No need to go deep — just plant the concept.
+- `pipeline` from `node:stream/promises` - handles errors and cleanup.
+- Backpressure intuition: "If the consumer is slow, the producer pauses." No need to go deep - just plant the concept.
 
 ## Exercises
 
-| # | Folder | Key skills | Notes |
-|---|--------|-----------|-------|
-| 1 | `01-file-io-ndjson` | `fs/promises`, `path`, NDJSON append/read | `mkdir` + `appendFile` + line-by-line parsing. |
-| 2 | `02-http-json-server` | `http.createServer`, routing, JSON, status codes | Health endpoint, list, get-by-id, 404 handling. |
-| 3 | `03-stream-processor` | Streams or readline, transform, filter | Process CSV, filter by danger level. |
+| #   | Folder                | Key skills                                       | Notes                                           |
+| --- | --------------------- | ------------------------------------------------ | ----------------------------------------------- |
+| 1   | `01-file-io-ndjson`   | `fs/promises`, `path`, NDJSON append/read        | `mkdir` + `appendFile` + line-by-line parsing.  |
+| 2   | `02-http-json-server` | `http.createServer`, routing, JSON, status codes | Health endpoint, list, get-by-id, 404 handling. |
+| 3   | `03-stream-processor` | Streams or readline, transform, filter           | Process CSV, filter by danger level.            |
 
 ## Timing
 

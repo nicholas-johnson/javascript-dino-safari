@@ -1,6 +1,6 @@
 // Bug Hunt: Equality & typeof
 // Every function below has a subtle bug related to equality checks or typeof.
-// The tests describe the CORRECT behaviour — run them, read the failures,
+// The tests describe the CORRECT behaviour - run them, read the failures,
 // and fix the code.
 
 /**

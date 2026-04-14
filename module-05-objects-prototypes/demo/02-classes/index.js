@@ -1,4 +1,4 @@
-// 02-classes — the same prototype chain from demo 01, rewritten with class syntax
+// 02-classes - the same prototype chain from demo 01, rewritten with class syntax
 
 class Dinosaur {
   constructor(name, species, zone) {
@@ -8,7 +8,7 @@ class Dinosaur {
   }
 
   describe() {
-    return `${this.name} — ${this.species} @ ${this.zone}`;
+    return `${this.name} - ${this.species} @ ${this.zone}`;
   }
 }
 
@@ -19,7 +19,7 @@ class FlyingDinosaur extends Dinosaur {
   }
 
   describe() {
-    return `${super.describe()} — wingspan ${this.wingspanM}m`;
+    return `${super.describe()} - wingspan ${this.wingspanM}m`;
   }
 
   takeOff() {
@@ -38,9 +38,13 @@ console.log(ptera.takeOff());
 console.log('\n--- Still the same prototype chain underneath ---\n');
 console.log('ptera instanceof FlyingDinosaur:', ptera instanceof FlyingDinosaur);
 console.log('ptera instanceof Dinosaur:      ', ptera instanceof Dinosaur);
-console.log('typeof Dinosaur:                ', typeof Dinosaur, '(classes are functions)');
+console.log(
+  'typeof Dinosaur:                ',
+  typeof Dinosaur,
+  '(classes are functions)',
+);
 
-// Getters — computed properties that look like data access
+// Getters - computed properties that look like data access
 class Paddock {
   #residents = [];
 
@@ -64,7 +68,7 @@ paddock.add(rex);
 paddock.add(ptera);
 console.log('headcount:', paddock.headcount);
 
-// Static methods — utility that belongs to the class, not an instance
+// Static methods - utility that belongs to the class, not an instance
 class DinoUtils {
   static isDangerous(dino) {
     const carnivores = ['Tyrannosaurus', 'Velociraptor', 'Allosaurus'];

@@ -1,5 +1,5 @@
 /**
- * Demo: .reduce() — fold an array into a single value.
+ * Demo: .reduce() - fold an array into a single value.
  * Run: node module-02-functions/demo/07-reduce
  */
 

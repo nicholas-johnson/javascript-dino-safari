@@ -2,7 +2,7 @@ export const slides = [
   {
     type: 'title',
     content: {
-      title: 'Module 5 — Objects & Prototypes',
+      title: 'Module 5 - Objects & Prototypes',
       subtitle: 'The real registry under the hood: prototypes, maps, composition',
       icon: 'tree',
     },
@@ -40,26 +40,24 @@ Dino.prototype.roar = function () {
 };
 const rex = new Dino('Rex');
 rex.roar();`,
-      highlights: [
-        'Shared behavior on prototype — one function, many instances',
-      ],
+      highlights: ['Shared behavior on prototype - one function, many instances'],
     },
   },
   {
     type: 'code',
     content: {
-      title: '`class` — sugar over prototypes',
+      title: '`class` - sugar over prototypes',
       code: `class Dino {
   constructor(name) { this.name = name; }
   roar() { return \`\${this.name} ROARS\`; }
 }
 class Flyer extends Dino {
   constructor(name, ws) { super(name); this.ws = ws; }
-  fly() { return \`\${this.name} — \${this.ws}m\`; }
+  fly() { return \`\${this.name} - \${this.ws}m\`; }
 }
-typeof Dino; // "function" — still a function`,
+typeof Dino; // "function" - still a function`,
       highlights: [
-        'Same prototype chain, cleaner syntax — extends, super, getters, statics',
+        'Same prototype chain, cleaner syntax - extends, super, getters, statics',
       ],
     },
   },
@@ -114,10 +112,7 @@ typeof Dino; // "function" — still a function`,
       title: 'Inheritance vs composition',
       left: {
         label: 'Inheritance stacks',
-        items: [
-          'Tall trees of subclasses',
-          'Hard to change behavior mixes later',
-        ],
+        items: ['Tall trees of subclasses', 'Hard to change behavior mixes later'],
       },
       right: {
         label: 'Composition (modern default)',
@@ -138,15 +133,15 @@ typeof Dino; // "function" — still a function`,
 });
 const splash = withSwim({ name: 'Splash' });`,
       highlights: [
-        'Spread copies shallow fields — watch nested vitals',
-        'Demo 05: destructured factory options — `createRanger({ name, zone })`',
+        'Spread copies shallow fields - watch nested vitals',
+        'Demo 05: destructured factory options - `createRanger({ name, zone })`',
       ],
     },
   },
   {
     type: 'rules',
     content: {
-      title: 'Field rules — Module 5',
+      title: 'Field rules - Module 5',
       rules: [
         {
           rule: 'Reach for Map/Set when objects lie',
@@ -171,7 +166,7 @@ const splash = withSwim({ name: 'Splash' });`,
     content: {
       title: 'Module 5 exercise themes',
       modules: [
-        { num: '1', name: 'Prototype Safari — no class', icon: 'triangle' },
+        { num: '1', name: 'Prototype Safari - no class', icon: 'triangle' },
         { num: '2', name: 'Registry with Map', icon: 'clipboard-list' },
         { num: '3', name: 'Compose a dino', icon: 'sparkles' },
       ],
@@ -180,7 +175,7 @@ const splash = withSwim({ name: 'Splash' });`,
   {
     type: 'title',
     content: {
-      title: 'Registry locked — Module 5',
+      title: 'Registry locked - Module 5',
       subtitle: 'Demos in module-05 then hit the exercises folder',
       icon: 'award',
     },

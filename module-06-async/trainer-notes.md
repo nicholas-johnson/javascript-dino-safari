@@ -1,4 +1,4 @@
-# Module 6 — Async JavaScript: Trainer Notes
+# Module 6 - Async JavaScript: Trainer Notes
 
 ## Goal
 
@@ -6,35 +6,35 @@ Students can write async code confidently: chain promises, use `async`/`await`, 
 
 ## Demo walkthrough
 
-### 01 — Promise fundamentals
+### 01 - Promise fundamentals
 
 - Show a simple `delay` function returning a `new Promise`. Walk through the three states: pending → fulfilled or rejected.
 - Chain `.then()` calls. Show how errors propagate through the chain and are caught by `.catch()`.
 - Rewrite the chain with `async`/`await` and `try`/`catch`. Ask: "Which reads better?" (Almost always `await`.)
 - Emphasise: `async` functions always return a promise. Even `return 42` wraps in a promise.
 
-### 02 — Concurrency patterns
+### 02 - Concurrency patterns
 
-- `Promise.all` — run sensors in parallel, fail fast. Ask: "What if one sensor is slow but you need all results?" (You wait.)
-- `Promise.allSettled` — same sensors, but now you get `{ status, value/reason }` for each. Perfect for dashboards.
-- `Promise.race` — timeout pattern. Show the timeout wrapper sketch from the slides.
+- `Promise.all` - run sensors in parallel, fail fast. Ask: "What if one sensor is slow but you need all results?" (You wait.)
+- `Promise.allSettled` - same sensors, but now you get `{ status, value/reason }` for each. Perfect for dashboards.
+- `Promise.race` - timeout pattern. Show the timeout wrapper sketch from the slides.
 - Briefly mention `Promise.any` for completeness.
 - The AbortController sketch: create a controller, pass `signal` to an async function, abort from outside.
 
-### 03 — Event loop
+### 03 - Event loop
 
-- Run the demo — ordering of `console.log`, `setTimeout`, `Promise.resolve().then`, `queueMicrotask`.
+- Run the demo - ordering of `console.log`, `setTimeout`, `Promise.resolve().then`, `queueMicrotask`.
 - Draw the loop: call stack → microtask queue (drains fully) → macrotask queue (one at a time).
 - Key takeaway: promise `.then` callbacks run before `setTimeout` even if the timer is 0ms.
 - Keep this short (~5 min). It's conceptual scaffolding, not something students need to write.
 
 ## Exercises
 
-| # | Folder | Key skills | Notes |
-|---|--------|-----------|-------|
-| 1 | `01-retry-timeout` | `Promise.race`, retry loop, backoff | `withTimeout` and `runWithRetry`. |
-| 2 | `02-promise-allsettled` | `Promise.allSettled`, result aggregation | Uniform summary of fulfilled/rejected. |
-| 3 | `03-abort-controller` | `AbortController`, `AbortSignal`, cleanup | `createCancellableTask` pattern. |
+| #   | Folder                  | Key skills                                | Notes                                  |
+| --- | ----------------------- | ----------------------------------------- | -------------------------------------- |
+| 1   | `01-retry-timeout`      | `Promise.race`, retry loop, backoff       | `withTimeout` and `runWithRetry`.      |
+| 2   | `02-promise-allsettled` | `Promise.allSettled`, result aggregation  | Uniform summary of fulfilled/rejected. |
+| 3   | `03-abort-controller`   | `AbortController`, `AbortSignal`, cleanup | `createCancellableTask` pattern.       |
 
 ## Timing
 

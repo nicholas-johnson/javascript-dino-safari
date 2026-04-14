@@ -1,10 +1,10 @@
-# Exercise — Minimal Dino HTTP API
+# Exercise - Minimal Dino HTTP API
 
 **Mission briefing:** Expose read-only dinosaur data over **`http.createServer`** with JSON responses.
 
 ## Tasks
 
-Implement `createDinoApiServer({ dinosaurs })` in [`starter/index.js`](starter/index.js) returning an `http.Server` instance (do **not** call `listen` inside the factory — tests will bind a port).
+Implement `createDinoApiServer({ dinosaurs })` in [`starter/index.js`](starter/index.js) returning an `http.Server` instance (do **not** call `listen` inside the factory - tests will bind a port).
 
 Routes:
 

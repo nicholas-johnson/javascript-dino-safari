@@ -2,7 +2,7 @@ export const slides = [
   {
     type: 'title',
     content: {
-      title: 'Module 6 — Async JavaScript',
+      title: 'Module 6 - Async JavaScript',
       subtitle: 'Live tracking: promises, concurrency, cancellation',
       icon: 'timer',
     },
@@ -13,7 +13,7 @@ export const slides = [
       title: 'Pings arrive out of order',
       points: [
         'Some sensors resolve, some reject, some never answer.',
-        'The event loop schedules work — microtasks vs macrotasks matter.',
+        'The event loop schedules work - microtasks vs macrotasks matter.',
         'AbortController lets rangers cancel a search mid-flight.',
       ],
     },
@@ -26,7 +26,7 @@ export const slides = [
       points: [
         'A Promise is a value that may arrive later: pending → fulfilled/rejected.',
         '`.then` chains transforms; `.catch` centralizes errors.',
-        'Always end async chains with a handler — unhandled rejections crash trust.',
+        'Always end async chains with a handler - unhandled rejections crash trust.',
       ],
     },
   },
@@ -51,7 +51,7 @@ export const slides = [
       left: {
         label: 'Promise.all',
         items: [
-          'Fails fast — one rejection rejects all',
+          'Fails fast - one rejection rejects all',
           'Great when every sensor must succeed',
         ],
       },
@@ -70,7 +70,7 @@ export const slides = [
       title: 'race, timeouts, retries',
       icon: 'zap',
       points: [
-        '`Promise.race` picks the first settled promise — classic timeout pattern.',
+        '`Promise.race` picks the first settled promise - classic timeout pattern.',
         'Retries: loop with backoff; cap attempts; surface the last error.',
         'Watch out for retry storms on a melting API.',
       ],
@@ -87,9 +87,7 @@ export const slides = [
       setTimeout(() => rej(new Error('timeout')), ms)),
   ]);
 }`,
-      highlights: [
-        'Clear timers on success in production code to avoid leaks',
-      ],
+      highlights: ['Clear timers on success in production code to avoid leaks'],
     },
   },
   {
@@ -98,7 +96,7 @@ export const slides = [
       title: 'AbortController',
       icon: 'ban',
       points: [
-        'Signal cancellation through `AbortSignal` — fetch and custom APIs.',
+        'Signal cancellation through `AbortSignal` - fetch and custom APIs.',
         'Listeners should stop work promptly when aborted.',
         'Great UX: user navigates away → cancel in-flight searches.',
       ],
@@ -111,15 +109,15 @@ export const slides = [
       icon: 'clock',
       points: [
         'Macrotasks: timers, I/O callbacks.',
-        'Microtasks: promise reactions, queueMicrotask — run before next render/timer.',
-        '`process.nextTick` runs even earlier on Node — advanced edge cases.',
+        'Microtasks: promise reactions, queueMicrotask - run before next render/timer.',
+        '`process.nextTick` runs even earlier on Node - advanced edge cases.',
       ],
     },
   },
   {
     type: 'rules',
     content: {
-      title: 'Field rules — Module 6',
+      title: 'Field rules - Module 6',
       rules: [
         {
           rule: 'Handle or propagate rejections',
@@ -128,7 +126,7 @@ export const slides = [
         },
         {
           rule: 'Choose the right aggregator',
-          example: 'all vs allSettled vs race — semantics differ.',
+          example: 'all vs allSettled vs race - semantics differ.',
           icon: 'scale',
         },
         {
@@ -142,18 +140,18 @@ export const slides = [
   {
     type: 'welcome',
     content: {
-      title: 'Exercises — control room drills',
+      title: 'Exercises - control room drills',
       points: [
-        '01 — Retry + timeout around flaky pings',
-        '02 — Batch sensors with allSettled',
-        '03 — Cancellable search task',
+        '01 - Retry + timeout around flaky pings',
+        '02 - Batch sensors with allSettled',
+        '03 - Cancellable search task',
       ],
     },
   },
   {
     type: 'title',
     content: {
-      title: 'Network nominal — Module 6',
+      title: 'Network nominal - Module 6',
       subtitle: 'Run demos, then async exercises in module-06-async',
       icon: 'radio',
     },

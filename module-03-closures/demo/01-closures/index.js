@@ -1,5 +1,5 @@
 /**
- * Demo: Closures — private state via createZoneTracker.
+ * Demo: Closures - private state via createZoneTracker.
  * Run: node module-03-closures/demo/01-closures
  */
 function createZoneTracker(zoneName) {

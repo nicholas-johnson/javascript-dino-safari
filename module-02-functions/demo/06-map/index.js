@@ -1,5 +1,5 @@
 /**
- * Demo: .map() — transform each element into something new.
+ * Demo: .map() - transform each element into something new.
  * Run: node module-02-functions/demo/06-map
  */
 
@@ -21,9 +21,7 @@ const names = dinosaurs.map((d) => d.species);
 console.log('Species names:', names);
 
 // --- 3. Format objects into strings ---
-const lines = dinosaurs.map(
-  (d) => `${d.species} (${d.zone}) — danger: ${d.dangerLevel}`,
-);
+const lines = dinosaurs.map((d) => `${d.species} (${d.zone}) - danger: ${d.dangerLevel}`);
 console.log('\nFormatted sightings:');
 lines.forEach((line) => console.log(` - ${line}`));
 
