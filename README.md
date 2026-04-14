@@ -73,30 +73,32 @@ All **exercises** run in **Node.js** and are checked with **Vitest** (`start.js`
 
 ### Module 1 — [Modern JavaScript](module-01-modern-javascript/)
 
-**Topics:** Hello World, syntax basics (`const`/`let`, loops), ESM (`import`/`export`, `"type": "module"`), `package.json` scripts, npm packages, Vitest, debugging with `node --inspect`.
+**Topics:** Hello World, syntax basics (`const`/`let`, loops), string manipulation, ESM (`import`/`export`, `"type": "module"`), `package.json` scripts, npm packages, debugging with `node --inspect`.
 
-**Demos:** Hello World; variables and loops; ESM import/export; package scripts + npm; Vitest intro; intentional bug for stepping through.
+**Demos:** Hello World; variables and loops; string methods; ESM import/export; package scripts + npm; intentional bug for stepping through.
 
 | Exercise | Folder | What you practice |
 | -------- | ------ | ----------------- |
-| Package scripts | [`exercises/01-package-scripts`](module-01-modern-javascript/exercises/01-package-scripts/) | `start`, `lint`, `test` scripts; wiring Node and Vitest from `package.json` |
-| Vitest contract | [`exercises/02-vitest-contract`](module-01-modern-javascript/exercises/02-vitest-contract/) | Implement `formatSighting`; contract-driven formatting and nullish defaults |
+| Strings | [`exercises/01-strings`](module-01-modern-javascript/exercises/01-strings/) | `toUpperCase`, `toLowerCase`, `includes`, `split`, template literals |
+| Package scripts | [`exercises/02-package-scripts`](module-01-modern-javascript/exercises/02-package-scripts/) | `start`, `lint`, `test` scripts; wiring Node and Vitest from `package.json` |
 | ESM imports | [`exercises/03-esm-imports`](module-01-modern-javascript/exercises/03-esm-imports/) | Import from Node built-in (`node:path`), npm (`picocolors`), and a local module |
 
 ### Module 2 — [Functions, arrows, functional loops](module-02-functions/)
 
-**Topics:** Function declarations, expressions, arrow syntax, default/rest parameters, functions as values, `.filter()`, `.sort()`, `.map()`, `.reduce()`, pipelines.
+**Topics:** Introduction to functions, Vitest, function declarations, expressions, arrow syntax, default/rest parameters, functions as values, `.filter()`, `.sort()`, `.map()`, `.reduce()`, pipelines.
 
-**Demos:** Function basics; filter; sort; map; reduce; carnivore pipeline over JSON data.
+**Demos:** Function intro; Vitest; function basics (declarations, expressions, arrows); filter; sort; map; reduce; carnivore pipeline over JSON data.
 
 | Exercise | Folder | What you practice |
 | -------- | ------ | ----------------- |
-| Arrow functions | [`exercises/01-arrow-functions`](module-02-functions/exercises/01-arrow-functions/) | Arrow syntax, default params, rest params |
-| Filter | [`exercises/02-filter`](module-02-functions/exercises/02-filter/) | `.filter()` on numbers and objects |
-| Sort | [`exercises/03-sort`](module-02-functions/exercises/03-sort/) | `.sort()` with numeric and string comparators |
-| Map | [`exercises/04-map`](module-02-functions/exercises/04-map/) | `.map()` to double, extract, format |
-| Reduce | [`exercises/05-reduce`](module-02-functions/exercises/05-reduce/) | `.reduce()` to sum, group, find max |
-| Migration pipeline | [`exercises/06-migration-pipeline`](module-02-functions/exercises/06-migration-pipeline/) | Full pipeline: filter + map + reduce composed |
+| Function intro | [`exercises/01-function-intro`](module-02-functions/exercises/01-function-intro/) | `function` keyword, parameters, return values |
+| Vitest contract | [`exercises/02-vitest-contract`](module-02-functions/exercises/02-vitest-contract/) | Implement `formatSighting`; Vitest guarding the contract |
+| Arrow functions | [`exercises/03-arrow-functions`](module-02-functions/exercises/03-arrow-functions/) | Arrow syntax, default params, rest params |
+| Filter | [`exercises/04-filter`](module-02-functions/exercises/04-filter/) | `.filter()` on numbers and objects |
+| Sort | [`exercises/05-sort`](module-02-functions/exercises/05-sort/) | `.sort()` with numeric and string comparators |
+| Map | [`exercises/06-map`](module-02-functions/exercises/06-map/) | `.map()` to double, extract, format |
+| Reduce | [`exercises/07-reduce`](module-02-functions/exercises/07-reduce/) | `.reduce()` to sum, group, find max |
+| Migration pipeline | [`exercises/08-migration-pipeline`](module-02-functions/exercises/08-migration-pipeline/) | Full pipeline: filter + map + reduce composed |
 
 ### Module 3 — [Closures & currying](module-03-closures/)
 
@@ -185,7 +187,7 @@ pnpm test
 Or target a single exercise from the root:
 
 ```bash
-pnpm vitest run module-01-modern-javascript/exercises/03-vitest-contract/start.test.js
+pnpm vitest run module-02-functions/exercises/02-vitest-contract/start.test.js
 ```
 
 ## Workspace commands

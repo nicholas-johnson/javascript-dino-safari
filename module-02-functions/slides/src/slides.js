@@ -3,8 +3,39 @@ export const slides = [
     type: 'title',
     content: {
       title: 'Module 2 — Functions & Functional Loops',
-      subtitle: 'Declarations, arrows, filter, sort, map, reduce',
+      subtitle: 'Functions, Vitest, arrows, filter, sort, map, reduce',
       icon: 'zap',
+    },
+  },
+  {
+    type: 'code',
+    content: {
+      title: 'Your first function',
+      code: `function add(a, b) {
+  return a + b;
+}
+console.log(add(2, 3));  // 5
+
+function greet(name) {
+  return 'Hello, ' + name + '!';
+}`,
+      highlights: [
+        'The `function` keyword, parameters in parens, `return` to send a value back',
+        'Demo 01: the building block for everything that follows',
+      ],
+    },
+  },
+  {
+    type: 'standard',
+    content: {
+      title: 'Vitest — fast feedback on the trail',
+      icon: 'flask',
+      points: [
+        'Unit tests run in Node; watch mode while you refactor.',
+        '`pnpm vitest run path/to/file.test.js` for a single exercise.',
+        'Red → green → refactor: same loop as fixing a fence breach.',
+        'Demo 02: `describe`, `it`, `expect` — the testing vocabulary.',
+      ],
     },
   },
   {
@@ -152,12 +183,14 @@ const byZone = dinos.reduce((acc, d) => {
     content: {
       title: 'Exercises — graded missions',
       points: [
-        '01 — Arrow functions: double, greet, alert, tagAll',
-        '02 — Filter: evens, overlap, dangerous dinos',
-        '03 — Sort: numbers, by danger, by name',
-        '04 — Map: double all, extract names, format sightings',
-        '05 — Reduce: sum, count by zone, max danger',
-        '06 — Capstone: migration pipeline (filter + map + reduce)',
+        '01 — Function intro: add, multiply, greet, isEven, initials',
+        '02 — Vitest contract: formatSighting with ?? defaults',
+        '03 — Arrow functions: double, greet, alert, tagAll',
+        '04 — Filter: evens, overlap, dangerous dinos',
+        '05 — Sort: numbers, by danger, by name',
+        '06 — Map: double all, extract names, format sightings',
+        '07 — Reduce: sum, count by zone, max danger',
+        '08 — Capstone: migration pipeline (filter + map + reduce)',
       ],
     },
   },

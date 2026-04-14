@@ -1,0 +1,9 @@
+{
+  "name": "@dino-safari/m01-package-scripts-starter",
+  "private": true,
+  "type": "module",
+  "scripts": {},
+  "devDependencies": {
+    "vitest": "^2.1.6"
+  }
+}

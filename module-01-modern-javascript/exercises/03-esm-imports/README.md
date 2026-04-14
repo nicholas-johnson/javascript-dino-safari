@@ -4,10 +4,10 @@
 
 ## Tasks
 
-Edit [`start.js`](start.js):
+Edit [`starter/index.js`](starter/index.js):
 
 1. **Import `path`** from `node:path` (Node built-in).
-2. **Import `pc`** from `picocolors` (npm package — already installed).
+2. **Import `pc`** from `picocolors` (npm package — installed with `pnpm install`).
 3. **Import `{ getRiskLabel }`** from `./risk-levels.js` (local module).
 4. **Implement `formatAlert(dino)`**:
    - Apply `??` defaults: `name` → `'Unknown'`, `zone` → `'Uncharted'`, `dangerLevel` → `0`.
@@ -20,7 +20,7 @@ Edit [`start.js`](start.js):
 ## Verify
 
 ```bash
-pnpm vitest run module-01-modern-javascript/exercises/03-esm-imports/start.test.js
+cd starter && pnpm install && pnpm test
 ```
 
-Instructor reference: [`solution.js`](solution.js).
+Reference: [`solution/index.js`](solution/index.js).

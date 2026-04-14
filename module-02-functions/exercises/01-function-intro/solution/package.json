@@ -1,0 +1,11 @@
+{
+  "name": "@dino-safari/m02-function-intro-solution",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.6"
+  }
+}

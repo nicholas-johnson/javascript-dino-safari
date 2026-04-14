@@ -8,9 +8,9 @@
     "test": "vitest run --root .",
     "demo:hello": "node demo/01-hello-world",
     "demo:fundamentals": "node demo/02-syntax-fundamentals",
-    "demo:esm": "node demo/03-esm-basics",
-    "demo:scripts": "node demo/04-package-scripts",
-    "demo:vitest": "vitest run demo/05-vitest-intro/alert.test.js",
+    "demo:strings": "node demo/03-strings",
+    "demo:esm": "node demo/04-esm-basics",
+    "demo:scripts": "node demo/05-package-scripts",
     "demo:debug": "node --inspect demo/06-debugging"
   },
   "dependencies": {

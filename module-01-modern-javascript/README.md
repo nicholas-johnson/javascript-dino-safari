@@ -4,9 +4,9 @@ This module is the on-ramp. By the end of it every student should be able to:
 
 - **Run a script** with `node` and see output in the terminal.
 - **Use modern syntax** — `const`, `let`, `for...of`, template literals.
+- **Manipulate strings** — trim, search, slice, split, replace, and format with template literals.
 - **Split code into modules** — `export` from one file, `import` in another.
 - **Scaffold a project** with `pnpm init`, add scripts to `package.json`, and install an npm package.
-- **Run and read Vitest tests** — every exercise from here on ships with a `.test.js` file.
 - **Attach a debugger** when `console.log` isn't enough.
 
 Everything runs in **Node.js**. No browser, no bundler, no magic.
@@ -68,10 +68,81 @@ Edit the demo, change some values, run it again. Breaking things on purpose is t
 
 ---
 
-## 3. Modules — splitting code across files
+## 3. String manipulation
 
 ```bash
-node module-01-modern-javascript/demo/03-esm-basics
+node module-01-modern-javascript/demo/03-strings
+```
+
+Strings are everywhere — log messages, file paths, user input, CSV rows. This demo walks through the methods you'll reach for daily.
+
+### Template literals
+
+```js
+const species = 'Velociraptor';
+const zone = 'Raptor Ridge';
+console.log(`Sighting: ${species} in ${zone}`);
+```
+
+Back-ticks let you embed expressions with `${}`. No more `'hello ' + name + '!'` gymnastics.
+
+### Trimming, case, and length
+
+```js
+const sector = '  Cretaceous Valley  ';
+sector.trim()          // 'Cretaceous Valley'
+sector.trim().toUpperCase()  // 'CRETACEOUS VALLEY'
+sector.trim().length   // 17
+```
+
+`trim()` strips leading and trailing whitespace — essential when reading user input or file data. `toUpperCase()` / `toLowerCase()` return a new string (strings are immutable).
+
+### Searching
+
+```js
+const log = 'Rex spotted near north fence at 14:32';
+log.includes('Rex')        // true
+log.startsWith('Rex')      // true
+log.indexOf('north')       // 18
+```
+
+`includes` is the go-to boolean check. `indexOf` gives you the position (or `-1` if missing).
+
+### Extracting parts
+
+```js
+log.slice(0, 3)   // 'Rex'
+log.slice(17)     // 'north fence at 14:32'
+```
+
+`slice(start, end)` is non-destructive. Negative indices count from the end.
+
+### Splitting and joining
+
+```js
+const csv = 'Rex,Raptor,Bronto,Stego';
+const names = csv.split(',');   // ['Rex', 'Raptor', 'Bronto', 'Stego']
+names.join(' | ')               // 'Rex | Raptor | Bronto | Stego'
+```
+
+`split` breaks a string into an array on a delimiter. `join` does the reverse. You'll use this pair constantly for CSV parsing, building output lines, and extracting initials.
+
+### Replacing
+
+```js
+const alert = 'DANGER: Rex in zone-a, Rex near fence';
+alert.replace('Rex', 'T-Rex')      // replaces first occurrence
+alert.replaceAll('Rex', 'T-Rex')   // replaces all
+```
+
+`replace` swaps the first match. `replaceAll` gets every one. Both return a new string.
+
+---
+
+## 4. Modules — splitting code across files
+
+```bash
+node module-01-modern-javascript/demo/04-esm-basics
 ```
 
 A single file doesn't scale. As soon as you need more than a hundred lines you split code into **modules** — files that export things other files can import.
@@ -115,10 +186,10 @@ This works because `package.json` contains `"type": "module"`. Without it, Node 
 
 ---
 
-## 4. Package scripts and npm
+## 5. Package scripts and npm
 
 ```bash
-node module-01-modern-javascript/demo/04-package-scripts
+node module-01-modern-javascript/demo/05-package-scripts
 ```
 
 A project with no documented commands is a project where someone forgets how to run the tests. `package.json` is your operations manual.
@@ -149,8 +220,8 @@ Look at the module's `package.json`:
 {
   "scripts": {
     "test": "vitest run --root .",
-    "demo:scripts": "node demo/04-package-scripts",
-    "demo:esm": "node demo/03-esm-basics"
+    "demo:scripts": "node demo/05-package-scripts",
+    "demo:esm": "node demo/04-esm-basics"
   }
 }
 ```
@@ -179,54 +250,6 @@ Run it both ways — with `node` directly and via `pnpm demo:scripts`. Notice th
 
 ---
 
-## 5. Vitest — running and reading tests
-
-```bash
-node module-01-modern-javascript/demo/05-vitest-intro
-```
-
-Every exercise in this course ships with a `start.test.js` file. When you complete an exercise, the tests go green. Learning to run and read tests *now* means you'll be self-sufficient for the rest of the course.
-
-The demo has three files: `alert.js` (the code under test), `alert.test.js` (the tests), and `index.js` (runs the functions so you can see output).
-
-### Running tests
-
-```bash
-pnpm vitest run module-01-modern-javascript/demo/05-vitest-intro/alert.test.js
-```
-
-Seven green checks. Now let's look at what makes them tick.
-
-### Anatomy of a test file
-
-```js
-import { describe, it, expect } from 'vitest';
-import { formatAlert, isHighRisk } from './alert.js';
-
-describe('formatAlert', () => {
-  it('tags high-danger sightings', () => {
-    const result = formatAlert({ name: 'Rex', zone: 'Valley', dangerLevel: 5 });
-    expect(result).toBe('[DANGER] Rex spotted in Valley');
-  });
-
-  it('uses defaults for missing fields', () => {
-    expect(formatAlert({})).toBe('[OK] Unknown spotted in Uncharted');
-  });
-});
-```
-
-`describe` groups related tests. `it` defines one assertion. `expect(value).toBe(expected)` is the check — if they don't match, Vitest shows a diff.
-
-### Reading a failure
-
-Change an expected string to something wrong and run again. Vitest highlights exactly what it got vs what you expected. Learning to read these diffs quickly is one of the most useful skills in the course.
-
-### The testing loop
-
-Write a function. Write a test. Run it. **Red** means something is wrong. Fix it. **Green** means the contract holds. Refactor freely — the tests catch regressions. This is the loop you'll follow in every exercise.
-
----
-
 ## 6. Debugging
 
 ```bash
@@ -250,24 +273,18 @@ This is the kind of bug `console.log` misses but a breakpoint catches in seconds
 
 ## Exercises
 
-Each exercise has a `start.js` (your work), a `start.test.js` (Vitest tests that judge success), and a `solution.js` (instructor reference — try first).
+Each exercise has a `starter/` folder (your work) and a `solution/` folder (instructor reference — try first). Both contain a `package.json`, `index.js`, and `index.test.js`.
 
 | # | Folder | What you'll practice |
 |---|--------|----------------------|
-| 1 | [`01-package-scripts`](exercises/01-package-scripts/) | Wire up `start`, `lint`, and `test` scripts in a `package.json`. |
-| 2 | [`02-vitest-contract`](exercises/02-vitest-contract/) | Implement `formatSighting` — template literals and `??` defaults, with Vitest guarding the contract. |
+| 1 | [`01-strings`](exercises/01-strings/) | `toUpperCase`, `toLowerCase`, `includes`, `split`, template literals — everyday string methods. |
+| 2 | [`02-package-scripts`](exercises/02-package-scripts/) | Wire up `start`, `lint`, and `test` scripts in a `package.json`. |
 | 3 | [`03-esm-imports`](exercises/03-esm-imports/) | Import from a Node built-in (`node:path`), an npm package (`picocolors`), and a local module. |
 
-Run all module tests:
+Run an exercise:
 
 ```bash
-pnpm vitest run module-01-modern-javascript/exercises/
-```
-
-Single exercise:
-
-```bash
-pnpm vitest run module-01-modern-javascript/exercises/01-package-scripts/start.test.js
+cd module-01-modern-javascript/exercises/01-strings/starter && pnpm install && pnpm test
 ```
 
 ---

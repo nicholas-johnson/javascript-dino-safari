@@ -2,7 +2,7 @@
 
 ## Goal
 
-Get everyone from zero to a working modern JS workflow: run scripts, split code into modules, install packages, run tests, attach a debugger. Everything after this module assumes students can do all of these.
+Get everyone from zero to a working modern JS workflow: run scripts, split code into modules, install packages, attach a debugger. Vitest is introduced at the start of Module 2.
 
 ## Demo walkthrough
 
@@ -19,31 +19,30 @@ Get everyone from zero to a working modern JS workflow: run scripts, split code 
 - Three loop forms: `for...of` (most common), classic `for` (when you need an index), `while` (condition-based).
 - Ask someone to change a loop bound, predict what happens, run it.
 
-### 03 — ESM basics
+### 03 — String manipulation
+
+- Walk through each section: template literals, trimming, case, searching, slicing, splitting/joining, replacing.
+- Emphasise immutability: all string methods return a *new* string.
+- Ask students to guess what `'  hello  '.trim().toUpperCase()` returns before running.
+- Good place to mention chaining — `str.trim().toLowerCase().split(' ')`.
+
+### 04 — ESM basics
 
 - Open `park-info.js` and `index.js` side by side.
 - Named exports: `{ braces }`, names must match exactly. Ask: "What happens if you typo `PARK_NAME`?" (you get `undefined`, no error).
 - Default export: can use any name on the import side — that's why many teams avoid defaults.
 - Point out `"type": "module"` in `package.json` — without it, Node falls back to CommonJS (`require`).
 
-### 04 — Package scripts + npm
+### 05 — Package scripts + npm
 
 - Live-code in a scratch folder if time allows:
   - `pnpm init` → show the generated `package.json`.
   - `pnpm add picocolors` → show `node_modules/`, show the new `dependencies` entry.
   - Add a `"start"` script, run it with `pnpm start`.
-- Run the demo: `node module-01-modern-javascript/demo/04-package-scripts`.
+- Run the demo: `node module-01-modern-javascript/demo/05-package-scripts`.
 - Then run via the script: `pnpm demo:scripts -- --sector=ridge --verbose`.
 - Show `process.env.npm_lifecycle_event` — it's set only when running via a script.
 - Explain `node_modules/.bin` on PATH: that's why `vitest` and `eslint` work inside scripts without global install.
-
-### 05 — Vitest intro
-
-- **Emphasise this one.** Every exercise from here on has a `.test.js` file. Students need to be comfortable running and reading tests before they leave this module.
-- Run the tests live: `pnpm vitest run module-01-modern-javascript/demo/05-vitest-intro/alert.test.js`.
-- Break one test on purpose — change an expected string. Show how Vitest highlights the diff.
-- Walk through `describe` / `it` / `expect` structure.
-- Mention watch mode briefly: `pnpm vitest module-01-modern-javascript/demo/05-vitest-intro/alert.test.js` (no `run`).
 
 ### 06 — Debugging
 
@@ -57,17 +56,16 @@ Get everyone from zero to a working modern JS workflow: run scripts, split code 
 
 | # | Folder | Key skills | Notes |
 |---|--------|-----------|-------|
-| 1 | `01-package-scripts` | `pnpm init`, adding scripts, `pnpm test` | Reinforces demo 04. Students edit a `package.json`. |
-| 2 | `02-vitest-contract` | `??` defaults, template literals, Vitest | First time students write code *to pass a test*. Reinforces demo 05. |
-| 3 | `03-esm-imports` | Import from Node built-in, npm, local module | Ties demos 03 + 04 together. Uses `node:path`, `picocolors`, local `risk-levels.js`. |
+| 1 | `01-strings` | `toUpperCase`, `toLowerCase`, `includes`, `split`, template literals | Reinforces demo 03. Gentle first exercise — pure string work. |
+| 2 | `02-package-scripts` | `pnpm init`, adding scripts, `pnpm test` | Reinforces demo 05. Students edit a `package.json`. |
+| 3 | `03-esm-imports` | Import from Node built-in, npm, local module | Ties demos 04 + 05 together. Uses `node:path`, `picocolors`, local `risk-levels.js`. |
 
 ## Timing
 
-- Demos 01–04: ~30–40 min (less if skipping demo 02).
-- Demo 05 (Vitest): ~15 min — don't rush this, it pays off all course.
+- Demos 01–05: ~40–50 min (less if skipping demo 02).
 - Demo 06 (debugging): ~10 min.
-- Exercises: ~30–45 min for all three.
-- Total: roughly 1.5–2 hours including Q&A.
+- Exercises: ~30–40 min for all three.
+- Total: roughly 1.5 hours including Q&A.
 
 ## Common issues
 

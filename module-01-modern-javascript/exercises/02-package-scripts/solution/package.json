@@ -1,0 +1,13 @@
+{
+  "name": "@dino-safari/m01-package-scripts-solution",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node tracker.js",
+    "lint": "eslint tracker.js",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.6"
+  }
+}

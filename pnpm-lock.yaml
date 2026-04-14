@@ -30,6 +30,50 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
 
+  module-01-modern-javascript/exercises/01-strings/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-01-modern-javascript/exercises/01-strings/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-01-modern-javascript/exercises/02-package-scripts/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-01-modern-javascript/exercises/02-package-scripts/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-01-modern-javascript/exercises/03-esm-imports/solution:
+    dependencies:
+      picocolors:
+        specifier: ^1.1.1
+        version: 1.1.1
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-01-modern-javascript/exercises/03-esm-imports/starter:
+    dependencies:
+      picocolors:
+        specifier: ^1.1.1
+        version: 1.1.1
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
   module-01-modern-javascript/slides:
     dependencies:
       react:
@@ -60,73 +104,85 @@ importers:
 
   module-02-functions: {}
 
-  module-02-functions/exercises/01-arrow-functions/solution:
+  module-02-functions/exercises/01-function-intro/solution:
     devDependencies:
       vitest:
         specifier: ^2.1.6
         version: 2.1.9(lightningcss@1.32.0)
 
-  module-02-functions/exercises/01-arrow-functions/starter:
+  module-02-functions/exercises/01-function-intro/starter:
     devDependencies:
       vitest:
         specifier: ^2.1.6
         version: 2.1.9(lightningcss@1.32.0)
 
-  module-02-functions/exercises/02-filter/solution:
+  module-02-functions/exercises/03-arrow-functions/solution:
     devDependencies:
       vitest:
         specifier: ^2.1.6
         version: 2.1.9(lightningcss@1.32.0)
 
-  module-02-functions/exercises/02-filter/starter:
+  module-02-functions/exercises/03-arrow-functions/starter:
     devDependencies:
       vitest:
         specifier: ^2.1.6
         version: 2.1.9(lightningcss@1.32.0)
 
-  module-02-functions/exercises/03-sort/solution:
+  module-02-functions/exercises/04-filter/solution:
     devDependencies:
       vitest:
         specifier: ^2.1.6
         version: 2.1.9(lightningcss@1.32.0)
 
-  module-02-functions/exercises/03-sort/starter:
+  module-02-functions/exercises/04-filter/starter:
     devDependencies:
       vitest:
         specifier: ^2.1.6
         version: 2.1.9(lightningcss@1.32.0)
 
-  module-02-functions/exercises/04-map/solution:
+  module-02-functions/exercises/05-sort/solution:
     devDependencies:
       vitest:
         specifier: ^2.1.6
         version: 2.1.9(lightningcss@1.32.0)
 
-  module-02-functions/exercises/04-map/starter:
+  module-02-functions/exercises/05-sort/starter:
     devDependencies:
       vitest:
         specifier: ^2.1.6
         version: 2.1.9(lightningcss@1.32.0)
 
-  module-02-functions/exercises/05-reduce/solution:
+  module-02-functions/exercises/06-map/solution:
     devDependencies:
       vitest:
         specifier: ^2.1.6
         version: 2.1.9(lightningcss@1.32.0)
 
-  module-02-functions/exercises/05-reduce/starter:
+  module-02-functions/exercises/06-map/starter:
     devDependencies:
       vitest:
         specifier: ^2.1.6
         version: 2.1.9(lightningcss@1.32.0)
 
-  module-02-functions/exercises/06-migration-pipeline/solution:
+  module-02-functions/exercises/07-reduce/solution:
     devDependencies:
       vitest:
         specifier: ^2.1.6
         version: 2.1.9(lightningcss@1.32.0)
 
-  module-02-functions/exercises/06-migration-pipeline/starter:
+  module-02-functions/exercises/07-reduce/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-02-functions/exercises/08-migration-pipeline/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-02-functions/exercises/08-migration-pipeline/starter:
     devDependencies:
       vitest:
         specifier: ^2.1.6

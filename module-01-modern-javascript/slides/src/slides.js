@@ -57,10 +57,27 @@ for (const name of dinos) {
       title: 'Learning goals',
       icon: 'target',
       points: [
+        'Manipulate strings — trim, search, slice, split, replace.',
         'Use ESM (`import` / `export`) with `"type": "module"`.',
         'Wire package scripts for run, test, and lint.',
-        'Run Vitest and read failures like a ranger reads a map.',
         'Debug with `node --inspect` and your editor.',
+      ],
+    },
+  },
+  {
+    type: 'code',
+    content: {
+      title: 'String manipulation — everyday toolkit',
+      code: `const csv = 'Rex,Raptor,Bronto,Stego';
+const names = csv.split(',');    // ['Rex', 'Raptor', ...]
+names.join(' | ');               // 'Rex | Raptor | ...'
+
+'  hello  '.trim().toUpperCase();  // 'HELLO'
+'Rex spotted'.includes('Rex');     // true
+'Rex spotted'.slice(0, 3);        // 'Rex'`,
+      highlights: [
+        'Strings are immutable — every method returns a new string',
+        'Demo 03: template literals, trim, search, slice, split, replace',
       ],
     },
   },
@@ -124,24 +141,12 @@ export default function briefing() {
   "scripts": {
     "test": "vitest run",
     "lint": "eslint .",
-    "demo:esm": "node demo/03-esm-basics"
+    "demo:esm": "node demo/04-esm-basics"
   }
 }`,
       highlights: [
         'One source of truth for onboarding and CI',
         'Students: complete the package-scripts exercise in this module',
-      ],
-    },
-  },
-  {
-    type: 'standard',
-    content: {
-      title: 'Vitest — fast feedback on the trail',
-      icon: 'flask',
-      points: [
-        'Unit tests run in Node; watch mode while you refactor.',
-        '`pnpm vitest run path/to/file.test.js` for a single exercise.',
-        'Red → green → refactor: same loop as fixing a fence breach.',
       ],
     },
   },
@@ -197,8 +202,8 @@ export default function briefing() {
     content: {
       title: 'Exercises — Base Camp missions',
       points: [
-        '01 — Package scripts for the mini tracker',
-        '02 — Vitest contract: `formatSighting`',
+        '01 — Strings: shout, whisper, format, search, initials',
+        '02 — Package scripts for the mini tracker',
         '03 — ESM imports: Node built-in, npm, local module',
       ],
     },

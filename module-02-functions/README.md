@@ -4,6 +4,8 @@ Functions are the fundamental unit of work in JavaScript. This module covers how
 
 By the end of this module you should be able to:
 
+- **Write functions** with the `function` keyword, parameters, and `return`.
+- **Run and read Vitest tests** — every exercise from here on ships with a `.test.js` file.
 - **Declare functions** three ways: declaration, expression, and arrow.
 - **Use default and rest parameters** to write flexible signatures.
 - **Pass functions as values** — to other functions, into arrays, wherever.
@@ -15,10 +17,117 @@ By the end of this module you should be able to:
 
 ---
 
-## 1. Function basics
+## 1. Introduction to functions
 
 ```bash
-node module-02-functions/demo/01-function-basics
+node module-02-functions/demo/01-function-intro
+```
+
+A function is a reusable block of code. You declare one with the `function` keyword, give it a name, list any parameters, and use `return` to send a value back:
+
+```js
+function greet() {
+  return 'Hello, Jurassic World!';
+}
+console.log(greet());  // "Hello, Jurassic World!"
+```
+
+### Parameters
+
+Parameters let a function work with different inputs each time:
+
+```js
+function add(a, b) {
+  return a + b;
+}
+console.log(add(2, 3));   // 5
+console.log(add(10, 20)); // 30
+```
+
+You can have as many as you need:
+
+```js
+function describeDino(name, species, zone) {
+  return name + ' the ' + species + ', currently in ' + zone;
+}
+```
+
+### Using return values
+
+Whatever a function returns can be stored in a variable, passed to another function, or used in an expression:
+
+```js
+function double(n) {
+  return n * 2;
+}
+const result = double(7);          // 14
+console.log(double(double(3)));    // 12
+```
+
+Functions can return any type — numbers, strings, booleans:
+
+```js
+function isPositive(n) {
+  return n > 0;
+}
+```
+
+This is the building block for everything that follows.
+
+---
+
+## 2. Vitest — running and reading tests
+
+```bash
+node module-02-functions/demo/02-vitest-intro
+```
+
+Every exercise in this course ships with a `.test.js` file. When you complete an exercise, the tests go green. Learning to run and read tests *now* means you'll be self-sufficient for the rest of the course.
+
+The demo has three files: `alert.js` (the code under test), `alert.test.js` (the tests), and `index.js` (runs the functions so you can see output).
+
+### Running tests
+
+```bash
+pnpm vitest run module-02-functions/demo/02-vitest-intro/alert.test.js
+```
+
+Seven green checks. Now let's look at what makes them tick.
+
+### Anatomy of a test file
+
+```js
+import { describe, it, expect } from 'vitest';
+import { formatAlert, isHighRisk } from './alert.js';
+
+describe('formatAlert', () => {
+  it('tags high-danger sightings', () => {
+    const result = formatAlert({ name: 'Rex', zone: 'Valley', dangerLevel: 5 });
+    expect(result).toBe('[DANGER] Rex spotted in Valley');
+  });
+
+  it('uses defaults for missing fields', () => {
+    expect(formatAlert({})).toBe('[OK] Unknown spotted in Uncharted');
+  });
+});
+```
+
+`describe` groups related tests. `it` defines one assertion. `expect(value).toBe(expected)` is the check — if they don't match, Vitest shows a diff.
+
+### Reading a failure
+
+Change an expected string to something wrong and run again. Vitest highlights exactly what it got vs what you expected. Learning to read these diffs quickly is one of the most useful skills in the course.
+
+### The testing loop
+
+Write a function. Write a test. Run it. **Red** means something is wrong. Fix it. **Green** means the contract holds. Refactor freely — the tests catch regressions. This is the loop you'll follow in every exercise.
+
+---
+
+## 3. Function basics — declarations, expressions, arrows
+
+```bash
+node module-02-functions/demo/03-function-basics
 ```
 
 ### Declarations, expressions, arrows
@@ -68,10 +177,10 @@ logAll('Zone', 'North', 'South', 'Ridge');
 
 ---
 
-## 2. Filter
+## 4. Filter
 
 ```bash
-node module-02-functions/demo/02-filter
+node module-02-functions/demo/04-filter
 ```
 
 `.filter()` returns a **new array** containing only the elements that pass a test:
@@ -99,10 +208,10 @@ The original array is never mutated — `.filter()` always returns a fresh array
 
 ---
 
-## 3. Sort
+## 5. Sort
 
 ```bash
-node module-02-functions/demo/03-sort
+node module-02-functions/demo/05-sort
 ```
 
 `.sort()` orders elements **in place** (it mutates the array). Without a comparator, it sorts **lexicographically** — which gives wrong results for numbers:
@@ -130,10 +239,10 @@ dinos.sort((a, b) => a.species.localeCompare(b.species));
 
 ---
 
-## 4. Map
+## 6. Map
 
 ```bash
-node module-02-functions/demo/04-map
+node module-02-functions/demo/06-map
 ```
 
 `.map()` transforms **every element** and returns a new array of the same length:
@@ -161,10 +270,10 @@ Like `.filter()`, `.map()` never mutates the original — it returns a fresh arr
 
 ---
 
-## 5. Reduce
+## 7. Reduce
 
 ```bash
-node module-02-functions/demo/05-reduce
+node module-02-functions/demo/07-reduce
 ```
 
 `.reduce()` folds an array down to a **single value** — a number, a string, an object, anything. It takes a callback and an initial value for the **accumulator**:
@@ -197,10 +306,10 @@ const mostDangerous = dinos.reduce((best, d) =>
 
 ---
 
-## 6. Pipelines — putting it all together
+## 8. Pipelines — putting it all together
 
 ```bash
-node module-02-functions/demo/06-pipelines
+node module-02-functions/demo/08-pipelines
 ```
 
 The real power comes from chaining filter, map, and reduce together:
@@ -223,12 +332,14 @@ Read it top to bottom: filter the data, reshape it, fold it into a summary. Each
 
 | # | Folder | What you'll practice |
 |---|--------|----------------------|
-| 1 | [`exercises/01-arrow-functions`](exercises/01-arrow-functions/) | Arrow syntax, default params, rest params |
-| 2 | [`exercises/02-filter`](exercises/02-filter/) | `.filter()` on numbers and objects |
-| 3 | [`exercises/03-sort`](exercises/03-sort/) | `.sort()` with numeric and string comparators |
-| 4 | [`exercises/04-map`](exercises/04-map/) | `.map()` to double, extract, format |
-| 5 | [`exercises/05-reduce`](exercises/05-reduce/) | `.reduce()` to sum, group, find max |
-| 6 | [`exercises/06-migration-pipeline`](exercises/06-migration-pipeline/) | Full pipeline: filter + map + reduce composed |
+| 1 | [`exercises/01-function-intro`](exercises/01-function-intro/) | `function` keyword, parameters, return values |
+| 2 | [`exercises/02-vitest-contract`](exercises/02-vitest-contract/) | Implement `formatSighting` — template literals and `??` defaults, Vitest guarding the contract |
+| 3 | [`exercises/03-arrow-functions`](exercises/03-arrow-functions/) | Arrow syntax, default params, rest params |
+| 4 | [`exercises/04-filter`](exercises/04-filter/) | `.filter()` on numbers and objects |
+| 5 | [`exercises/05-sort`](exercises/05-sort/) | `.sort()` with numeric and string comparators |
+| 6 | [`exercises/06-map`](exercises/06-map/) | `.map()` to double, extract, format |
+| 7 | [`exercises/07-reduce`](exercises/07-reduce/) | `.reduce()` to sum, group, find max |
+| 8 | [`exercises/08-migration-pipeline`](exercises/08-migration-pipeline/) | Full pipeline: filter + map + reduce composed |
 
 Each exercise has a `starter/` folder. To work on an exercise:
 

@@ -1,6 +1,15 @@
 /**
  * Demo: Intentionally buggy tracker — use node --inspect and breakpoints.
- * Run: node module-01-modern-javascript/demo/06-debugging
+ *
+ * Run normally (you'll see a wrong average):
+ *   node module-01-modern-javascript/demo/06-debugging
+ *
+ * Run with the debugger paused on the first line:
+ *   node --inspect-brk module-01-modern-javascript/demo/06-debugging
+ *
+ * Then attach via Chrome (chrome://inspect) or your editor's debugger.
+ * Set a breakpoint inside the loop in averageWeightKg, step through, and
+ * find the bug: <= should be <, so the last iteration reads undefined.
  */
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
