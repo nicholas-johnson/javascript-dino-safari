@@ -7,7 +7,6 @@
  * }}
  */
 export function createZoneTracker(_zoneName) {
-  void _zoneName;
   // TODO
   return {
     logSighting() {},
