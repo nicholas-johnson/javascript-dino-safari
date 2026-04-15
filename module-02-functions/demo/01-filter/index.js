@@ -1,6 +1,6 @@
 /**
  * Demo: .filter() - keep elements that pass a test.
- * Run: node module-02-functions/demo/02-filter
+ * Run: node module-02-functions/demo/01-filter
  */
 
 console.log('\n--- .filter() demo ---\n');

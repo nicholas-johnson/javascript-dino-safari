@@ -1,6 +1,6 @@
 /**
  * Demo: .reduce() - fold an array into a single value.
- * Run: node module-02-functions/demo/05-reduce
+ * Run: node module-02-functions/demo/04-reduce
  */
 
 console.log('\n--- .reduce() demo ---\n');

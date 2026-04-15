@@ -3,54 +3,25 @@ export const slides = [
     type: 'title',
     content: {
       title: 'Module 2 - Functions & Functional Loops',
-      subtitle: 'Arrows, defaults, rest, filter, sort, map, reduce',
+      subtitle: 'Array methods replace most hand-written loops',
       icon: 'zap',
     },
   },
+
   {
-    type: 'welcome',
+    type: 'standard',
     content: {
-      title: 'Functions are the building block',
+      title: 'Functional loops',
+      icon: 'layers',
       points: [
-        'Three ways to declare: declaration, expression, arrow.',
-        'Default and rest parameters for flexible signatures.',
-        'Functions as values - pass them, store them, return them.',
+        'A **functional loop** is still a loop - the engine walks the array - but you describe *what* should happen, not index bookkeeping.',
+        '**`.filter` / `.map` / `.reduce`** return new values (except `.sort()`, which mutates in place). You pass a small callback; the method handles iteration.',
+        'That vocabulary - keep, transform, fold, order - reads like a sentence and composes into **pipelines**: filter, then map, then reduce.',
+        'Module 1 covered `function` syntax and Vitest. Here we use **arrow callbacks** everywhere they stay short and clear.',
       ],
     },
   },
-  {
-    type: 'comparison',
-    content: {
-      title: 'Declaration vs expression vs arrow',
-      left: {
-        label: 'Declaration',
-        code: `function greet(name) {
-  return \`Hello, \${name}\`;
-}`,
-      },
-      right: {
-        label: 'Arrow',
-        code: `const greet = (name) =>
-  \`Hello, \${name}\`;`,
-      },
-    },
-  },
-  {
-    type: 'code',
-    content: {
-      title: 'Defaults and rest',
-      code: `function log(zone = 'Uncharted', ...ids) {
-  for (const id of ids) {
-    console.log(\`[\${zone}] \${id}\`);
-  }
-}
-log('Ridge', 'TRX-001', 'STG-014');`,
-      highlights: [
-        'Defaults fill in for undefined - keep call sites clean',
-        '...rest collects remaining args into a real array',
-      ],
-    },
-  },
+
   {
     type: 'code',
     content: {
@@ -61,6 +32,7 @@ const shared = a.filter(id => b.includes(id));`,
       highlights: [
         'Returns a new array - original untouched',
         'Predicate callback: return true to keep, false to drop',
+        '**Demo 01:** `node module-02-functions/demo/01-filter` (or `pnpm demo:filter` from `module-02-functions`)',
       ],
     },
   },
@@ -74,6 +46,7 @@ dinos.sort((a, b) => a.species.localeCompare(b.species));`,
       highlights: [
         'Without a comparator, sort is lexicographic - [1, 10, 2] !',
         '.sort() mutates - spread first if you need a copy',
+        '**Demo 02:** `node module-02-functions/demo/02-sort` (or `pnpm demo:sort` from `module-02-functions`)',
       ],
     },
   },
@@ -89,6 +62,7 @@ const lines = dinos.map(d =>
       highlights: [
         'Same length in, same length out - every element transformed',
         'Use to reshape objects, extract fields, format strings',
+        '**Demo 03:** `node module-02-functions/demo/03-map` (or `pnpm demo:map` from `module-02-functions`)',
       ],
     },
   },
@@ -104,6 +78,7 @@ const byZone = dinos.reduce((acc, d) => {
       highlights: [
         'Accumulator carries state between iterations',
         'Always pass an initial value - empty arrays throw without one',
+        '**Demo 04:** `node module-02-functions/demo/04-reduce` (or `pnpm demo:reduce` from `module-02-functions`)',
       ],
     },
   },
@@ -121,29 +96,7 @@ const byZone = dinos.reduce((acc, d) => {
       highlights: [
         'Read top to bottom: filter, reshape, fold',
         'Each step returns a new value - no mutation',
-      ],
-    },
-  },
-  {
-    type: 'rules',
-    content: {
-      title: 'Field rules - Module 2',
-      rules: [
-        {
-          rule: 'Prefer arrows for callbacks',
-          example: 'Short, no own `this` - perfect for array methods.',
-          icon: 'zap',
-        },
-        {
-          rule: 'Always pass an initial value to reduce',
-          example: 'Empty arrays throw without one.',
-          icon: 'shield',
-        },
-        {
-          rule: 'Name your pipeline stages',
-          example: 'Small functions > 40-line chains.',
-          icon: 'file-code',
-        },
+        '**Demo 05:** `node module-02-functions/demo/05-pipelines` (or `pnpm demo:pipelines` from `module-02-functions`)',
       ],
     },
   },

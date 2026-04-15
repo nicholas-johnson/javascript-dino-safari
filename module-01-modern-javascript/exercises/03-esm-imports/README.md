@@ -14,8 +14,6 @@ Edit [`starter/index.js`](starter/index.js):
    - Get the risk label with `getRiskLabel(dangerLevel)`.
    - Colour the label with picocolors: `pc.red` if danger >= 4, `pc.yellow` if >= 2, otherwise `pc.green`.
    - Return format: `[COLOURED_LABEL] name @ zone`
-5. **Implement `getExtension(filename)`**:
-   - Use `path.extname(filename)` to return the file extension (e.g. `'.json'`).
 
 ## Verify
 

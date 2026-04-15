@@ -8,7 +8,7 @@
  *   index.js       → this script (runs the functions, points to the tests)
  *
  * To run the tests:
- *   pnpm vitest run module-01-modern-javascript/demo/07-vitest-intro/alert.test.js
+ *   pnpm vitest run module-02-functions/demo/02-vitest-intro/alert.test.js
  */
 
 import { formatAlert, isHighRisk } from './alert.js';
@@ -23,4 +23,4 @@ console.log(formatAlert(bronto), '  high risk?', isHighRisk(bronto));
 console.log(formatAlert(null), '  high risk?', isHighRisk(null));
 
 console.log('\nRun the tests:');
-console.log('  pnpm vitest run module-01-modern-javascript/demo/07-vitest-intro/alert.test.js\n');
+console.log('  pnpm vitest run module-02-functions/demo/02-vitest-intro/alert.test.js\n');

@@ -6,11 +6,10 @@
   "description": "Module 2 - Functions, arrows, and functional loops",
   "scripts": {
     "test": "vitest run --root .",
-    "demo:basics": "node demo/01-function-basics",
-    "demo:filter": "node demo/02-filter",
-    "demo:sort": "node demo/03-sort",
-    "demo:map": "node demo/04-map",
-    "demo:reduce": "node demo/05-reduce",
-    "demo:pipelines": "node demo/06-pipelines"
+    "demo:filter": "node demo/01-filter",
+    "demo:sort": "node demo/02-sort",
+    "demo:map": "node demo/03-map",
+    "demo:reduce": "node demo/04-reduce",
+    "demo:pipelines": "node demo/05-pipelines"
   }
 }

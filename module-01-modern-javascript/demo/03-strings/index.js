@@ -32,6 +32,7 @@ console.log('Slice(17):  ', log.slice(17));
 
 // --- 5. Splitting and joining ---
 const csv = 'Rex,Raptor,Bronto,Stego';
+
 const names = csv.split(',');
 console.log('\nSplit CSV: ', names);
 console.log('Joined:    ', names.join(' | '));

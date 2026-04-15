@@ -1,6 +1,6 @@
 /**
  * Demo: .map() - transform each element into something new.
- * Run: node module-02-functions/demo/04-map
+ * Run: node module-02-functions/demo/03-map
  */
 
 console.log('\n--- .map() demo ---\n');

@@ -1,6 +1,6 @@
 /**
  * Demo: Functional pipelines - filter, map, reduce.
- * Run: node module-02-functions/demo/06-pipelines
+ * Run: node module-02-functions/demo/05-pipelines
  */
 import { readFileSync } from 'node:fs';
 import path from 'node:path';

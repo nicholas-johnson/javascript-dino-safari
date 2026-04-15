@@ -17,63 +17,10 @@ By the end of this module you should be able to:
 
 ---
 
-## 1. Function basics - declarations, expressions, arrows
+## 1. Filter
 
 ```bash
-node module-02-functions/demo/01-function-basics
-```
-
-### Declarations, expressions, arrows
-
-Three ways to create a function:
-
-```js
-// Declaration - hoisted, available anywhere in the scope
-function greetRanger(name) {
-  return `Welcome, Ranger ${name}.`;
-}
-
-// Expression - assigned to a const, not hoisted
-const describeDino = function (dino) {
-  return `${dino.name} - ${dino.species}`;
-};
-
-// Arrow - compact, no own `this`
-const double = (n) => n * 2;
-```
-
-Arrows shine for callbacks: short, no curly braces needed for single expressions, and no `this` confusion.
-
-### Default parameters
-
-```js
-function formatSighting(name, zone = 'Uncharted', risk = 0) {
-  return `${name} @ ${zone} (risk ${risk})`;
-}
-formatSighting('Compy'); // "Compy @ Uncharted (risk 0)"
-```
-
-Defaults fill in when the argument is `undefined`. They keep call sites clean - no need to pass values you rarely change.
-
-### Rest parameters
-
-```js
-function logAll(label, ...items) {
-  for (const item of items) {
-    console.log(`${label}: ${item}`);
-  }
-}
-logAll('Zone', 'North', 'South', 'Ridge');
-```
-
-`...items` collects all remaining arguments into a real array. Unlike the legacy `arguments` object, rest params are a proper array - you can `.map()` and `.filter()` them directly.
-
----
-
-## 2. Filter
-
-```bash
-node module-02-functions/demo/02-filter
+node module-02-functions/demo/01-filter
 ```
 
 `.filter()` returns a **new array** containing only the elements that pass a test:
@@ -101,10 +48,10 @@ The original array is never mutated - `.filter()` always returns a fresh array.
 
 ---
 
-## 3. Sort
+## 2. Sort
 
 ```bash
-node module-02-functions/demo/03-sort
+node module-02-functions/demo/02-sort
 ```
 
 `.sort()` orders elements **in place** (it mutates the array). Without a comparator, it sorts **lexicographically** - which gives wrong results for numbers:
@@ -132,10 +79,10 @@ dinos.sort((a, b) => a.species.localeCompare(b.species));
 
 ---
 
-## 4. Map
+## 3. Map
 
 ```bash
-node module-02-functions/demo/04-map
+node module-02-functions/demo/03-map
 ```
 
 `.map()` transforms **every element** and returns a new array of the same length:
@@ -161,10 +108,10 @@ Like `.filter()`, `.map()` never mutates the original - it returns a fresh array
 
 ---
 
-## 5. Reduce
+## 4. Reduce
 
 ```bash
-node module-02-functions/demo/05-reduce
+node module-02-functions/demo/04-reduce
 ```
 
 `.reduce()` folds an array down to a **single value** - a number, a string, an object, anything. It takes a callback and an initial value for the **accumulator**:
@@ -197,10 +144,10 @@ const mostDangerous = dinos.reduce((best, d) =>
 
 ---
 
-## 6. Pipelines - putting it all together
+## 5. Pipelines - putting it all together
 
 ```bash
-node module-02-functions/demo/06-pipelines
+node module-02-functions/demo/05-pipelines
 ```
 
 The real power comes from chaining filter, map, and reduce together:
@@ -223,12 +170,11 @@ Read it top to bottom: filter the data, reshape it, fold it into a summary. Each
 
 | #   | Folder                                                                | What you'll practice                              |
 | --- | --------------------------------------------------------------------- | ------------------------------------------------- |
-| 1   | [`exercises/01-arrow-functions`](exercises/01-arrow-functions/)       | Arrow syntax, default params, rest params         |
-| 2   | [`exercises/02-filter`](exercises/02-filter/)                         | `.filter()` on numbers and objects                |
-| 3   | [`exercises/03-sort`](exercises/03-sort/)                             | `.sort()` with numeric and string comparators     |
-| 4   | [`exercises/04-map`](exercises/04-map/)                               | `.map()` to double, extract, format               |
-| 5   | [`exercises/05-reduce`](exercises/05-reduce/)                         | `.reduce()` to sum, group, find max               |
-| 6   | [`exercises/06-migration-pipeline`](exercises/06-migration-pipeline/) | Full pipeline: filter + map + reduce composed     |
+| 1   | [`exercises/01-filter`](exercises/01-filter/)                         | `.filter()` on numbers and objects                |
+| 2   | [`exercises/02-sort`](exercises/02-sort/)                             | `.sort()` with numeric and string comparators     |
+| 3   | [`exercises/03-map`](exercises/03-map/)                               | `.map()` to double, extract, format               |
+| 4   | [`exercises/04-reduce`](exercises/04-reduce/)                         | `.reduce()` to sum, group, find max               |
+| 5   | [`exercises/05-migration-pipeline`](exercises/05-migration-pipeline/) | Full pipeline: filter + map + reduce composed     |
 
 Each exercise has a `starter/` folder. To work on an exercise:
 

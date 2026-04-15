@@ -1,6 +1,6 @@
 /**
  * Demo: .sort() - order elements with a comparator function.
- * Run: node module-02-functions/demo/03-sort
+ * Run: node module-02-functions/demo/02-sort
  */
 
 console.log('\n--- .sort() demo ---\n');
