@@ -2,23 +2,23 @@
 
 ## The scenario
 
-Sensor alerts arrive messy — some have missing fields, others have whitespace in zone names, and duplicates flood in when sensors fire multiple times for the same event. Before alerts reach the control room they need to pass through a pipeline that validates, normalises, deduplicates, and categorises them.
+Sensor alerts arrive messy - some have missing fields, others have whitespace in zone names, and duplicates flood in when sensors fire multiple times for the same event. Before alerts reach the control room they need to pass through a pipeline that validates, normalises, deduplicates, and categorises them.
 
 This exercise combines closures (the deduplicator), higher-order functions (filter/map), immutability (normalise returns new objects), and module organisation (each step in its own file).
 
 ## What you will build
 
-### [`starter/validate.js`](starter/validate.js) — Validation
+### [`starter/validate.js`](starter/validate.js) - Validation
 
-**`validateAlert(alert)`** — return `true` if the alert is valid:
+**`validateAlert(alert)`** - return `true` if the alert is valid:
 
 - `zone` must be a non-empty string (after trimming whitespace)
 - `level` must be an integer between 1 and 5 inclusive
 - `timestamp` must be a positive number
 
-### [`starter/normalise.js`](starter/normalise.js) — Normalisation
+### [`starter/normalise.js`](starter/normalise.js) - Normalisation
 
-**`normaliseAlert(alert)`** — return a **new** object (don't mutate the original):
+**`normaliseAlert(alert)`** - return a **new** object (don't mutate the original):
 
 - `zone`: trimmed and lowercased
 - `level` and `timestamp`: copied as-is
@@ -29,13 +29,13 @@ normaliseAlert({ zone: '  East Wing  ', level: 2, timestamp: 99 });
 // { zone: 'east wing', level: 2, timestamp: 99, id: 'east wing-99' }
 ```
 
-### [`starter/deduplicate.js`](starter/deduplicate.js) — Deduplication (closure)
+### [`starter/deduplicate.js`](starter/deduplicate.js) - Deduplication (closure)
 
-**`createDeduplicator()`** — return a **filter function** that uses a closure over a `Set`. The first time it sees an `id`, return `true` (keep). On subsequent calls with the same `id`, return `false` (drop).
+**`createDeduplicator()`** - return a **filter function** that uses a closure over a `Set`. The first time it sees an `id`, return `true` (keep). On subsequent calls with the same `id`, return `false` (drop).
 
-### [`starter/pipeline.js`](starter/pipeline.js) — Composing the pipeline
+### [`starter/pipeline.js`](starter/pipeline.js) - Composing the pipeline
 
-**`processAlerts(rawAlerts)`** — wire the steps together:
+**`processAlerts(rawAlerts)`** - wire the steps together:
 
 1. **Filter** with `validateAlert`
 2. **Map** with `normaliseAlert`
@@ -46,7 +46,7 @@ Return `{ critical, warning, info, total }` where `total` is the count of unique
 
 ## Getting started
 
-Implement each file one at a time — the tests cover each step independently so you can work through them progressively. Then run:
+Implement each file one at a time - the tests cover each step independently so you can work through them progressively. Then run:
 
 ```bash
 node starter/index.js

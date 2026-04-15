@@ -1,5 +1,5 @@
 /**
- * Feature-first approach — code grouped by domain concept.
+ * Feature-first approach - code grouped by domain concept.
  *
  * auth/       Authentication & authorisation (self-contained)
  * products/   Catalogue: store + public API via index.js
@@ -21,7 +21,9 @@ export function run() {
   console.log(`  Catalogue: ${catalogue.length} products`);
 
   const order = placeOrder(user.id, 'P-001', 2);
-  console.log(`  Placed order ${order.id}: ${order.quantity}× P-001 = $${(order.totalCents / 100).toFixed(2)}`);
+  console.log(
+    `  Placed order ${order.id}: ${order.quantity}× P-001 = $${(order.totalCents / 100).toFixed(2)}`,
+  );
 
   const mine = getUserOrders(user.id);
   console.log(`  Alice's orders: ${mine.length}`);

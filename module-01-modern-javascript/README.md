@@ -310,11 +310,11 @@ We'll add arrow functions, defaults, and higher-order patterns in Module 2. For 
 node module-01-modern-javascript/demo/07-vitest-intro
 ```
 
-This demo folder has three files — open them side by side:
+This demo folder has three files - open them side by side:
 
-- `alert.js` — two small functions (`formatAlert`, `isHighRisk`).
-- `alert.test.js` — Vitest tests for both.
-- `index.js` — a runner that calls the functions so you can see the output.
+- `alert.js` - two small functions (`formatAlert`, `isHighRisk`).
+- `alert.test.js` - Vitest tests for both.
+- `index.js` - a runner that calls the functions so you can see the output.
 
 ### Running the tests
 
@@ -367,13 +367,13 @@ This is the kind of bug `console.log` misses but a breakpoint catches in seconds
 
 Each exercise has a `starter/` folder (your work) and a `solution/` folder (instructor reference - try first). Both contain a `package.json`, `index.js`, and `index.test.js`.
 
-| #   | Folder                                                    | What you'll practice                                                                            |
-| --- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| 1   | [`01-strings`](exercises/01-strings/)                     | `toUpperCase`, `toLowerCase`, `includes`, `split`, template literals - everyday string methods. |
-| 2   | [`02-package-scripts`](exercises/02-package-scripts/)     | Wire up `start`, `lint`, and `test` scripts in a `package.json`.                                |
-| 3   | [`03-esm-imports`](exercises/03-esm-imports/)             | Import from a Node built-in (`node:path`), an npm package (`picocolors`), and a local module.   |
-| 4   | [`04-function-intro`](exercises/04-function-intro/)       | `function` keyword, parameters, return values - your first functions.                           |
-| 5   | [`05-vitest-contract`](exercises/05-vitest-contract/)     | Implement `formatSighting` - template literals and `??` defaults, Vitest guarding the contract. |
+| #   | Folder                                                | What you'll practice                                                                            |
+| --- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| 1   | [`01-strings`](exercises/01-strings/)                 | `toUpperCase`, `toLowerCase`, `includes`, `split`, template literals - everyday string methods. |
+| 2   | [`02-package-scripts`](exercises/02-package-scripts/) | Wire up `start`, `lint`, and `test` scripts in a `package.json`.                                |
+| 3   | [`03-esm-imports`](exercises/03-esm-imports/)         | Import from a Node built-in (`node:path`), an npm package (`picocolors`), and a local module.   |
+| 4   | [`04-function-intro`](exercises/04-function-intro/)   | `function` keyword, parameters, return values - your first functions.                           |
+| 5   | [`05-vitest-contract`](exercises/05-vitest-contract/) | Implement `formatSighting` - template literals and `??` defaults, Vitest guarding the contract. |
 
 Run an exercise:
 

@@ -1,5 +1,5 @@
 /**
- * Layered approach — code grouped by technical role.
+ * Layered approach - code grouped by technical role.
  *
  * models/        Data shapes
  * repositories/  Persistence (in-memory here)
@@ -20,7 +20,9 @@ export function run() {
   console.log(`  Catalogue: ${catalogue.length} products`);
 
   const order = orders.placeOrder(user.id, 'P-001', 2);
-  console.log(`  Placed order ${order.id}: ${order.quantity}× P-001 = $${(order.totalCents / 100).toFixed(2)}`);
+  console.log(
+    `  Placed order ${order.id}: ${order.quantity}× P-001 = $${(order.totalCents / 100).toFixed(2)}`,
+  );
 
   const mine = orders.getUserOrders(user.id);
   console.log(`  Alice's orders: ${mine.length}`);

@@ -57,7 +57,7 @@ Get everyone from zero to a working modern JS workflow: run scripts, split code 
 - Run the tests: `pnpm vitest run module-01-modern-javascript/demo/07-vitest-intro/alert.test.js`.
 - Explain the `describe` / `it` / `expect` pattern.
 - Point out: tests are just functions that call your functions and check the result.
-- This demo is the bridge to every exercise in the course — from here on, "make the tests pass" is the workflow.
+- This demo is the bridge to every exercise in the course - from here on, "make the tests pass" is the workflow.
 
 ### 08 - Debugging
 

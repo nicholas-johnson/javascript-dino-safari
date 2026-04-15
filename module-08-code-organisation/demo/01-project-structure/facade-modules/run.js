@@ -6,7 +6,7 @@
  * lib/orders.js     Factory → returns an order service object
  *
  * This file IS the composition root: it creates each service and
- * wires them together. No module imports another directly — all
+ * wires them together. No module imports another directly - all
  * dependencies are injected at construction time.
  */
 
@@ -29,7 +29,9 @@ export function run() {
   console.log(`  Catalogue: ${list.length} products`);
 
   const order = orders.placeOrder(user.id, 'P-001', 2);
-  console.log(`  Placed order ${order.id}: ${order.quantity}× P-001 = $${(order.totalCents / 100).toFixed(2)}`);
+  console.log(
+    `  Placed order ${order.id}: ${order.quantity}× P-001 = $${(order.totalCents / 100).toFixed(2)}`,
+  );
 
   const mine = orders.getUserOrders(user.id);
   console.log(`  Alice's orders: ${mine.length}`);

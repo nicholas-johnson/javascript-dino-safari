@@ -44,8 +44,8 @@ ping
   .then(data => console.log('Zone:', data.zone))
   .catch(err => console.error('Sensor failed:', err));`,
       highlights: [
-        'The executor runs immediately — `resolve` or `reject` settle the promise once',
-        '`.then` runs on success, `.catch` on failure — always handle both',
+        'The executor runs immediately - `resolve` or `reject` settle the promise once',
+        '`.then` runs on success, `.catch` on failure - always handle both',
       ],
     },
   },
@@ -55,10 +55,10 @@ ping
       title: 'async / await',
       icon: 'pause',
       points: [
-        '`async` marks a function as returning a Promise — even if you just return a value.',
-        '`await` pauses *that function* until the Promise settles — the event loop keeps running.',
+        '`async` marks a function as returning a Promise - even if you just return a value.',
+        '`await` pauses *that function* until the Promise settles - the event loop keeps running.',
         'Error handling reads like synchronous code: `try`/`catch` instead of `.catch()` chains.',
-        'Any function that calls `await` must be `async` — it propagates up the call stack.',
+        'Any function that calls `await` must be `async` - it propagates up the call stack.',
       ],
     },
   },
@@ -80,7 +80,7 @@ ping
 await pingZone('north');`,
       highlights: [
         'Each `await` pauses the function, not the whole thread',
-        '`try`/`catch` replaces `.then`/`.catch` — same Promise underneath',
+        '`try`/`catch` replaces `.then`/`.catch` - same Promise underneath',
       ],
     },
   },
@@ -90,17 +90,17 @@ await pingZone('north');`,
       title: 'Promise concurrency methods',
       icon: 'layers',
       points: [
-        '`Promise.all([ ])` — resolves when *every* promise fulfils; rejects on the *first* failure.',
-        '`Promise.allSettled([ ])` — waits for all to finish; never rejects. Each result has `status`, `value` or `reason`.',
-        '`Promise.race([ ])` — settles as soon as *any* promise settles (first wins, fulfilled or rejected).',
-        '`Promise.any([ ])` — resolves with the *first fulfilment*; rejects only if *all* reject (`AggregateError`).',
+        '`Promise.all([ ])` - resolves when *every* promise fulfils; rejects on the *first* failure.',
+        '`Promise.allSettled([ ])` - waits for all to finish; never rejects. Each result has `status`, `value` or `reason`.',
+        '`Promise.race([ ])` - settles as soon as *any* promise settles (first wins, fulfilled or rejected).',
+        '`Promise.any([ ])` - resolves with the *first fulfilment*; rejects only if *all* reject (`AggregateError`).',
       ],
     },
   },
   {
     type: 'code',
     content: {
-      title: 'Promise.all — all or nothing',
+      title: 'Promise.all - all or nothing',
       code: `// simulate a sensor ping (resolves or rejects after a delay)
 const pingZone = (id) =>
   new Promise((resolve, reject) =>
@@ -111,10 +111,10 @@ const [north, south] = await Promise.all([
   pingZone('north'),
   pingZone('south'),
 ]);
-// Both resolved — use north & south
+// Both resolved - use north & south
 // If either rejects, the whole call rejects`,
       highlights: [
-        'Runs promises in parallel — total time is the *slowest*, not the sum',
+        'Runs promises in parallel - total time is the *slowest*, not the sum',
         'One rejection short-circuits: wrap in try/catch if partial results are OK',
       ],
     },
@@ -122,7 +122,7 @@ const [north, south] = await Promise.all([
   {
     type: 'code',
     content: {
-      title: 'Promise.allSettled — inspect every result',
+      title: 'Promise.allSettled - inspect every result',
       code: `const pingZone = (id) =>
   new Promise((resolve, reject) =>
     setTimeout(
@@ -142,7 +142,7 @@ results.forEach(r => {
   else console.error('Failed:', r.reason);
 });`,
       highlights: [
-        'Never rejects — every result has `status` plus `value` or `reason`',
+        'Never rejects - every result has `status` plus `value` or `reason`',
         'Perfect for dashboards: show green/red per zone',
       ],
     },
@@ -150,7 +150,7 @@ results.forEach(r => {
   {
     type: 'code',
     content: {
-      title: 'Promise.race — first to settle wins',
+      title: 'Promise.race - first to settle wins',
       code: `const pingZone = (id, ms) =>
   new Promise(resolve =>
     setTimeout(() => resolve({ zone: id }), ms)
@@ -166,7 +166,7 @@ const result = await Promise.race([
   timeout(3000),             // never fires
 ]);`,
       highlights: [
-        'First promise to settle (fulfilled *or* rejected) wins — the rest are ignored',
+        'First promise to settle (fulfilled *or* rejected) wins - the rest are ignored',
         'Classic timeout pattern: race the real work against a timer',
       ],
     },
@@ -174,7 +174,7 @@ const result = await Promise.race([
   {
     type: 'code',
     content: {
-      title: 'Promise.any — first to fulfil wins',
+      title: 'Promise.any - first to fulfil wins',
       code: `const pingZone = (id, ms, fail = false) =>
   new Promise((resolve, reject) =>
     setTimeout(
@@ -185,11 +185,11 @@ const result = await Promise.race([
 
 const firstOk = await Promise.any([
   pingZone('north', 500),          // slow but works
-  pingZone('south', 100, true),    // fast but fails — ignored
+  pingZone('south', 100, true),    // fast but fails - ignored
   pingZone('east', 200),           // fast, works => wins
 ]);`,
       highlights: [
-        'Rejections are silently ignored — only fulfilments count',
+        'Rejections are silently ignored - only fulfilments count',
         'If *all* reject, throws `AggregateError` containing every reason',
       ],
     },
@@ -223,13 +223,13 @@ const firstOk = await Promise.any([
   {
     type: 'standard',
     content: {
-      title: 'The event loop — why it matters',
+      title: 'The event loop - why it matters',
       icon: 'clock',
       points: [
-        'JavaScript is *single-threaded* — only one piece of code runs at a time.',
+        'JavaScript is *single-threaded* - only one piece of code runs at a time.',
         'So how does it handle thousands of concurrent requests? The *event loop*.',
         'The loop picks the next task, runs it to completion, then picks the next.',
-        'Your code never runs *in parallel* — it runs *in turns*.',
+        'Your code never runs *in parallel* - it runs *in turns*.',
       ],
     },
   },
@@ -240,9 +240,9 @@ const firstOk = await Promise.any([
       icon: 'repeat',
       points: [
         '1. Pick one *macrotask* from the queue (timer callback, I/O result, etc.).',
-        '2. Run it to completion — no other JS can interrupt it.',
+        '2. Run it to completion - no other JS can interrupt it.',
         '3. Drain *all* microtasks (`Promise.then` callbacks, `queueMicrotask`).',
-        '4. Render (browser) / check for I/O (Node) — then repeat from step 1.',
+        '4. Render (browser) / check for I/O (Node) - then repeat from step 1.',
       ],
     },
   },
@@ -254,7 +254,7 @@ const firstOk = await Promise.any([
       points: [
         '*Macrotasks*: `setTimeout`, `setInterval`, I/O callbacks, `setImmediate` (Node).',
         '*Microtasks*: `.then` / `.catch` / `.finally`, `await` continuations, `queueMicrotask`.',
-        'Microtasks always run *before* the next macrotask — they jump the queue.',
+        'Microtasks always run *before* the next macrotask - they jump the queue.',
         'That is why a resolved promise fires before a `setTimeout(…, 0)`.',
       ],
     },
@@ -263,19 +263,19 @@ const firstOk = await Promise.any([
     type: 'code',
     content: {
       title: 'Predict the output',
-      code: `console.log('1 — synchronous');
+      code: `console.log('1 - synchronous');
 
-setTimeout(() => console.log('2 — macrotask (timer)'), 0);
+setTimeout(() => console.log('2 - macrotask (timer)'), 0);
 
 Promise.resolve()
-  .then(() => console.log('3 — microtask (promise)'));
+  .then(() => console.log('3 - microtask (promise)'));
 
-console.log('4 — synchronous');
+console.log('4 - synchronous');
 
 // Output: 1, 4, 3, 2`,
       highlights: [
-        'Synchronous code runs first (1, 4) — it is the *current* task',
-        'Microtasks drain next (3) — before any timer fires',
+        'Synchronous code runs first (1, 4) - it is the *current* task',
+        'Microtasks drain next (3) - before any timer fires',
         'The `setTimeout` callback (2) waits for the *next* macrotask turn',
       ],
     },
@@ -286,9 +286,9 @@ console.log('4 — synchronous');
       title: 'Why this matters in practice',
       icon: 'alert-circle',
       points: [
-        'A long synchronous function *blocks the entire loop* — no I/O, no timers, nothing.',
-        '`await` yields control back to the loop — other work can run between awaits.',
-        'Stacking microtasks endlessly (e.g. recursive `.then`) starves macrotasks — timers never fire.',
+        'A long synchronous function *blocks the entire loop* - no I/O, no timers, nothing.',
+        '`await` yields control back to the loop - other work can run between awaits.',
+        'Stacking microtasks endlessly (e.g. recursive `.then`) starves macrotasks - timers never fire.',
         'Rule of thumb: keep each turn of the loop *short*. Offload heavy work to workers or streams.',
       ],
     },

@@ -2,13 +2,13 @@
 
 ## The scenario
 
-Before the park can scale to multiple environments — development, staging, production — it needs a robust configuration system. Environment variables must be validated on startup (fail fast with a clear error, not halfway through a request), errors need structured types with codes so monitoring tools can categorise them, and logging needs configurable levels so debug noise doesn't flood production.
+Before the park can scale to multiple environments - development, staging, production - it needs a robust configuration system. Environment variables must be validated on startup (fail fast with a clear error, not halfway through a request), errors need structured types with codes so monitoring tools can categorise them, and logging needs configurable levels so debug noise doesn't flood production.
 
 This exercise combines classes (custom errors), object literals with methods (the logger), closures (level gating), and module boundaries.
 
 ## What you will build
 
-### [`starter/app-error.js`](starter/app-error.js) — Custom error class
+### [`starter/app-error.js`](starter/app-error.js) - Custom error class
 
 **`AppError`** extends `Error` with:
 
@@ -18,30 +18,30 @@ This exercise combines classes (custom errors), object literals with methods (th
 
 ```js
 const err = new AppError('CONFIG_MISSING', 'PARK_NAME is required');
-err instanceof Error;    // true
+err instanceof Error; // true
 err instanceof AppError; // true
-err.name;    // 'AppError'
-err.code;    // 'CONFIG_MISSING'
+err.name; // 'AppError'
+err.code; // 'CONFIG_MISSING'
 err.message; // 'PARK_NAME is required'
 ```
 
-### [`starter/config.js`](starter/config.js) — Config loader
+### [`starter/config.js`](starter/config.js) - Config loader
 
-**`loadConfig(env)`** — validate an environment-like object and return a typed config:
+**`loadConfig(env)`** - validate an environment-like object and return a typed config:
 
-| Env var | Validation | Default |
-|---|---|---|
-| `PARK_NAME` | Required, non-empty after trim | — (throw `AppError` with code `CONFIG_MISSING`) |
-| `API_PORT` | Must be a positive integer | `8080` |
-| `LOG_LEVEL` | Must be `debug`, `info`, `warn`, or `error` | `'info'` |
+| Env var     | Validation                                  | Default                                         |
+| ----------- | ------------------------------------------- | ----------------------------------------------- |
+| `PARK_NAME` | Required, non-empty after trim              | - (throw `AppError` with code `CONFIG_MISSING`) |
+| `API_PORT`  | Must be a positive integer                  | `8080`                                          |
+| `LOG_LEVEL` | Must be `debug`, `info`, `warn`, or `error` | `'info'`                                        |
 
 Throw `AppError` with code `CONFIG_MISSING` for missing `PARK_NAME`, and `CONFIG_INVALID` for bad `API_PORT` or `LOG_LEVEL`.
 
 Return `{ parkName: string, apiPort: number, logLevel: string }`.
 
-### [`starter/logger.js`](starter/logger.js) — Levelled structured logger
+### [`starter/logger.js`](starter/logger.js) - Levelled structured logger
 
-**`createLogger(config)`** — return an object with `debug`, `info`, `warn`, and `error` methods.
+**`createLogger(config)`** - return an object with `debug`, `info`, `warn`, and `error` methods.
 
 Each method `(message, meta?)`:
 
@@ -58,8 +58,8 @@ Each method `(message, meta?)`:
 
 ```js
 const log = createLogger({ parkName: 'Dino Safari', logLevel: 'info' });
-log.info('Starting', { port: 3000 });  // "[INFO] [Dino Safari] Starting | port=3000"
-log.debug('Trace');                     // null (below info level)
+log.info('Starting', { port: 3000 }); // "[INFO] [Dino Safari] Starting | port=3000"
+log.debug('Trace'); // null (below info level)
 ```
 
 ## Getting started

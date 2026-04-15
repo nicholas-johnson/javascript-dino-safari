@@ -27,8 +27,8 @@ export const slides = [
       title: 'The scenario',
       icon: 'package',
       points: [
-        'An **inventory tracking API** — products, orders, auth.',
-        'Same features, same behaviour — three different file layouts.',
+        'An **inventory tracking API** - products, orders, auth.',
+        'Same features, same behaviour - three different file layouts.',
         'Run the demo: `node module-08-code-organisation/demo/01-project-structure`',
       ],
     },
@@ -39,19 +39,19 @@ export const slides = [
   {
     type: 'standard',
     content: {
-      title: 'Approach 1 — Layered',
+      title: 'Approach 1 - Layered',
       icon: 'layers',
       points: [
         'Group files by **technical role**: models, repositories, services.',
         'Strict dependency rule: `services → repositories → models` (never reverse).',
-        'Easy to understand — everyone knows where "business logic" lives.',
+        'Easy to understand - everyone knows where "business logic" lives.',
       ],
     },
   },
   {
     type: 'code',
     content: {
-      title: 'Layered — directory tree',
+      title: 'Layered - directory tree',
       code: `layered/
   models/
     product.js          // data shape
@@ -63,16 +63,16 @@ export const slides = [
     auth-service.js     // token auth & role checks
     product-service.js  // catalogue logic
     order-service.js    // ordering logic
-  run.js                // entry point — imports services only`,
+  run.js                // entry point - imports services only`,
       highlights: [
-        'Each layer has one job — mixing persistence into a service breaks the rule',
+        'Each layer has one job - mixing persistence into a service breaks the rule',
       ],
     },
   },
   {
     type: 'code',
     content: {
-      title: 'Layered — entry point',
+      title: 'Layered - entry point',
       code: `import * as auth from './services/auth-service.js';
 import * as products from './services/product-service.js';
 import * as orders from './services/order-service.js';
@@ -83,20 +83,20 @@ auth.authorize(user, 'admin');
 const catalogue = products.listProducts();
 const order = orders.placeOrder(user.id, 'P-001', 2);`,
       highlights: [
-        'Entry point only touches the services layer — never reaches into repos or models directly',
+        'Entry point only touches the services layer - never reaches into repos or models directly',
       ],
     },
   },
   {
     type: 'standard',
     content: {
-      title: 'Layered — trade-offs',
+      title: 'Layered - trade-offs',
       icon: 'scale',
       points: [
-        '**Pro:** Clear separation of concerns — new devs find things fast.',
+        '**Pro:** Clear separation of concerns - new devs find things fast.',
         '**Pro:** Works well for small-to-medium projects with one team.',
         '**Con:** Adding a feature (e.g. "returns") means touching *every* layer.',
-        '**Con:** Layers grow wide — dozens of files per folder with no sub-grouping.',
+        '**Con:** Layers grow wide - dozens of files per folder with no sub-grouping.',
       ],
     },
   },
@@ -106,7 +106,7 @@ const order = orders.placeOrder(user.id, 'P-001', 2);`,
   {
     type: 'standard',
     content: {
-      title: 'Approach 2 — Feature-first',
+      title: 'Approach 2 - Feature-first',
       icon: 'grid',
       points: [
         'Group files by **domain concept**: auth, products, orders.',
@@ -118,27 +118,27 @@ const order = orders.placeOrder(user.id, 'P-001', 2);`,
   {
     type: 'code',
     content: {
-      title: 'Feature-first — directory tree',
+      title: 'Feature-first - directory tree',
       code: `feature-first/
   auth/
     auth.js             // authenticate + authorize
   products/
     products-store.js   // in-memory store
-    index.js            // barrel — public API
+    index.js            // barrel - public API
   orders/
     orders-store.js     // in-memory store
     orders-service.js   // business logic
-    index.js            // barrel — public API
+    index.js            // barrel - public API
   run.js                // entry point`,
       highlights: [
-        'Each folder is a self-contained vertical slice — add a feature by adding a folder',
+        'Each folder is a self-contained vertical slice - add a feature by adding a folder',
       ],
     },
   },
   {
     type: 'code',
     content: {
-      title: 'Feature-first — entry point',
+      title: 'Feature-first - entry point',
       code: `import * as auth from './auth/auth.js';
 import { listProducts } from './products/index.js';
 import { placeOrder, getUserOrders } from './orders/index.js';
@@ -149,20 +149,20 @@ auth.authorize(user, 'admin');
 const catalogue = listProducts();
 const order = placeOrder(user.id, 'P-001', 2);`,
       highlights: [
-        'Imports go through barrel files — each feature controls what it exposes',
+        'Imports go through barrel files - each feature controls what it exposes',
       ],
     },
   },
   {
     type: 'standard',
     content: {
-      title: 'Feature-first — trade-offs',
+      title: 'Feature-first - trade-offs',
       icon: 'scale',
       points: [
-        '**Pro:** Feature work stays in one folder — fewer merge conflicts.',
-        '**Pro:** Scales naturally — the project grows by *adding* folders, not widening them.',
+        '**Pro:** Feature work stays in one folder - fewer merge conflicts.',
+        '**Pro:** Scales naturally - the project grows by *adding* folders, not widening them.',
         '**Con:** Shared utilities need a `shared/` home that everyone agrees on.',
-        '**Con:** Barrel discipline required — bypassing `index.js` silently erodes boundaries.',
+        '**Con:** Barrel discipline required - bypassing `index.js` silently erodes boundaries.',
       ],
     },
   },
@@ -172,34 +172,34 @@ const order = placeOrder(user.id, 'P-001', 2);`,
   {
     type: 'standard',
     content: {
-      title: 'Approach 3 — Facade modules',
+      title: 'Approach 3 - Facade modules',
       icon: 'zap',
       points: [
         'Each module is a **factory function** that receives dependencies as arguments.',
         'A single **composition root** creates every service and wires them together.',
-        'No `lib/` module imports another — all coupling is explicit.',
+        'No `lib/` module imports another - all coupling is explicit.',
       ],
     },
   },
   {
     type: 'code',
     content: {
-      title: 'Facade modules — directory tree',
+      title: 'Facade modules - directory tree',
       code: `facade-modules/
   lib/
     auth.js         // createAuthService(users) → { authenticate, authorize }
     catalogue.js    // createCatalogue(products) → { listProducts, getProduct }
     orders.js       // createOrderService(catalogue) → { placeOrder, ... }
-  run.js            // composition root — builds the object graph`,
+  run.js            // composition root - builds the object graph`,
       highlights: [
-        'Factories declare what they *need* — the composition root provides it',
+        'Factories declare what they *need* - the composition root provides it',
       ],
     },
   },
   {
     type: 'code',
     content: {
-      title: 'Facade modules — composition root',
+      title: 'Facade modules - composition root',
       code: `import { createAuthService } from './lib/auth.js';
 import { createCatalogue } from './lib/catalogue.js';
 import { createOrderService } from './lib/orders.js';
@@ -212,7 +212,7 @@ const orders = createOrderService(catalogue); // injected
 const user = auth.authenticate('tok-admin-alice');
 const order = orders.placeOrder(user.id, 'P-001', 2);`,
       highlights: [
-        '`orders` receives `catalogue` at construction — no hidden imports',
+        '`orders` receives `catalogue` at construction - no hidden imports',
         'Swap any dependency for a test stub by passing a fake into the factory',
       ],
     },
@@ -220,12 +220,12 @@ const order = orders.placeOrder(user.id, 'P-001', 2);`,
   {
     type: 'standard',
     content: {
-      title: 'Facade modules — trade-offs',
+      title: 'Facade modules - trade-offs',
       icon: 'scale',
       points: [
-        '**Pro:** Highly testable — swap any dependency for a stub, no mocking library needed.',
-        '**Pro:** Explicit wiring — the composition root *is* the dependency graph.',
-        '**Con:** More boilerplate — every module needs a factory wrapper.',
+        '**Pro:** Highly testable - swap any dependency for a stub, no mocking library needed.',
+        '**Pro:** Explicit wiring - the composition root *is* the dependency graph.',
+        '**Con:** More boilerplate - every module needs a factory wrapper.',
         '**Con:** Overkill for small projects with 2\u20133 modules and no tests.',
       ],
     },
@@ -264,7 +264,7 @@ const order = orders.placeOrder(user.id, 'P-001', 2);`,
         '**Small CLI / utility?** Layered is straightforward and sufficient.',
         '**Growing API with 5+ domain concepts?** Feature-first keeps things manageable.',
         '**Library or plugin system?** Facade modules give you testability and swappability.',
-        'You can *combine* — feature-first folders with facade wiring inside each feature.',
+        'You can *combine* - feature-first folders with facade wiring inside each feature.',
       ],
     },
   },
@@ -278,8 +278,8 @@ const order = orders.placeOrder(user.id, 'P-001', 2);`,
       icon: 'link',
       points: [
         'Export narrow surfaces from `index.js` facades.',
-        'Depend inward: features may use `shared/`, not each other\'s internals.',
-        'Avoid circular imports — they bite at runtime in subtle ways.',
+        "Depend inward: features may use `shared/`, not each other's internals.",
+        'Avoid circular imports - they bite at runtime in subtle ways.',
       ],
     },
   },

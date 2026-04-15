@@ -1,5 +1,5 @@
 /**
- * Three ways to organise the SAME project — an inventory tracking API
+ * Three ways to organise the SAME project - an inventory tracking API
  * with products, orders, and auth.
  *
  * Each approach lives in its own folder, implements identical behaviour,
@@ -17,7 +17,7 @@ const divider = '─'.repeat(60);
 // ── Approach 1 ───────────────────────────────────────────────
 
 console.log(divider);
-console.log('APPROACH 1 — Layered (group by technical role)');
+console.log('APPROACH 1 - Layered (group by technical role)');
 console.log();
 console.log('  layered/');
 console.log('    models/          Data shapes');
@@ -32,7 +32,7 @@ runLayered();
 // ── Approach 2 ───────────────────────────────────────────────
 
 console.log('\n' + divider);
-console.log('APPROACH 2 — Feature-first (group by domain concept)');
+console.log('APPROACH 2 - Feature-first (group by domain concept)');
 console.log();
 console.log('  feature-first/');
 console.log('    auth/            Self-contained auth module');
@@ -47,7 +47,7 @@ runFeatureFirst();
 // ── Approach 3 ───────────────────────────────────────────────
 
 console.log('\n' + divider);
-console.log('APPROACH 3 — Facade modules with composition root');
+console.log('APPROACH 3 - Facade modules with composition root');
 console.log();
 console.log('  facade-modules/');
 console.log('    lib/auth.js       Factory → auth service');
@@ -55,7 +55,7 @@ console.log('    lib/catalogue.js  Factory → catalogue');
 console.log('    lib/orders.js     Factory → order service');
 console.log('    run.js            Composition root (wires everything)');
 console.log();
-console.log('  Rule: no lib module imports another — all deps injected.');
+console.log('  Rule: no lib module imports another - all deps injected.');
 console.log('  Good for: testability, swapping implementations.');
 console.log('  Watch out: more boilerplate for small projects.\n');
 runFacade();

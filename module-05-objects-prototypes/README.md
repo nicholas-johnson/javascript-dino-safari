@@ -17,7 +17,7 @@ By the end of this module you should be able to:
 node module-05-objects-prototypes/demo/01-object-literals
 ```
 
-An object literal can hold data *and* behaviour side by side. Methods defined inside the literal use `this` to refer to the object they're called on:
+An object literal can hold data _and_ behaviour side by side. Methods defined inside the literal use `this` to refer to the object they're called on:
 
 ```js
 const feeder = {
@@ -41,7 +41,7 @@ feeder.status(); // "Canyon Feeder: 50kg remaining"
 
 ```js
 const ref = feeder.status;
-ref(); // TypeError — no object, no this
+ref(); // TypeError - no object, no this
 ```
 
 This is the single most important thing to remember about `this` in JavaScript. Keep calling methods via the object, or use `.bind()` to lock the context.

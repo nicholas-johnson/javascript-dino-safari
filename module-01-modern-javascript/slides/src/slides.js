@@ -225,7 +225,7 @@ function add(a, b) {
 const result = add(2, 3);  // 5`,
       highlights: [
         '`function` keyword, parameters in parens, `return` sends a value back',
-        'Forget `return` and you get `undefined` — a classic beginner trap',
+        'Forget `return` and you get `undefined` - a classic beginner trap',
       ],
     },
   },
@@ -245,7 +245,7 @@ const buildAlert = (zone, level) => {
 };`,
       highlights: [
         'Single expression → implicit return; braces → you must write `return`',
-        'Arrows shine as callbacks — `.map(n => n * 2)` — covered in Module 2',
+        'Arrows shine as callbacks - `.map(n => n * 2)` - covered in Module 2',
       ],
     },
   },

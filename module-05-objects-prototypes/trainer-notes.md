@@ -48,11 +48,11 @@ Students understand how JavaScript objects really work: the prototype chain, `cl
 
 ## Exercises
 
-| #   | Folder                 | Key skills                                     | Notes                                                                |
-| --- | ---------------------- | ---------------------------------------------- | -------------------------------------------------------------------- |
-| 1   | `01-dino-feeder`       | Object literal methods, `this` keyword         | Plain object with methods — state as properties, `this` to access.   |
-| 2   | `02-prototypes`        | Prototype chain, `Object.create`, `instanceof` | Deliberately no `class` - cements the mental model.                  |
-| 3   | `03-mixin-composition` | Spread, composition, no mutation               | `withSwim`, `withFly`, `withArmor` - input must not be mutated.      |
+| #   | Folder                 | Key skills                                     | Notes                                                              |
+| --- | ---------------------- | ---------------------------------------------- | ------------------------------------------------------------------ |
+| 1   | `01-dino-feeder`       | Object literal methods, `this` keyword         | Plain object with methods - state as properties, `this` to access. |
+| 2   | `02-prototypes`        | Prototype chain, `Object.create`, `instanceof` | Deliberately no `class` - cements the mental model.                |
+| 3   | `03-mixin-composition` | Spread, composition, no mutation               | `withSwim`, `withFly`, `withArmor` - input must not be mutated.    |
 
 ## Timing
 

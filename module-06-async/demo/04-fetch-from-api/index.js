@@ -3,7 +3,7 @@
  *
  * Run: node demo/04-fetch-from-api
  *
- * Uses JSONPlaceholder — a free, open REST API for testing.
+ * Uses JSONPlaceholder - a free, open REST API for testing.
  * https://jsonplaceholder.typicode.com
  */
 
