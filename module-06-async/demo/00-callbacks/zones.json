@@ -1,0 +1,5 @@
+[
+  { "id": "north", "name": "North Paddock", "fence": "active" },
+  { "id": "south", "name": "South Plains", "fence": "active" },
+  { "id": "east", "name": "Eastern Ridge", "fence": "offline" }
+]

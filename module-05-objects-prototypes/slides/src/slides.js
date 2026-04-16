@@ -48,27 +48,19 @@ delete rex.diet;            // remove it`,
     type: 'code',
     content: {
       title: 'Functions in object literals',
-      code: `// long form - function expression as a value
+      code: `
 const feeder = {
-  name: 'Canyon Feeder',
   supply: 50,
   status: function () {
     return \`\${this.name}: \${this.supply}kg\`;
-  },
-  refill: function (kg) {
-    this.supply += kg;
   },
 };
 
 // shorthand - same thing, less noise
 const feeder = {
-  name: 'Canyon Feeder',
   supply: 50,
   status() {
     return \`\${this.name}: \${this.supply}kg\`;
-  },
-  refill(kg) {
-    this.supply += kg;
   },
 };
 

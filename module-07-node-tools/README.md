@@ -10,6 +10,16 @@ By the end of this module you should be able to:
 
 ---
 
+## 0. All seven modules in one script
+
+```bash
+node module-07-node-tools/demo/00-all-modules
+```
+
+Walks through `node:path`, `node:url`, `node:fs/promises`, `node:fs`, `node:http`, `node:stream`, and `node:readline` in numbered sections with console output you can narrate live.
+
+---
+
 ## 1. Filesystem - reading, writing, and paths
 
 ```bash
