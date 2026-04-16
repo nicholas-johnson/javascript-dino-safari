@@ -188,7 +188,7 @@ Every log line has the same shape. Log aggregators (Datadog, ELK, CloudWatch) ca
 
 ## Capstone Exercises
 
-These exercises pull together skills from across the course. Each has multiple well-organised source files.
+These exercises pull together skills from across the course. Each is organised into domain folders with barrel `index.js` files controlling the public surface of each module.
 
 | #   | Folder                                                            | Skills combined                                                          |
 | --- | ----------------------------------------------------------------- | ------------------------------------------------------------------------ |

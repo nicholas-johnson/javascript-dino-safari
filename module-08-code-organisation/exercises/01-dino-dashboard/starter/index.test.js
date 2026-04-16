@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { buildDashboard } from './dashboard.js';
-import { fetchParkData } from './fetch-data.js';
+import { buildDashboard } from './dashboard/index.js';
+import { fetchParkData } from './data/index.js';
 import {
   averagePostLength,
   postsPerUser,
   topPosters,
-} from './transform.js';
+} from './analytics/index.js';
 
 const mockUsers = [
   { id: 1, name: 'Alice' },

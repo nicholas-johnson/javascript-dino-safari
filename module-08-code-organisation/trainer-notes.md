@@ -32,9 +32,9 @@ These are multi-file capstones drawing from skills across the whole course.
 
 | #   | Folder               | Skills combined                                           | Notes                                                                                      |
 | --- | -------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| 1   | `01-dino-dashboard`  | Fetch, Promise.all, map/reduce, objects, `this`           | 3 files: fetch-data, transform, dashboard. Hits JSONPlaceholder (mock in tests).           |
-| 2   | `02-alert-pipeline`  | Closures, HOFs, map/filter, immutability, composition     | 4 files: validate, normalise, deduplicate (closure/Set), pipeline composer.                |
-| 3   | `03-park-config`     | Classes, errors, config validation, object methods        | 3 files: AppError class, config loader, levelled logger with structured output.            |
+| 1   | `01-dino-dashboard`  | Fetch, Promise.all, map/reduce, objects, `this`           | 3 domain folders: `data/`, `analytics/`, `dashboard/` with barrel `index.js` files.        |
+| 2   | `02-alert-pipeline`  | Closures, HOFs, map/filter, immutability, composition     | 2 domain folders: `alerts/` (validate, normalise, deduplicate) and `pipeline/`.            |
+| 3   | `03-park-config`     | Classes, errors, config validation, object methods        | 3 domain folders: `errors/`, `config/`, `logging/` with barrel `index.js` files.           |
 
 ## Timing
 

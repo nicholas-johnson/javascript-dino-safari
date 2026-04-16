@@ -1,5 +1,5 @@
 /**
- * Three ways to organise the SAME project - an inventory tracking API
+ * Two ways to organise the SAME project - an inventory tracking API
  * with products, orders, and auth.
  *
  * Each approach lives in its own folder, implements identical behaviour,
@@ -10,7 +10,6 @@
 
 import { run as runLayered } from './layered/run.js';
 import { run as runFeatureFirst } from './feature-first/run.js';
-import { run as runFacade } from './facade-modules/run.js';
 
 const divider = '─'.repeat(60);
 
@@ -44,23 +43,7 @@ console.log('  Good for: larger projects, independent team ownership.');
 console.log('  Watch out: shared utilities need a clear home.\n');
 runFeatureFirst();
 
-// ── Approach 3 ───────────────────────────────────────────────
-
 console.log('\n' + divider);
-console.log('APPROACH 3 - Facade modules with composition root');
-console.log();
-console.log('  facade-modules/');
-console.log('    lib/auth.js       Factory → auth service');
-console.log('    lib/catalogue.js  Factory → catalogue');
-console.log('    lib/orders.js     Factory → order service');
-console.log('    run.js            Composition root (wires everything)');
-console.log();
-console.log('  Rule: no lib module imports another - all deps injected.');
-console.log('  Good for: testability, swapping implementations.');
-console.log('  Watch out: more boilerplate for small projects.\n');
-runFacade();
-
-console.log('\n' + divider);
-console.log('All three produce the same result. The difference is where');
+console.log('Both produce the same result. The difference is where');
 console.log('you find code and how modules depend on each other.');
 console.log('Browse the folders to compare.\n');

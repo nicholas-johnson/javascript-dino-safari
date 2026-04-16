@@ -1,5 +1,5 @@
-import { loadConfig } from './config.js';
-import { createLogger } from './logger.js';
+import { loadConfig } from './config/index.js';
+import { createLogger } from './logging/index.js';
 
 const config = loadConfig({
   PARK_NAME: 'Dino Safari',

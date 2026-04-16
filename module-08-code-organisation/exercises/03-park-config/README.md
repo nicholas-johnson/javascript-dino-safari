@@ -4,11 +4,28 @@
 
 Before the park can scale to multiple environments - development, staging, production - it needs a robust configuration system. Environment variables must be validated on startup (fail fast with a clear error, not halfway through a request), errors need structured types with codes so monitoring tools can categorise them, and logging needs configurable levels so debug noise doesn't flood production.
 
-This exercise combines classes (custom errors), object literals with methods (the logger), closures (level gating), and module boundaries.
+This exercise combines classes (custom errors), object literals with methods (the logger), closures (level gating), and module boundaries organised by domain.
+
+## Project structure
+
+```
+starter/
+  errors/
+    app-error.js        ← custom error class
+    index.js            ← barrel: exports { AppError }
+  config/
+    config.js           ← config loader with validation
+    index.js            ← barrel: exports { loadConfig }
+  logging/
+    logger.js           ← levelled structured logger
+    index.js            ← barrel: exports { createLogger }
+  index.js              ← entry point
+  index.test.js         ← tests (imports through barrels)
+```
 
 ## What you will build
 
-### [`starter/app-error.js`](starter/app-error.js) - Custom error class
+### [`starter/errors/app-error.js`](starter/errors/app-error.js) - Custom error class
 
 **`AppError`** extends `Error` with:
 
@@ -25,9 +42,9 @@ err.code; // 'CONFIG_MISSING'
 err.message; // 'PARK_NAME is required'
 ```
 
-### [`starter/config.js`](starter/config.js) - Config loader
+### [`starter/config/config.js`](starter/config/config.js) - Config loader
 
-**`loadConfig(env)`** - validate an environment-like object and return a typed config:
+**`loadConfig(env)`** - validate an environment-like object and return a typed config. Imports `AppError` from `../errors/index.js`.
 
 | Env var     | Validation                                  | Default                                         |
 | ----------- | ------------------------------------------- | ----------------------------------------------- |
@@ -39,7 +56,7 @@ Throw `AppError` with code `CONFIG_MISSING` for missing `PARK_NAME`, and `CONFIG
 
 Return `{ parkName: string, apiPort: number, logLevel: string }`.
 
-### [`starter/logger.js`](starter/logger.js) - Levelled structured logger
+### [`starter/logging/logger.js`](starter/logging/logger.js) - Levelled structured logger
 
 **`createLogger(config)`** - return an object with `debug`, `info`, `warn`, and `error` methods.
 
@@ -64,7 +81,7 @@ log.debug('Trace'); // null (below info level)
 
 ## Getting started
 
-Implement `app-error.js` first (simplest), then `config.js`, then `logger.js`. Run:
+Implement `errors/app-error.js` first (simplest), then `config/config.js`, then `logging/logger.js`. Run:
 
 ```bash
 node starter/index.js

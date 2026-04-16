@@ -1,4 +1,4 @@
-import { processAlerts } from './pipeline.js';
+import { processAlerts } from './pipeline/index.js';
 
 const raw = [
   { zone: ' North Ridge ', level: 5, timestamp: 1000 },

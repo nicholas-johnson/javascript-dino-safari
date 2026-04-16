@@ -8,31 +8,20 @@ export const slides = [
     },
   },
   {
-    type: 'welcome',
+    type: 'standard',
     content: {
-      title: 'More rangers, more code paths',
+      title: 'What we will cover',
+      icon: 'list',
       points: [
-        'Structure by feature vs by layer - both can work; pick intentionally.',
-        'Module contracts beat "import whatever you see".',
-        'Errors, config, and logging need owners - not sprawl.',
+        '**Project structure** - layered vs feature-first layouts and when each works best.',
+        '**Module contracts** - barrel files, one-way dependencies, and avoiding circular imports.',
+        '**Errors, config, and logging** - custom error types, fail-fast validation, structured output.',
+        '**Monorepos** - pnpm workspaces for multi-package repos, Nx for scale.',
       ],
     },
   },
 
   // ── Project structure deep-dive ─────────────────────────────
-
-  {
-    type: 'standard',
-    content: {
-      title: 'The scenario',
-      icon: 'package',
-      points: [
-        'An **inventory tracking API** - products, orders, auth.',
-        'Same features, same behaviour - three different file layouts.',
-        'Run the demo: `node module-08-code-organisation/demo/01-project-structure`',
-      ],
-    },
-  },
 
   // ── Approach 1: Layered ────────────────────────────────────
 
@@ -167,70 +156,6 @@ const order = placeOrder(user.id, 'P-001', 2);`,
     },
   },
 
-  // ── Approach 3: Facade modules ─────────────────────────────
-
-  {
-    type: 'standard',
-    content: {
-      title: 'Approach 3 - Facade modules',
-      icon: 'zap',
-      points: [
-        'Each module is a **factory function** that receives dependencies as arguments.',
-        'A single **composition root** creates every service and wires them together.',
-        'No `lib/` module imports another - all coupling is explicit.',
-      ],
-    },
-  },
-  {
-    type: 'code',
-    content: {
-      title: 'Facade modules - directory tree',
-      code: `facade-modules/
-  lib/
-    auth.js         // createAuthService(users) → { authenticate, authorize }
-    catalogue.js    // createCatalogue(products) → { listProducts, getProduct }
-    orders.js       // createOrderService(catalogue) → { placeOrder, ... }
-  run.js            // composition root - builds the object graph`,
-      highlights: [
-        'Factories declare what they *need* - the composition root provides it',
-      ],
-    },
-  },
-  {
-    type: 'code',
-    content: {
-      title: 'Facade modules - composition root',
-      code: `import { createAuthService } from './lib/auth.js';
-import { createCatalogue } from './lib/catalogue.js';
-import { createOrderService } from './lib/orders.js';
-
-// build the object graph
-const auth = createAuthService(users);
-const catalogue = createCatalogue(products);
-const orders = createOrderService(catalogue); // injected
-
-const user = auth.authenticate('tok-admin-alice');
-const order = orders.placeOrder(user.id, 'P-001', 2);`,
-      highlights: [
-        '`orders` receives `catalogue` at construction - no hidden imports',
-        'Swap any dependency for a test stub by passing a fake into the factory',
-      ],
-    },
-  },
-  {
-    type: 'standard',
-    content: {
-      title: 'Facade modules - trade-offs',
-      icon: 'scale',
-      points: [
-        '**Pro:** Highly testable - swap any dependency for a stub, no mocking library needed.',
-        '**Pro:** Explicit wiring - the composition root *is* the dependency graph.',
-        '**Con:** More boilerplate - every module needs a factory wrapper.',
-        '**Con:** Overkill for small projects with 2\u20133 modules and no tests.',
-      ],
-    },
-  },
-
   // ── Comparison ─────────────────────────────────────────────
 
   {
@@ -263,8 +188,7 @@ const order = orders.placeOrder(user.id, 'P-001', 2);`,
       points: [
         '**Small CLI / utility?** Layered is straightforward and sufficient.',
         '**Growing API with 5+ domain concepts?** Feature-first keeps things manageable.',
-        '**Library or plugin system?** Facade modules give you testability and swappability.',
-        'You can *combine* - feature-first folders with facade wiring inside each feature.',
+        'Most real projects settle on feature-first as they grow.',
       ],
     },
   },
@@ -277,7 +201,7 @@ const order = orders.placeOrder(user.id, 'P-001', 2);`,
       title: 'Designing module APIs',
       icon: 'link',
       points: [
-        'Export narrow surfaces from `index.js` facades.',
+        'Export narrow surfaces from `index.js`.',
         "Depend inward: features may use `shared/`, not each other's internals.",
         'Avoid circular imports - they bite at runtime in subtle ways.',
       ],
@@ -286,69 +210,42 @@ const order = orders.placeOrder(user.id, 'P-001', 2);`,
   {
     type: 'standard',
     content: {
-      title: 'Errors as types',
-      icon: 'alert-circle',
+      title: 'Config at the root',
+      icon: 'settings',
       points: [
-        'Subclass `Error` with `code` for programmatic handling.',
-        'Map known failures to HTTP/status in one place.',
-        'Never swallow errors - log context, then fail closed.',
+        'Load all config **once** in your entry point - not scattered across modules.',
+        'Pass config down as plain objects: `createServer(config)`, not `process.env` everywhere.',
+        'Linting, formatting, TypeScript, test runners - keep their config files at the project root.',
+        'One place to look, one place to change. New teammates find settings in seconds.',
       ],
     },
   },
+
   {
-    type: 'code',
+    type: 'standard',
     content: {
-      title: 'Config sketch',
-      code: `export function loadConfig(env) {
-  const name = env.PARK_NAME?.trim();
-  if (!name) throw new AppError('CONFIG_MISSING', 'PARK_NAME');
-  return { parkName: name, port: Number(env.API_PORT ?? '8080') };
-}`,
-      highlights: ['Validate once at startup - not per request'],
+      title: 'Monorepos with pnpm workspaces',
+      icon: 'package',
+      points: [
+        'One repo, many packages - each with its own `package.json` and dependencies.',
+        '`pnpm-workspace.yaml` declares which folders are packages (e.g. `packages/*`).',
+        'Shared deps are hoisted; per-package deps stay isolated - no phantom imports.',
+        '`pnpm --filter <pkg> test` runs commands in a single package; `pnpm -r test` runs everywhere.',
+        'This course repo is a monorepo - shared tooling at the root, independent modules inside.',
+      ],
     },
   },
   {
     type: 'standard',
     content: {
-      title: 'Logging boundaries',
-      icon: 'file-text',
+      title: 'Nx - monorepo tooling at scale',
+      icon: 'zap',
       points: [
-        'Structured lines: level, message, key=value context.',
-        'Libraries log at borders; domain code returns results.',
-        'Correlate with request ids in multi-service parks (future you says thanks).',
-      ],
-    },
-  },
-  {
-    type: 'rules',
-    content: {
-      title: 'Field rules - Module 8',
-      rules: [
-        {
-          rule: 'One composition root',
-          example: '`cli.js` or `server.js` wires modules - not scattered.',
-          icon: 'template',
-        },
-        {
-          rule: 'Document where things live',
-          example: 'README + folder conventions beat oral folklore.',
-          icon: 'book-open',
-        },
-        {
-          rule: 'Refactor in small steps',
-          example: 'Tests green after each move - spaghetti exercise pattern.',
-          icon: 'refresh',
-        },
-      ],
-    },
-  },
-  {
-    type: 'welcome',
-    content: {
-      title: 'Exercises - HQ architecture',
-      points: [
-        '01 - Refactor spaghetti digest into modules',
-        '02 - AppError + env config + formatLogLine',
+        '**Nx** layers on top of pnpm workspaces with caching, task orchestration, and dependency graphs.',
+        '`nx affected` only runs tests/builds for packages touched by your changes - huge CI speedup.',
+        "Computation caching: if the inputs haven't changed, Nx replays the output instantly.",
+        'Built-in generators scaffold new packages, libraries, and features with consistent structure.',
+        'Worth adopting when your monorepo has 10+ packages and CI times start to hurt.',
       ],
     },
   },

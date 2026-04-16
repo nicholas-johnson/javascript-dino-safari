@@ -1,4 +1,4 @@
-import { averagePostLength, topPosters } from './transform.js';
+import { averagePostLength, topPosters } from '../analytics/index.js';
 
 export function buildDashboard(users, posts) {
   return {

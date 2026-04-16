@@ -4,11 +4,27 @@
 
 Sensor alerts arrive messy - some have missing fields, others have whitespace in zone names, and duplicates flood in when sensors fire multiple times for the same event. Before alerts reach the control room they need to pass through a pipeline that validates, normalises, deduplicates, and categorises them.
 
-This exercise combines closures (the deduplicator), higher-order functions (filter/map), immutability (normalise returns new objects), and module organisation (each step in its own file).
+This exercise combines closures (the deduplicator), higher-order functions (filter/map), immutability (normalise returns new objects), and module organisation (each step in its own file, grouped by domain).
+
+## Project structure
+
+```
+starter/
+  alerts/
+    validate.js         ← validation logic
+    normalise.js        ← normalisation (trim, lowercase, add id)
+    deduplicate.js      ← closure-based deduplicator
+    index.js            ← barrel: exports { validateAlert, normaliseAlert, createDeduplicator }
+  pipeline/
+    pipeline.js         ← wires steps together, categorises output
+    index.js            ← barrel: exports { processAlerts }
+  index.js              ← entry point
+  index.test.js         ← tests (imports through barrels)
+```
 
 ## What you will build
 
-### [`starter/validate.js`](starter/validate.js) - Validation
+### [`starter/alerts/validate.js`](starter/alerts/validate.js) - Validation
 
 **`validateAlert(alert)`** - return `true` if the alert is valid:
 
@@ -16,7 +32,7 @@ This exercise combines closures (the deduplicator), higher-order functions (filt
 - `level` must be an integer between 1 and 5 inclusive
 - `timestamp` must be a positive number
 
-### [`starter/normalise.js`](starter/normalise.js) - Normalisation
+### [`starter/alerts/normalise.js`](starter/alerts/normalise.js) - Normalisation
 
 **`normaliseAlert(alert)`** - return a **new** object (don't mutate the original):
 
@@ -29,13 +45,13 @@ normaliseAlert({ zone: '  East Wing  ', level: 2, timestamp: 99 });
 // { zone: 'east wing', level: 2, timestamp: 99, id: 'east wing-99' }
 ```
 
-### [`starter/deduplicate.js`](starter/deduplicate.js) - Deduplication (closure)
+### [`starter/alerts/deduplicate.js`](starter/alerts/deduplicate.js) - Deduplication (closure)
 
 **`createDeduplicator()`** - return a **filter function** that uses a closure over a `Set`. The first time it sees an `id`, return `true` (keep). On subsequent calls with the same `id`, return `false` (drop).
 
-### [`starter/pipeline.js`](starter/pipeline.js) - Composing the pipeline
+### [`starter/pipeline/pipeline.js`](starter/pipeline/pipeline.js) - Composing the pipeline
 
-**`processAlerts(rawAlerts)`** - wire the steps together:
+**`processAlerts(rawAlerts)`** - wire the steps together (imports come from `../alerts/index.js`):
 
 1. **Filter** with `validateAlert`
 2. **Map** with `normaliseAlert`

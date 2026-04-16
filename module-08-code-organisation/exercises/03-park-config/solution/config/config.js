@@ -1,4 +1,4 @@
-import { AppError } from './app-error.js';
+import { AppError } from '../errors/index.js';
 
 const VALID_LOG_LEVELS = new Set(['debug', 'info', 'warn', 'error']);
 

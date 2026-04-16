@@ -99,11 +99,7 @@ const toUpperCase = new Transform({
   },
 });
 
-await pipeline(
-  createReadStream(ndjsonPath),
-  toUpperCase,
-  createWriteStream(upperPath),
-);
+await pipeline(createReadStream(ndjsonPath), toUpperCase, createWriteStream(upperPath));
 console.log('pipeline complete → uppercased file written');
 console.log('contents:', await readFile(upperPath, 'utf8'));
 

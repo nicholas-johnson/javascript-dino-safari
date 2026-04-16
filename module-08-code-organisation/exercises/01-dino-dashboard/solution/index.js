@@ -1,5 +1,5 @@
-import { fetchParkData } from './fetch-data.js';
-import { buildDashboard } from './dashboard.js';
+import { fetchParkData } from './data/index.js';
+import { buildDashboard } from './dashboard/index.js';
 
 const { users, posts } = await fetchParkData(fetch);
 const dashboard = buildDashboard(users, posts);

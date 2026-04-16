@@ -4,15 +4,32 @@
 
 Park HQ needs a dashboard that pulls user and post data from the API, crunches it into statistics, and presents a summary. This exercise ties together everything from the course: `fetch` with `Promise.all`, `map`/`filter`/`reduce` for data transforms, object literals with `this` for the dashboard report, and clean module boundaries.
 
-You'll build it across three files - each with a single responsibility - then wire them together.
+The code is organised into domain folders with barrel `index.js` files controlling the public surface of each module.
+
+## Project structure
+
+```
+starter/
+  data/
+    fetch-data.js       ← data fetching logic
+    index.js            ← barrel: exports { fetchParkData }
+  analytics/
+    transforms.js       ← pure transform functions
+    index.js            ← barrel: exports { postsPerUser, topPosters, averagePostLength }
+  dashboard/
+    dashboard.js        ← report assembly
+    index.js            ← barrel: exports { buildDashboard }
+  index.js              ← entry point
+  index.test.js         ← tests (imports through barrels)
+```
 
 ## What you will build
 
-### [`starter/fetch-data.js`](starter/fetch-data.js) - Data fetching
+### [`starter/data/fetch-data.js`](starter/data/fetch-data.js) - Data fetching
 
 **`fetchParkData(fetchFn)`** - fetch `/users` and `/posts` from jsonplaceholder **in parallel** using `Promise.all`. Parse both responses and return `{ users, posts }`.
 
-### [`starter/transform.js`](starter/transform.js) - Pure transform functions
+### [`starter/analytics/transforms.js`](starter/analytics/transforms.js) - Pure transform functions
 
 | Function                      | Description                                                                                  |
 | ----------------------------- | -------------------------------------------------------------------------------------------- |
@@ -20,7 +37,7 @@ You'll build it across three files - each with a single responsibility - then wi
 | `topPosters(users, posts, n)` | Return the top `n` users by post count as `[{ id, name, postCount }]`, sorted descending.    |
 | `averagePostLength(posts)`    | Return the average `body.length` across all posts, rounded to the nearest integer.           |
 
-### [`starter/dashboard.js`](starter/dashboard.js) - Report assembly
+### [`starter/dashboard/dashboard.js`](starter/dashboard/dashboard.js) - Report assembly
 
 **`buildDashboard(users, posts)`** - return an object with:
 
@@ -32,9 +49,11 @@ You'll build it across three files - each with a single responsibility - then wi
 | `averagePostLength` | number | Result of `averagePostLength(posts)`                                                                     |
 | `summary()`         | method | Returns `"Dashboard: <userCount> users, <postCount> posts, avg length <averagePostLength>"` using `this` |
 
+Note: `dashboard.js` imports its helpers from `../analytics/index.js` - cross-module imports go through barrels.
+
 ## Getting started
 
-Open the three starter files. Implement `fetch-data.js` and `transform.js` first, then wire them into `dashboard.js`. Run:
+Implement `data/fetch-data.js` and `analytics/transforms.js` first, then wire them into `dashboard/dashboard.js`. Run:
 
 ```bash
 node starter/index.js

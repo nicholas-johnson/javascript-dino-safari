@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { createDeduplicator } from './deduplicate.js';
-import { normaliseAlert } from './normalise.js';
-import { processAlerts } from './pipeline.js';
-import { validateAlert } from './validate.js';
+import {
+  createDeduplicator,
+  normaliseAlert,
+  validateAlert,
+} from './alerts/index.js';
+import { processAlerts } from './pipeline/index.js';
 
 describe('validateAlert', () => {
   it('accepts a fully valid alert', () => {

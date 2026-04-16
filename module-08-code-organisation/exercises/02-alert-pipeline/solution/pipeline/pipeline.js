@@ -1,6 +1,8 @@
-import { createDeduplicator } from './deduplicate.js';
-import { normaliseAlert } from './normalise.js';
-import { validateAlert } from './validate.js';
+import {
+  createDeduplicator,
+  normaliseAlert,
+  validateAlert,
+} from '../alerts/index.js';
 
 /**
  * @param {Array<{ zone?: unknown; level?: unknown; timestamp?: unknown }>} rawAlerts

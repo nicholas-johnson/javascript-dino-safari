@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { AppError } from './app-error.js';
-import { loadConfig } from './config.js';
-import { createLogger } from './logger.js';
+import { AppError } from './errors/index.js';
+import { loadConfig } from './config/index.js';
+import { createLogger } from './logging/index.js';
 
 describe('AppError', () => {
   it('is an Error with code and message', () => {
