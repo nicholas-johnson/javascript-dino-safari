@@ -1,5 +1,4 @@
 export function createZoneTracker(zoneName) {
-  void zoneName;
   const sightings = [];
 
   return {

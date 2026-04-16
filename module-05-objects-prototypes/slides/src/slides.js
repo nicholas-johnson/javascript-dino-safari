@@ -22,6 +22,65 @@ export const slides = [
     },
   },
   {
+    type: 'code',
+    content: {
+      title: 'Object literals',
+      code: `const rex = {
+  name: 'Rex',
+  species: 'T-Rex',
+  zone: 'Carnivore Cage',
+  dangerLevel: 9,
+};
+
+rex.name;         // "Rex"
+rex['zone'];      // "Carnivore Cage"
+
+rex.diet = 'carnivore';    // add a property
+delete rex.diet;            // remove it`,
+      highlights: [
+        'Curly braces create an object - comma-separated key/value pairs',
+        'Dot notation for known keys, bracket notation for dynamic or unusual keys',
+        'Objects are mutable - properties can be added, changed, or deleted at any time',
+      ],
+    },
+  },
+  {
+    type: 'code',
+    content: {
+      title: 'Functions in object literals',
+      code: `// long form - function expression as a value
+const feeder = {
+  name: 'Canyon Feeder',
+  supply: 50,
+  status: function () {
+    return \`\${this.name}: \${this.supply}kg\`;
+  },
+  refill: function (kg) {
+    this.supply += kg;
+  },
+};
+
+// shorthand - same thing, less noise
+const feeder = {
+  name: 'Canyon Feeder',
+  supply: 50,
+  status() {
+    return \`\${this.name}: \${this.supply}kg\`;
+  },
+  refill(kg) {
+    this.supply += kg;
+  },
+};
+
+feeder.status();  // "Canyon Feeder: 50kg"`,
+      highlights: [
+        'Long form assigns a `function` expression to a key - works but verbose',
+        'Shorthand `name() {}` does the same thing - always prefer this',
+        '`this` refers to the object the method was called on - the thing before the dot',
+      ],
+    },
+  },
+  {
     type: 'standard',
     content: {
       title: 'Prototype chain mental model',
