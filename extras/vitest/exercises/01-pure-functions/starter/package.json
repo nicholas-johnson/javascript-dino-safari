@@ -1,0 +1,11 @@
+{
+  "name": "@dino-safari/extras-vitest-01-pure-functions",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.6"
+  }
+}

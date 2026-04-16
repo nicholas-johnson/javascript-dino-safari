@@ -1,20 +1,22 @@
-export function Dinosaur(name, species, zone) {
-  this.name = name;
-  this.species = species;
-  this.zone = zone;
+export class Dinosaur {
+  constructor(name, species, zone) {
+    this.name = name;
+    this.species = species;
+    this.zone = zone;
+  }
+
+  describe() {
+    return `${this.name} - ${this.species} @ ${this.zone}`;
+  }
 }
 
-Dinosaur.prototype.describe = function describe() {
-  return `${this.name} - ${this.species} @ ${this.zone}`;
-};
+export class FlyingDinosaur extends Dinosaur {
+  constructor(name, species, zone, wingspanM) {
+    super(name, species, zone);
+    this.wingspanM = wingspanM;
+  }
 
-export function FlyingDinosaur(name, species, zone, wingspanM) {
-  Dinosaur.call(this, name, species, zone);
-  this.wingspanM = wingspanM;
+  describe() {
+    return `${super.describe()} - wingspan ${this.wingspanM}m`;
+  }
 }
-
-FlyingDinosaur.prototype = Object.create(Dinosaur.prototype);
-FlyingDinosaur.prototype.constructor = FlyingDinosaur;
-FlyingDinosaur.prototype.describe = function describe() {
-  return `${this.name} - ${this.species} @ ${this.zone} - wingspan ${this.wingspanM}m`;
-};

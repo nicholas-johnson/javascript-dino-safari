@@ -4,6 +4,5 @@
  * @returns {boolean}
  */
 export function validateAlert(alert) {
-  void alert;
   return false;
 }

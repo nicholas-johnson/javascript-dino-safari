@@ -24,6 +24,156 @@ importers:
         specifier: ^2.1.6
         version: 2.1.9(lightningcss@1.32.0)
 
+  extras/typescript/exercises/01-type-annotations/solution:
+    devDependencies:
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/typescript/exercises/01-type-annotations/starter:
+    devDependencies:
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/typescript/exercises/02-interfaces/solution:
+    devDependencies:
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/typescript/exercises/02-interfaces/starter:
+    devDependencies:
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/typescript/exercises/03-unions-and-narrowing/solution:
+    devDependencies:
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/typescript/exercises/03-unions-and-narrowing/starter:
+    devDependencies:
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/typescript/exercises/04-generics/solution:
+    devDependencies:
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/typescript/exercises/04-generics/starter:
+    devDependencies:
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/typescript/exercises/05-utility-types/solution:
+    devDependencies:
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/typescript/exercises/05-utility-types/starter:
+    devDependencies:
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/vitest/exercises/01-pure-functions/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/vitest/exercises/01-pure-functions/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/vitest/exercises/02-string-utils/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/vitest/exercises/02-string-utils/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/vitest/exercises/03-array-helpers/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/vitest/exercises/03-array-helpers/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/vitest/exercises/04-error-handling/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/vitest/exercises/04-error-handling/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/vitest/exercises/05-async-testing/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  extras/vitest/exercises/05-async-testing/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
   module-01-modern-javascript:
     dependencies:
       picocolors:
@@ -1954,6 +2104,11 @@ packages:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
 
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   update-browserslist-db@1.2.3:
     resolution: {integrity: sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w==}
     hasBin: true
@@ -3230,6 +3385,8 @@ snapshots:
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
+
+  typescript@5.9.3: {}
 
   update-browserslist-db@1.2.3(browserslist@4.28.1):
     dependencies:

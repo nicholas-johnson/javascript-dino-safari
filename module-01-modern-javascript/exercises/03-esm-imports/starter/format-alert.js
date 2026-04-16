@@ -21,6 +21,5 @@
  */
 export function formatAlert(dino) {
   // TODO: implement
-  void dino;
   return '';
 }

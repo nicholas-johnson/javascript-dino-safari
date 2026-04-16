@@ -3,7 +3,6 @@
  * @param {string} name
  */
 export function greet(name) {
-  void name;
 }
 
 /**
@@ -13,6 +12,4 @@ export function greet(name) {
  * @param {string} last
  */
 export function initials(first, last) {
-  void first;
-  void last;
 }

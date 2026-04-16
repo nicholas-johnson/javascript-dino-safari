@@ -1,20 +1,18 @@
-# Exercise 02 - Prototype Safari (no `class`)
+# Exercise 02 - ES Classes & Inheritance
 
 ## The scenario
 
-The park's legacy dinosaur registry was written before ES6 classes existed. It uses **constructor functions** and the **prototype chain** — the mechanism that `class` syntax is built on top of. Understanding how prototypes work under the hood is essential for debugging inherited code and grasping how JavaScript really resolves method calls.
-
-You'll build `Dinosaur` and `FlyingDinosaur` constructors with proper prototype wiring so that instances have shared methods, inheritance works, and `instanceof` checks pass.
+The park's dinosaur registry needs a clean, modern class hierarchy. You'll use **ES6 classes** — `constructor`, `extends`, `super`, and method overriding — to model dinosaurs and a specialised flying variant.
 
 ## What you will build
 
-Both constructors live in [`starter/dinosaur.js`](starter/dinosaur.js).
+Both classes live in [`starter/dinosaur.js`](starter/dinosaur.js).
 
-### `Dinosaur(name, species, zone)`
+### `Dinosaur`
 
-A constructor function (called with `new`) that stores `name`, `species`, and `zone` as instance properties.
+A class whose constructor accepts `name`, `species`, and `zone`, storing each as an instance property.
 
-Add a `describe()` method **on the prototype** that returns:
+Add a `describe()` method that returns:
 
 ```
 "<name> - <species> @ <zone>"
@@ -26,9 +24,11 @@ tank.describe();  // "Tank - Triceratops @ Herbivore Meadow"
 tank instanceof Dinosaur;  // true
 ```
 
-### `FlyingDinosaur(name, species, zone, wingspanM)`
+### `FlyingDinosaur`
 
-Inherits from `Dinosaur` and adds a `wingspanM` property. Overrides `describe()` to append ` - wingspan <wingspanM>m`.
+A subclass of `Dinosaur` that adds a `wingspanM` property. Override `describe()` to append ` - wingspan <wingspanM>m`.
+
+Use `super()` to call the parent constructor and `super.describe()` to reuse the base implementation.
 
 ```js
 const skyler = new FlyingDinosaur('Skyler', 'Pteranodon', 'Aviary Ascent', 6);
@@ -55,10 +55,10 @@ The tests check `describe()` output, `instanceof` for both types, and that `wing
 
 ## Hints
 
-- In a constructor, assign properties with `this.name = name`.
-- Add shared methods with `Dinosaur.prototype.describe = function() { ... }`.
-- To inherit: call the parent constructor with `Dinosaur.call(this, name, species, zone)`, then wire the prototype chain with `FlyingDinosaur.prototype = Object.create(Dinosaur.prototype)` and fix the constructor reference with `FlyingDinosaur.prototype.constructor = FlyingDinosaur`.
-- Override `describe` on `FlyingDinosaur.prototype` after wiring the chain.
+- Define properties inside `constructor(name, species, zone) { ... }` with `this.name = name`.
+- Use `extends` to create the subclass: `class FlyingDinosaur extends Dinosaur`.
+- Call the parent constructor with `super(name, species, zone)` — this must come before any `this` access.
+- Override `describe()` and call `super.describe()` to get the base string, then append the wingspan.
 
 ## Reference solution
 

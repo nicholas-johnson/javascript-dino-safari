@@ -1,11 +1,16 @@
 /**
- * TODO: implement Dinosaur + FlyingDinosaur with prototypes (no class).
+ * TODO: implement Dinosaur + FlyingDinosaur using ES classes.
  */
 
-export function Dinosaur() {
-  throw new Error('TODO');
+export class Dinosaur {
+  constructor() {
+    throw new Error('TODO');
+  }
 }
 
-export function FlyingDinosaur() {
-  throw new Error('TODO');
+export class FlyingDinosaur extends Dinosaur {
+  constructor() {
+    super();
+    throw new Error('TODO');
+  }
 }

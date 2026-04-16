@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { Dinosaur, FlyingDinosaur } from './dinosaur.js';
 
-describe('02-prototypes', () => {
+describe('02-classes', () => {
   it('Dinosaur.describe', () => {
     const d = new Dinosaur('Tank', 'Triceratops', 'Herbivore Meadow');
     expect(d.describe()).toBe('Tank - Triceratops @ Herbivore Meadow');

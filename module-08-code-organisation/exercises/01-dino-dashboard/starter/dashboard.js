@@ -2,7 +2,5 @@
 // that returns userCount, postCount, topPosters, averagePostLength, and summary().
 
 export function buildDashboard(users, posts) {
-  void users;
-  void posts;
   return {};
 }

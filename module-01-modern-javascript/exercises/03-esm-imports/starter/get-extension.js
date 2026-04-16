@@ -9,6 +9,5 @@
  */
 export function getExtension(filename) {
   // TODO: implement using path.extname
-  void filename;
   return '';
 }

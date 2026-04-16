@@ -3,7 +3,6 @@
  * @param {string} str
  */
 export const shout = (str) => {
-  void str;
 };
 
 /**
@@ -11,7 +10,6 @@ export const shout = (str) => {
  * @param {string} str
  */
 export const whisper = (str) => {
-  void str;
 };
 
 /**
@@ -20,8 +18,6 @@ export const whisper = (str) => {
  * @param {string} zone
  */
 export const formatTag = (id, zone) => {
-  void id;
-  void zone;
 };
 
 /**
@@ -30,8 +26,6 @@ export const formatTag = (id, zone) => {
  * @param {string} word
  */
 export const containsWord = (str, word) => {
-  void str;
-  void word;
 };
 
 /**
@@ -40,5 +34,4 @@ export const containsWord = (str, word) => {
  * @param {string} fullName
  */
 export const initials = (fullName) => {
-  void fullName;
 };

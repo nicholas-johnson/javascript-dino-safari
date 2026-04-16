@@ -8,9 +8,6 @@
  * @returns {{ id: number, name: string, postCount: number }[]}
  */
 export function topPosters(users, posts, n) {
-  void users;
-  void posts;
-  void n;
   return [];
 }
 
@@ -22,8 +19,6 @@ export function topPosters(users, posts, n) {
  * @returns {Map<number, number>}
  */
 export function postsPerUser(users, posts) {
-  void users;
-  void posts;
   return new Map();
 }
 
@@ -34,6 +29,5 @@ export function postsPerUser(users, posts) {
  * @returns {number}
  */
 export function averagePostLength(posts) {
-  void posts;
   return 0;
 }

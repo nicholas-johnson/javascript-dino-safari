@@ -5,3 +5,5 @@ packages:
   - 'module-*/demo/*'
   - 'module-*/exercises/*/starter'
   - 'module-*/exercises/*/solution'
+  - 'extras/*/exercises/*/starter'
+  - 'extras/*/exercises/*/solution'

@@ -4,8 +4,6 @@
  * @param {number} b
  */
 export function add(a, b) {
-  void a;
-  void b;
 }
 
 /**
@@ -14,8 +12,6 @@ export function add(a, b) {
  * @param {number} b
  */
 export function multiply(a, b) {
-  void a;
-  void b;
 }
 
 /**
@@ -23,5 +19,4 @@ export function multiply(a, b) {
  * @param {number} n
  */
 export function isEven(n) {
-  void n;
 }

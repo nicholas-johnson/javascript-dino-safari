@@ -5,7 +5,6 @@
  * @returns {Promise<Array<{ id: number, name: string, email: string, postCount: number }>>}
  */
 export async function fetchUserSummaries(fetchFn) {
-  void fetchFn;
   // TODO:
   // 1. Fetch /users and /posts in parallel with Promise.all
   // 2. Parse both JSON responses

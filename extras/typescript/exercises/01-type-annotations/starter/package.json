@@ -1,0 +1,13 @@
+{
+  "name": "@dino-safari/extras-ts-01-type-annotations",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.6"
+  }
+}
